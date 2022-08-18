@@ -1,5 +1,7 @@
+import Link from "next/link";
 import styles from "../styles/Login.module.css";
 // import "../styles/Login.module.css";
+import topSemiC from "../assets/pics/topSemiCircle.png";
 
 const Login = () => {
   return (
@@ -7,9 +9,17 @@ const Login = () => {
     <>
       <div className={styles.left}>
         <div className="logoContainer">
+          <div className={styles.topSemi}></div>
+          <div className={styles.bottomSemi}></div>
+          <div className={styles.middleLine}></div>
+          <div className={styles.topLine}></div>
+          <div className={styles.bottomLine}></div>
           <p className={styles.logoText}></p>
         </div>
       </div>
+      {/* <Link href={"/"}>
+        <h1>YOYO</h1>
+      </Link> */}
       {/* <div className={styles.right}> */}
       {/* <div className={styles.card}> */}
       <h1 className={styles.loginTitle}>Log In</h1>

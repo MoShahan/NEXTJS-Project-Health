@@ -1,25 +1,31 @@
-import styles from "../styles/Login.module.css";
+// import styles from "../../styles/ForgotPassword.module.css";
+import styles from "../../styles/ForgotPassword.module.css";
 
 const ForgotPassword = () => {
   return (
     <div>
-      <div>
-        <a href="/login">{"<"} Back</a>
+      <div className={styles.backBtn}>
+        <a href="/login">
+          <span>{"<"}</span>
+          <span> Back </span>
+        </a>
       </div>
       <div className="sec1">
-        <h1>Forgot your Password</h1>
-        <h6>
+        <h1 className={styles.mainHeading}>Forgot your Password</h1>
+        <h6 className={styles.mainContent}>
           Enter your email address, and we’ll send you an email with all the
           instructions.
         </h6>
-        <h6>Email</h6>
-        <input type="text" />
-        <button>Send me instructions</button>
-        <p>
-          <a href="£">Cancel</a>
+        <h6 className={styles.firstPlaceholder}>Email</h6>
+        <input className={styles.fEmailInput} type="text" />
+        <button className={styles.btnOne}>
+          <a href="forgotPassword/2">Send me instructions</a>
+        </button>
+        <p className={styles.cancelOne}>
+          <a href="/login">Cancel</a>
         </p>
       </div>
-      <div className="sec2">
+      {/* <div className="sec2">
         <h1>Check your email</h1>
         <h6>We sent a password reset link to bingwen@hotmail.com</h6>
         <h6>
@@ -47,7 +53,7 @@ const ForgotPassword = () => {
           magically
         </h6>
         <button>Continue</button>
-      </div>
+      </div> */}
     </div>
   );
 };

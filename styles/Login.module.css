@@ -34,7 +34,7 @@
     width: 118px;
     height: 21px;
     left: 60px;
-    top: 130px;
+    top: 120px;
     background: url(../assets/pics/HEALTH.png);
 }
 
@@ -44,7 +44,7 @@
     height: 15px;
     left: 834px;
     top: 292px;
-    font-family: 'Inter';
+    font-family: "Inter";
     font-style: normal;
     font-weight: 600;
     font-size: 12px;
@@ -70,7 +70,7 @@
     height: 15px;
     left: 833px;
     top: 412px;
-    font-family: 'Inter';
+    font-family: "Inter";
     font-style: normal;
     font-weight: 600;
     font-size: 12px;
@@ -88,6 +88,7 @@
     top: 482px;
     border: none;
     border-bottom: solid 2px #212121;
+    /* color: red; */
 }
 
 .passwordRule {
@@ -96,7 +97,7 @@
     height: 17px;
     left: 834px;
     top: 492px;
-    font-family: 'Inter';
+    font-family: "Inter";
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -112,8 +113,11 @@
     height: 50px;
     left: 834px;
     top: 561px;
-    background: #D2D3D9;
+    /* background: #d2d3d9; */
+    background-color: #1996fc;
     border-radius: 6px;
+    border: none;
+    color: white;
 }
 
 .policyText {
@@ -122,7 +126,7 @@
     height: 34px;
     left: 895px;
     top: 621px;
-    font-family: 'Inter';
+    font-family: "Inter";
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
@@ -132,7 +136,7 @@
 }
 
 .blueColor {
-    color: #1996FC;
+    color: #1996fc;
 }
 
 .forgotPassword {
@@ -141,12 +145,62 @@
     height: 17px;
     left: 987px;
     top: 693px;
-    font-family: 'Inter';
+    font-family: "Inter";
     font-style: normal;
     font-weight: 600;
     font-size: 14px;
     line-height: 17px;
     /* identical to box height */
     text-align: center;
-    color: #1996FC;
+    color: #1996fc;
+}
+
+.topSemi {
+    position: absolute;
+    width: 54px;
+    height: 53px;
+    left: 92px;
+    top: 60px;
+    background: url(../assets/pics/topSemiCircle.png);
+    background-repeat: no-repeat;
+}
+
+.bottomSemi {
+    position: absolute;
+    width: 54px;
+    height: 53px;
+    left: 92px;
+    top: 90px;
+    background: url(../assets/pics/bottomSemiCircle.png);
+    background-repeat: no-repeat;
+}
+
+.middleLine {
+    position: absolute;
+    width: 54px;
+    height: 6px;
+    left: 107px;
+    top: 85px;
+    background: url(../assets/pics/Rectangle\ 5668.png);
+    background-repeat: no-repeat;
+}
+
+.topLine {
+    position: absolute;
+    width: 16px;
+    height: 15px;
+    left: 116px;
+    top: 75px;
+    background: url(../assets/pics/Rectangle\ 5671.png);
+    background-repeat: no-repeat;
+}
+
+.bottomLine {
+    position: absolute;
+    width: 16px;
+    height: 15px;
+    left: 116px;
+    top: 85px;
+    background: url(../assets/pics/Rectangle\ 5671.png);
+    background-repeat: no-repeat;
 }
