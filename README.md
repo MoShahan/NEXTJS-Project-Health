@@ -14,5 +14,11 @@ Go to http://localhost:3000/login and from there you can navigate to other pages
 **--> Privacy Policy**\
 **--> Forgot Password**
 
+### Admin Users Page
+Go to http://localhost:3000/adminUsers
+
 ### Projects Page
 Go to http://localhost:3000/projects
+
+### Employees Page
+Go to http://localhost:3000/employees

@@ -1,0 +1,65 @@
+.topSemi {
+    position: absolute;
+    width: 54px;
+    height: 53px;
+    left: 678.94px;
+    top: 416.88px;
+    background: url(../assets/pics/topSemiCircle.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.bottomSemi {
+    position: absolute;
+    width: 54px;
+    height: 53px;
+    left: 678.93px;
+    top: 449.07px;
+    background: url(../assets/pics/bottomSemiCircle.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.middleLine {
+    position: absolute;
+    width: 54px;
+    height: 8px;
+    left: 691.53px;
+    top: 441.17px;
+    background: url(../assets/pics/Rectangle\ 5668.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.topLine {
+    position: absolute;
+    width: 23px;
+    height: 15px;
+    left: 704.9px;
+    top: 427.17px;
+    background: url(../assets/pics/Rectangle\ 5671.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.bottomLine {
+    position: absolute;
+    width: 16px;
+    height: 15px;
+    left: 704.9px;
+    top: 447.21px;
+    background: url(../assets/pics/Rectangle\ 5671.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.logoText {
+    position: absolute;
+    width: 157px;
+    height: 39px;
+    left: 630px;
+    top: 475px;
+    background: url(../assets/pics/HEALTH.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
