@@ -82,16 +82,18 @@ const Login = () => {
       </button>
       <p className={styles.policyText}>
         By signing in you agree to Health{" "}
-        <a className={styles.blueColor} href="/tos">
-          Terms of service
-        </a>{" "}
+        <Link href="/tos">
+          <a className={styles.blueColor}>Terms of service </a>
+        </Link>
         and{" "}
-        <a className={styles.blueColor} href="/pp">
-          Privacy policy.
-        </a>
+        <Link href="/pp">
+          <a className={styles.blueColor}>Privacy policy.</a>
+        </Link>
       </p>
       <p className={styles.forgotPassword}>
-        <a href="/forgotPassword">Forgot Your Password ?</a>
+        <Link href="/forgotPassword">
+          <a>Forgot Your Password ?</a>
+        </Link>
       </p>
     </>
   );

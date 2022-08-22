@@ -1,0 +1,14 @@
+.ppHeading {
+    font-family: "Inter";
+    margin: 100px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.ppBody {
+    font-family: "Inter";
+    margin: 100px 400px;
+    text-align: justify;
+    font-size: large;
+    line-height: 2rem;
+}

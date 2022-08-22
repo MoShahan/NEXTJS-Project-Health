@@ -84,9 +84,9 @@
 
 .loginTitle {
     position: absolute;
-    width: 127px;
+    width: 137px;
     height: 52px;
-    left: 835px;
+    left: 830px;
     /* left: 2px; */
     top: 187px;
     font-family: "Inter";
@@ -212,7 +212,7 @@
 
 .forgotPassword {
     position: absolute;
-    width: 156px;
+    width: 176px;
     height: 17px;
     left: 987px;
     top: 693px;

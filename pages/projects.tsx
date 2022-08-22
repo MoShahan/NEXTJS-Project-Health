@@ -8,6 +8,8 @@ const Projects = () => {
   const [allChecked, setAllChecked] = useState<boolean>(false);
   const [currentPageData, setCurrentPageData] = useState<Array<any>>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
+  const [settingsDropdown, setSettingsDropdown] = useState<boolean>(false);
+  const [optionsMenu, setOptionsMenu] = useState<boolean>(false);
 
   const tempProjectData: Array<any> = [];
 
@@ -76,7 +78,26 @@ const Projects = () => {
           <div className={styles.projectsIcon}></div>
         </div>
         <div className={styles.employeesIcon}></div>
-        <div className={styles.settingsIcon}></div>
+        <div
+          onClick={() => {
+            setSettingsDropdown((prev) => !prev);
+          }}
+          className={styles.settingsIcon}
+        ></div>
+        <div
+          style={{
+            display: settingsDropdown ? "block" : "none",
+            marginTop: "150px",
+            position: "fixed",
+            overflow: "hidden",
+          }}
+        >
+          <a href="#">Skills</a>
+          <br />
+          <a href="#">Project Type</a>
+          <br />
+          <a href="#">Employee Type</a>
+        </div>
       </div>
       <div className="headerSection">
         <div className={styles.pageTitle}>Projects</div>
@@ -185,58 +206,35 @@ const Projects = () => {
           })}
         </tbody>
         <tfoot>
-        <div className={styles.pagination}>
-        <div
-          onClick={handlePaginationLeft}
-          className={styles.paginationLeftBtn}
-        ></div>
-        <div
-          onClick={handlePaginationRight}
-          className={styles.paginationRightBtn}
-        ></div>
-        <div className={styles.paginationText}>
-          Showing{" "}
-          <span className={styles.boldPaginationText}>
-            {(currentPage - 1) * ITEMS_IN_ONE_PAGE +
-              1 +
-              "-" +
-              (currentPage === LAST_PAGE
-                ? tempProjectData.length
-                : currentPage * ITEMS_IN_ONE_PAGE)}
-          </span>{" "}
-          of{" "}
-          <span className={styles.boldPaginationText}>
-            {tempProjectData.length}
-          </span>
-        </div>
-      </div>
+          <tr>
+            <td className={styles.pagination}>
+              <div
+                onClick={handlePaginationLeft}
+                className={styles.paginationLeftBtn}
+              ></div>
+              <div
+                onClick={handlePaginationRight}
+                className={styles.paginationRightBtn}
+              ></div>
+              <div className={styles.paginationText}>
+                Showing{" "}
+                <span className={styles.boldPaginationText}>
+                  {(currentPage - 1) * ITEMS_IN_ONE_PAGE +
+                    1 +
+                    "-" +
+                    (currentPage === LAST_PAGE
+                      ? tempProjectData.length
+                      : currentPage * ITEMS_IN_ONE_PAGE)}
+                </span>{" "}
+                of{" "}
+                <span className={styles.boldPaginationText}>
+                  {tempProjectData.length}
+                </span>
+              </div>
+            </td>
+          </tr>
         </tfoot>
       </table>
-      {/* <div className={styles.pagination}>
-        <div
-          onClick={handlePaginationLeft}
-          className={styles.paginationLeftBtn}
-        ></div>
-        <div
-          onClick={handlePaginationRight}
-          className={styles.paginationRightBtn}
-        ></div>
-        <div className={styles.paginationText}>
-          Showing{" "}
-          <span className={styles.boldPaginationText}>
-            {(currentPage - 1) * ITEMS_IN_ONE_PAGE +
-              1 +
-              "-" +
-              (currentPage === LAST_PAGE
-                ? tempProjectData.length
-                : currentPage * ITEMS_IN_ONE_PAGE)}
-          </span>{" "}
-          of{" "}
-          <span className={styles.boldPaginationText}>
-            {tempProjectData.length}
-          </span>
-        </div>
-      </div> */}
       <div
         style={{
           opacity: "0.2",
@@ -245,7 +243,6 @@ const Projects = () => {
         className={styles.modalBG}
       ></div>
       <div
-        // style={{ opacity: addProjectModal ? "1" : "0" }}
         style={{ display: addProjectModal ? "block" : "none" }}
         className="wholeModalContainer"
       >
