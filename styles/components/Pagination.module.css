@@ -1,0 +1,59 @@
+.pagination {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    position: absolute;
+    width: 1350px;
+    height: 76px;
+    background-color: #e5e7eb;
+    padding-left: 30px;
+}
+
+.paginationLeftBtn {
+    position: absolute;
+    left: 30px;
+    top: 50%;
+    bottom: 25.06%;
+    background: url(../../assets/pics/lefticon.png);
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.paginationRightBtn {
+    position: absolute;
+    left: 70px;
+    top: 50%;
+    bottom: 25.06%;
+    background: url(../../assets/pics/righticon.png);
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.paginationText {
+    width: 250px;
+    height: 21px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: #6b7280;
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+    position: absolute;
+    left: 10%;
+    letter-spacing: 1px;
+}
+
+.boldPaginationText {
+    font-weight: 900;
+    color: #111928;
+}

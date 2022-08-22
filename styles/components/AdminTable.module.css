@@ -1,0 +1,72 @@
+.adminTable tr td {
+    border-bottom: solid 1px #e5e7eb;
+}
+
+.adminTable {
+    top: 170px;
+    position: absolute;
+    left: 70px;
+    width: 1350px;
+    border-spacing: 0px;
+    font-family: "Inter";
+}
+
+.adminTable thead {
+    background-color: #f3f4f6;
+    color: #4b5563;
+}
+
+.adminTable td {
+    padding: 5px;
+    height: 70px;
+    color: #111928;
+}
+
+.optionsMenu {
+    background: url(../../assets/pics/ellipsis-vertical.png);
+    background-repeat: no-repeat;
+    height: 30px;
+    width: 30px;
+    background-size: contain;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.adminTable tbody td:nth-child(6) div {
+    border-radius: 8px;
+    border: solid 1px #262626;
+    padding: 1px 11px;
+    width: 69px;
+    height: 24px;
+}
+
+.adminTable tbody td span {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background: url(../../assets/pics/green-tick.png);
+    background-repeat: no-repeat;
+    transform: translateY(35%);
+}
+
+.topArrow {
+    background: url(../../assets/pics/top-gray.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    margin-left: 5px;
+    transform: translateY(20%);
+}
+
+.downArrow {
+    background: url(../../assets/pics/down-gray.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    margin-right: 5px;
+    transform: translateY(20%);
+}

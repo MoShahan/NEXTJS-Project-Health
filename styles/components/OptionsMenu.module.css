@@ -1,0 +1,18 @@
+.optionsMenuBox {
+    height: 120px;
+    width: 100px;
+    position: absolute;
+    background-color: #f3f4f6;
+    left: 1220px;
+    z-index: 1;
+    font-family: "Inter";
+}
+
+.optionsMenuBox div {
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.optionsMenuBox div:hover {
+    background-color: #dfe0e1;
+}

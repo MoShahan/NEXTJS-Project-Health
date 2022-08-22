@@ -1,0 +1,354 @@
+.modalBG {
+    position: fixed;
+    width: 1440px;
+    height: 1024px;
+    /* height: 901px; */
+    left: 0px;
+    top: 0px;
+    background: #18181b;
+}
+
+.addProjectModalContainer {
+    position: absolute;
+    width: 700px;
+    height: 723px;
+    left: 370px;
+    top: 120px;
+    background: #ffffff;
+    border-radius: 16px;
+}
+
+.modalTitle {
+    position: absolute;
+    width: 250px;
+    height: 33px;
+    left: 410px;
+    top: 160px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 150%;
+    /* identical to box height, or 33px */
+    /* cool-gray/900 */
+    color: #111928;
+}
+
+.modalClose {
+    position: absolute;
+    left: 1030px;
+    /* right: 28%; */
+    top: 19%;
+    cursor: pointer;
+    /* bottom: 84.51%; */
+    /* background: #454754; */
+    /* border: 0.5px solid #454754; */
+}
+
+.modalSep {
+    position: absolute;
+    width: 620px;
+    height: 2px;
+    left: 410px;
+    top: 215px;
+    background: #ececef;
+}
+
+.modalName {
+    position: absolute;
+    width: 42px;
+    height: 14px;
+    left: 410px;
+    top: 236px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 100%;
+    /* identical to box height, or 14px */
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    /* 212121 */
+    color: #212121;
+}
+
+.modalNameInput {
+    box-sizing: border-box;
+    position: absolute;
+    width: 620px;
+    height: 48px;
+    left: 410px;
+    top: 287px;
+    background: #ffffff;
+    border: 1px solid #dcdce0;
+    border-radius: 6px;
+}
+
+.modalClient {
+    position: absolute;
+    width: 51px;
+    height: 14px;
+    left: 410px;
+    top: 335px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 100%;
+    /* identical to box height, or 14px */
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    /* 212121 */
+    color: #212121;
+}
+
+.modalClientInput {
+    box-sizing: border-box;
+    position: absolute;
+    width: 620px;
+    height: 48px;
+    left: 410px;
+    top: 386px;
+    background: #ffffff;
+    border: 1px solid #dcdce0;
+    border-radius: 6px;
+}
+
+.modalProjectType {
+    position: absolute;
+    width: 106px;
+    height: 14px;
+    left: 410px;
+    top: 434px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 100%;
+    /* identical to box height, or 14px */
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    /* 212121 */
+    color: #212121;
+}
+
+.modalProjectTypeInput {
+    box-sizing: border-box;
+    position: absolute;
+    width: 295px;
+    height: 48px;
+    left: 410px;
+    top: 485px;
+    background: #ffffff;
+    border: 1px solid #dcdce0;
+    border-radius: 6px;
+}
+
+.modalProjectResponsible {
+    position: absolute;
+    width: 164px;
+    height: 14px;
+    left: 735px;
+    top: 434px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 100%;
+    /* identical to box height, or 14px */
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    /* 212121 */
+    color: #212121;
+}
+
+.modalProjectResponsibleInput {
+    box-sizing: border-box;
+    position: absolute;
+    width: 295px;
+    height: 48px;
+    left: 735px;
+    top: 485px;
+    background: #ffffff;
+    border: 1px solid #dcdce0;
+    border-radius: 6px;
+}
+
+.modalStartDate {
+    position: absolute;
+    width: 86px;
+    height: 14px;
+    left: 410px;
+    top: 533px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 100%;
+    /* identical to box height, or 14px */
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    /* 212121 */
+}
+
+.modalStartDateInput {
+    box-sizing: border-box;
+    position: absolute;
+    width: 295px;
+    height: 48px;
+    left: 410px;
+    top: 584px;
+    background: #ffffff;
+    border: 1px solid #dcdce0;
+    border-radius: 6px;
+}
+
+.modalEndDate {
+    position: absolute;
+    width: 69px;
+    height: 14px;
+    left: 735px;
+    top: 533px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 100%;
+    /* identical to box height, or 14px */
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    /* 212121 */
+    color: #212121;
+}
+
+.modalEndDateInput {
+    box-sizing: border-box;
+    position: absolute;
+    width: 295px;
+    height: 48px;
+    left: 735px;
+    top: 584px;
+    background: #ffffff;
+    border: 1px solid #dcdce0;
+    border-radius: 6px;
+}
+
+.modalProjectStatus {
+    position: absolute;
+    width: 124px;
+    height: 14px;
+    left: 410px;
+    top: 632px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 100%;
+    /* identical to box height, or 14px */
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    /* 212121 */
+    color: #212121;
+}
+
+.modalProjectStatusInput {
+    box-sizing: border-box;
+    position: absolute;
+    width: 295px;
+    height: 48px;
+    left: 410px;
+    top: 683px;
+    background: #ffffff;
+    border: 1px solid #dcdce0;
+    border-radius: 6px;
+}
+
+.modalMonthlyStatus {
+    position: absolute;
+    width: 129px;
+    height: 14px;
+    left: 735px;
+    top: 632px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 100%;
+    /* identical to box height, or 14px */
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    /* 212121 */
+    color: #212121;
+}
+
+.modalMonthlyStatusInput {
+    box-sizing: border-box;
+    position: absolute;
+    width: 295px;
+    height: 48px;
+    left: 735px;
+    top: 683px;
+    background: #ffffff;
+    border: 1px solid #dcdce0;
+    border-radius: 6px;
+}
+
+.modalCancel {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9px 17px;
+    position: absolute;
+    width: 88px;
+    height: 42px;
+    left: 805px;
+    top: 781px;
+    /* white */
+    background: #ffffff;
+    /* cool-gray/300 */
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    /* identical to box height, or 24px */
+    /* cool-gray/900 */
+    color: #111928;
+    cursor: pointer;
+}
+
+.modalAddProjectBtn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9px 17px;
+    position: absolute;
+    width: 150px;
+    height: 42px;
+    left: 905px;
+    top: 781px;
+    background: #f6f6f6;
+    border-radius: 6px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    /* identical to box height, or 24px */
+    /* cool-gray/400 */
+    color: #9ca3af;
+    border: none;
+    cursor: pointer;
+}
