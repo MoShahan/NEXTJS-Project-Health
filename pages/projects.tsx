@@ -66,8 +66,8 @@ const Projects = () => {
   };
 
   const handleEditProject = () => {};
-  const handleArchiveProject = () => {};
-  const handleDeleteProject = () => {};
+  const handleActiveProject = () => {};
+  const handleUpdateProject = () => {};
 
   return (
     <>
@@ -141,8 +141,8 @@ const Projects = () => {
         }}
       >
         <div onClick={handleEditProject}>Edit</div>
-        <div onClick={handleArchiveProject}>Archive</div>
-        <div onClick={handleDeleteProject}>Delete</div>
+        <div onClick={handleActiveProject}>Active / Inactive</div>
+        <div onClick={handleUpdateProject}>Update Utilization</div>
       </div>
       <table className={styles.projectTable}>
         <thead>

@@ -12,7 +12,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 Go to http://localhost:3000/login and from there you can navigate to other pages like \
 **--> Terms of Service**\
 **--> Privacy Policy**\
-**--> Forgot Password**\
+**--> Forgot Password**
 
 ### Projects Page
 Go to http://localhost:3000/projects

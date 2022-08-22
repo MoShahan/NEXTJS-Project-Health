@@ -416,14 +416,14 @@
 
 .optionsMenuBox {
     height: 120px;
-    width: 100px;
+    width: 180px;
     position: absolute;
     background-color: #f3f4f6;
-    left: 1290px;
+    left: 1210px;
     /* top: 360px; */
     /* top: 290px; */
     z-index: 1;
-    transition: all 0.5s;
+    /* transition: all 0.5s; */
     /* opacity: 0; */
     font-family: "Inter";
 }
