@@ -1,17 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "../styles/Projects.module.css";
 
+const ITEMS_IN_ONE_PAGE = 10;
+
 const Projects = () => {
-  const [addProjectModal, setAddProjectModal] = useState(true);
-  const [allChecked, setAllChecked] = useState(false);
+  const [addProjectModal, setAddProjectModal] = useState<boolean>(false);
+  const [allChecked, setAllChecked] = useState<boolean>(false);
+  const [currentPageData, setCurrentPageData] = useState<Array<any>>([]);
+  const [currentPage, setCurrentPage] = useState<number>(1);
 
-  // const handleNewProject = () => {
-  //   setAddProjectModal(true);
-  // };
+  const tempProjectData: Array<any> = [];
 
-  const tempProjectData = [];
-
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 101; i++) {
     tempProjectData.push([
       "1234567",
       "Shahan",
@@ -25,6 +25,36 @@ const Projects = () => {
     ]);
   }
 
+  const LAST_PAGE = Math.ceil(tempProjectData.length / ITEMS_IN_ONE_PAGE);
+
+  useEffect(() => {
+    setCurrentPageData([
+      ...tempProjectData.slice(
+        (currentPage - 1) * ITEMS_IN_ONE_PAGE,
+        currentPage * ITEMS_IN_ONE_PAGE
+      ),
+    ]);
+    console.log("Current Page ===", currentPage);
+  }, [currentPage]);
+
+  const handlePaginationLeft = () => {
+    if (currentPage === 1) {
+      return;
+    } else {
+      setCurrentPage((prev) => prev - 1);
+    }
+  };
+  
+  const handlePaginationRight = () => {
+    if (currentPage === LAST_PAGE) {
+      return;
+    } else {
+      setCurrentPage((prev) => prev + 1);
+    }
+  };
+
+  const handleOptionsMenu = () => {};
+
   return (
     <>
       <div className={styles.navBar}>
@@ -33,7 +63,7 @@ const Projects = () => {
       </div>
       <div className={styles.divider}></div>
       <div className={styles.leftBar}>
-        <div className="logo">
+        <div className="logo" style={{ cursor: "pointer" }}>
           <div className={styles.topSemi}></div>
           <div className={styles.bottomSemi}></div>
           <div className={styles.middleLine}></div>
@@ -130,7 +160,7 @@ const Projects = () => {
           </tr>
         </thead>
         <tbody>
-          {tempProjectData.map((project: any) => {
+          {currentPageData.map((project: any) => {
             return (
               <tr>
                 <td>
@@ -145,7 +175,10 @@ const Projects = () => {
                   <td>{cell}</td>
                 ))}
                 <td>
-                  <div className={styles.optionsMenu}></div>
+                  <div
+                    onClick={handleOptionsMenu}
+                    className={styles.optionsMenu}
+                  ></div>
                 </td>
               </tr>
             );
@@ -153,11 +186,28 @@ const Projects = () => {
         </tbody>
       </table>
       <div className={styles.pagination}>
-        <div className={styles.paginationLeftBtn}></div>
-        <div className={styles.paginationRightBtn}></div>
+        <div
+          onClick={handlePaginationLeft}
+          className={styles.paginationLeftBtn}
+        ></div>
+        <div
+          onClick={handlePaginationRight}
+          className={styles.paginationRightBtn}
+        ></div>
         <div className={styles.paginationText}>
-          Showing <span className={styles.boldPaginationText}>1-10</span> of{" "}
-          <span className={styles.boldPaginationText}>20</span>
+          Showing{" "}
+          <span className={styles.boldPaginationText}>
+            {(currentPage - 1) * ITEMS_IN_ONE_PAGE +
+              1 +
+              "-" +
+              (currentPage === LAST_PAGE
+                ? tempProjectData.length
+                : currentPage * ITEMS_IN_ONE_PAGE)}
+          </span>{" "}
+          of{" "}
+          <span className={styles.boldPaginationText}>
+            {tempProjectData.length}
+          </span>
         </div>
       </div>
       <div
