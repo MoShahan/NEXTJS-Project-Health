@@ -10,6 +10,7 @@ const Projects = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [settingsDropdown, setSettingsDropdown] = useState<boolean>(false);
   const [optionsMenu, setOptionsMenu] = useState<boolean>(false);
+  const [currentOptions, setCurrentOptions] = useState<number>(0);
 
   const tempProjectData: Array<any> = [];
 
@@ -55,7 +56,18 @@ const Projects = () => {
     }
   };
 
-  const handleOptionsMenu = () => {};
+  const handleOptionsMenu = (currIndex: number) => {
+    if (currIndex === currentOptions) {
+      setOptionsMenu((prev) => !prev);
+    } else {
+      setCurrentOptions(currIndex);
+      setOptionsMenu(true);
+    }
+  };
+
+  const handleEditProject = () => {};
+  const handleArchiveProject = () => {};
+  const handleDeleteProject = () => {};
 
   return (
     <>
@@ -121,6 +133,17 @@ const Projects = () => {
         </div>
       </div>
       <div className={styles.separator}></div>
+      <div
+        className={styles.optionsMenuBox}
+        style={{
+          display: optionsMenu ? "block" : "none",
+          top: 290 + currentOptions * 70,
+        }}
+      >
+        <div onClick={handleEditProject}>Edit</div>
+        <div onClick={handleArchiveProject}>Archive</div>
+        <div onClick={handleDeleteProject}>Delete</div>
+      </div>
       <table className={styles.projectTable}>
         <thead>
           <tr>
@@ -181,7 +204,7 @@ const Projects = () => {
           </tr>
         </thead>
         <tbody>
-          {currentPageData.map((project: any) => {
+          {currentPageData.map((project: any, index: number) => {
             return (
               <tr>
                 <td>
@@ -189,7 +212,8 @@ const Projects = () => {
                     type="checkbox"
                     name=""
                     id=""
-                    checked={allChecked ? true : false}
+                    checked={allChecked ? true : undefined}
+                    // onChange={() => setAllChecked(false)}
                   />
                 </td>
                 {project.map((cell: any) => (
@@ -197,7 +221,10 @@ const Projects = () => {
                 ))}
                 <td>
                   <div
-                    onClick={handleOptionsMenu}
+                    // onClick={handleOptionsMenu}
+                    onClick={() => {
+                      handleOptionsMenu(index);
+                    }}
                     className={styles.optionsMenu}
                   ></div>
                 </td>
