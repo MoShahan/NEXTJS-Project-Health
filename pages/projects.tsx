@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "../styles/Projects.module.css";
 
-const ITEMS_IN_ONE_PAGE = 10;
+const ITEMS_IN_ONE_PAGE = 15;
 
 const Projects = () => {
   const [addProjectModal, setAddProjectModal] = useState<boolean>(false);
@@ -44,7 +44,7 @@ const Projects = () => {
       setCurrentPage((prev) => prev - 1);
     }
   };
-  
+
   const handlePaginationRight = () => {
     if (currentPage === LAST_PAGE) {
       return;
@@ -184,8 +184,8 @@ const Projects = () => {
             );
           })}
         </tbody>
-      </table>
-      <div className={styles.pagination}>
+        <tfoot>
+        <div className={styles.pagination}>
         <div
           onClick={handlePaginationLeft}
           className={styles.paginationLeftBtn}
@@ -210,6 +210,33 @@ const Projects = () => {
           </span>
         </div>
       </div>
+        </tfoot>
+      </table>
+      {/* <div className={styles.pagination}>
+        <div
+          onClick={handlePaginationLeft}
+          className={styles.paginationLeftBtn}
+        ></div>
+        <div
+          onClick={handlePaginationRight}
+          className={styles.paginationRightBtn}
+        ></div>
+        <div className={styles.paginationText}>
+          Showing{" "}
+          <span className={styles.boldPaginationText}>
+            {(currentPage - 1) * ITEMS_IN_ONE_PAGE +
+              1 +
+              "-" +
+              (currentPage === LAST_PAGE
+                ? tempProjectData.length
+                : currentPage * ITEMS_IN_ONE_PAGE)}
+          </span>{" "}
+          of{" "}
+          <span className={styles.boldPaginationText}>
+            {tempProjectData.length}
+          </span>
+        </div>
+      </div> */}
       <div
         style={{
           opacity: "0.2",
