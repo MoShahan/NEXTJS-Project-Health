@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../styles/components/AdminTable.module.css";
+import styles from "../../styles/components/Table.module.css";
 import Pagination from "../Pagination";
 
 type AdminTableProps = {

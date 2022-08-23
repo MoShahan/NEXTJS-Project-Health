@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../styles/components/AdminTable.module.css";
+import styles from "../../styles/components/Table.module.css";
 import Pagination from "../Pagination";
 
 type EmployeeTableProps = {
@@ -40,32 +40,32 @@ const TableComponent = ({
             />
           </td>
           <td>
-            User ID
+            Skills
             <span className={styles.topArrow}></span>
             <span className={styles.downArrow}></span>
           </td>
           <td>
-            Name
+            Employee Type
             <span className={styles.topArrow}></span>
             <span className={styles.downArrow}></span>
           </td>
           <td>
-            Email
+            Joining Date
             <span className={styles.topArrow}></span>
             <span className={styles.downArrow}></span>
           </td>
           <td>
-            Phone
+            Salary
             <span className={styles.topArrow}></span>
             <span className={styles.downArrow}></span>
           </td>
           <td>
-            Role(s)
+            Utilization
             <span className={styles.topArrow}></span>
             <span className={styles.downArrow}></span>
           </td>
           <td>
-            Status
+            Revenue Opportunity
             <span className={styles.topArrow}></span>
             <span className={styles.downArrow}></span>
           </td>
@@ -84,16 +84,16 @@ const TableComponent = ({
                   checked={allChecked ? true : undefined}
                 />
               </td>
+              <td>
+                {["Front End", "Back End"].map((skill: string) => {
+                  return (
+                    <div className={styles.eachEmployeeSkill}>{skill}</div>
+                  );
+                })}
+              </td>
               {admin.map((cell: string) => (
                 <td>{cell}</td>
               ))}
-              <td>
-                <div>Admin</div>
-              </td>
-              <td>
-                <span></span>
-                Active
-              </td>
               <td>
                 <div
                   onClick={() => {

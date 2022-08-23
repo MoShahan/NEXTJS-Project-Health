@@ -11,7 +11,7 @@
 .addProjectModalContainer {
     position: absolute;
     width: 700px;
-    height: 723px;
+    height: 596px;
     left: 370px;
     top: 120px;
     background: #ffffff;
@@ -85,7 +85,7 @@
     border-radius: 6px;
 }
 
-.modalClient {
+.modalEmail {
     position: absolute;
     width: 51px;
     height: 14px;
@@ -104,7 +104,7 @@
     color: #212121;
 }
 
-.modalClientInput {
+.modalEmailInput {
     box-sizing: border-box;
     position: absolute;
     width: 620px;
@@ -116,12 +116,99 @@
     border-radius: 6px;
 }
 
-.modalProjectType {
+.modalPhone {
+    position: absolute;
+    width: 126px;
+    height: 14px;
+    left: 410px;
+    top: 434px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 100%;
+    /* identical to box height, or 14px */
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    /* 212121 */
+    color: #212121;
+}
+
+.modalPhoneInput {
+    box-sizing: border-box;
+    position: absolute;
+    width: 360px;
+    height: 48px;
+    left: 410px;
+    top: 485px;
+    background: #ffffff;
+    border: 1px solid #dcdce0;
+    border-radius: 6px;
+    /* width: 68px; */
+    overflow: hidden;
+}
+
+.modalPhoneCountry {
+    position: absolute;
+    width: 68px;
+    height: 43px;
+    left: 1px;
+    top: 2px;
+    background-color: #EBF5FF;
+    /* background-color: red; */
+    border: none;
+}
+
+.modalPhoneNumber {
+    position: absolute;
+    width: 280px;
+    height: 43px;
+    left: 70px;
+    top: 2px;
+    /* border: solid 1px red; */
+    border: none;
+}
+
+.modalRole,
+.modalJoiningDate {
+    position: absolute;
+    width: 164px;
+    height: 14px;
+    left: 800px;
+    top: 434px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 100%;
+    /* identical to box height, or 14px */
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    /* 212121 */
+    color: #212121;
+}
+
+.modalRoleInput,
+.modalJoiningDateInput {
+    box-sizing: border-box;
+    position: absolute;
+    width: 230px;
+    height: 48px;
+    left: 800px;
+    top: 485px;
+    background: #ffffff;
+    border: 1px solid #dcdce0;
+    border-radius: 6px;
+}
+
+.modalSkills {
     position: absolute;
     width: 106px;
     height: 14px;
     left: 410px;
-    top: 434px;
+    top: 542px;
     font-family: "Inter";
     font-style: normal;
     font-weight: 600;
@@ -135,24 +222,24 @@
     color: #212121;
 }
 
-.modalProjectTypeInput {
+.modalSkillsInput {
     box-sizing: border-box;
     position: absolute;
     width: 295px;
     height: 48px;
     left: 410px;
-    top: 485px;
+    top: 593px;
     background: #ffffff;
     border: 1px solid #dcdce0;
     border-radius: 6px;
 }
 
-.modalProjectResponsible {
+.modalEmpType {
     position: absolute;
     width: 164px;
     height: 14px;
     left: 735px;
-    top: 434px;
+    top: 542px;
     font-family: "Inter";
     font-style: normal;
     font-weight: 600;
@@ -166,24 +253,24 @@
     color: #212121;
 }
 
-.modalProjectResponsibleInput {
+.modalEmpTypeInput {
     box-sizing: border-box;
     position: absolute;
     width: 295px;
     height: 48px;
     left: 735px;
-    top: 485px;
+    top: 593px;
     background: #ffffff;
     border: 1px solid #dcdce0;
     border-radius: 6px;
 }
 
-.modalStartDate {
+.modalSalary {
     position: absolute;
     width: 86px;
     height: 14px;
     left: 410px;
-    top: 533px;
+    top: 641px;
     font-family: "Inter";
     font-style: normal;
     font-weight: 600;
@@ -196,24 +283,24 @@
     /* 212121 */
 }
 
-.modalStartDateInput {
+.modalSalaryInput {
     box-sizing: border-box;
     position: absolute;
     width: 295px;
     height: 48px;
     left: 410px;
-    top: 584px;
+    top: 692px;
     background: #ffffff;
     border: 1px solid #dcdce0;
     border-radius: 6px;
 }
 
-.modalEndDate {
+.modalUtilization {
     position: absolute;
     width: 69px;
     height: 14px;
     left: 735px;
-    top: 533px;
+    top: 641px;
     font-family: "Inter";
     font-style: normal;
     font-weight: 600;
@@ -227,24 +314,24 @@
     color: #212121;
 }
 
-.modalEndDateInput {
+.modalUtilizationInput {
     box-sizing: border-box;
     position: absolute;
     width: 295px;
     height: 48px;
     left: 735px;
-    top: 584px;
+    top: 692px;
     background: #ffffff;
     border: 1px solid #dcdce0;
     border-radius: 6px;
 }
 
-.modalProjectStatus {
+.modalRevenue {
     position: absolute;
-    width: 124px;
+    width: 184px;
     height: 14px;
     left: 410px;
-    top: 632px;
+    top: 737px;
     font-family: "Inter";
     font-style: normal;
     font-weight: 600;
@@ -258,47 +345,35 @@
     color: #212121;
 }
 
-.modalProjectStatusInput {
+.modalRevenueInput {
     box-sizing: border-box;
     position: absolute;
     width: 295px;
     height: 48px;
     left: 410px;
-    top: 683px;
+    top: 791px;
     background: #ffffff;
     border: 1px solid #dcdce0;
     border-radius: 6px;
 }
 
-.modalMonthlyStatus {
-    position: absolute;
-    width: 129px;
-    height: 14px;
-    left: 735px;
-    top: 632px;
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 100%;
-    /* identical to box height, or 14px */
-    display: flex;
-    align-items: center;
-    text-transform: uppercase;
-    /* 212121 */
-    color: #212121;
-}
-
-.modalMonthlyStatusInput {
+.modalAddAnotherBtn {
     box-sizing: border-box;
     position: absolute;
-    width: 295px;
-    height: 48px;
-    left: 735px;
-    top: 683px;
+    width: 145px;
+    height: 41px;
+    left: 410px;
+    top: 563px;
     background: #ffffff;
-    border: 1px solid #dcdce0;
+    border: 1px solid #262626;
     border-radius: 6px;
+    padding: 10px 13px;
+    font-family: "Inter";
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 150%;
+    color: #262626;
+    cursor: pointer;
 }
 
 .modalCancel {
@@ -311,7 +386,7 @@
     width: 88px;
     height: 42px;
     left: 805px;
-    top: 781px;
+    top: 634px;
     /* white */
     background: #ffffff;
     /* cool-gray/300 */
@@ -338,7 +413,7 @@
     width: 150px;
     height: 42px;
     left: 905px;
-    top: 781px;
+    top: 634px;
     background: #f6f6f6;
     border-radius: 6px;
     font-family: "Inter";
@@ -351,4 +426,11 @@
     color: #9ca3af;
     border: none;
     cursor: pointer;
+}
+
+.flag {
+    background-image: url(../../assets/pics/uae-flag.png);
+    width: 34px;
+    height: 18px;
+    z-index: 2;
 }

@@ -22,6 +22,7 @@ const OptionsMenu = ({
       style={{
         display: optionsMenu ? "block" : "none",
         top: 290 + currentOptions * 70,
+        left: 1235,
       }}
     >
       <div onClick={handleEditProject}>Edit</div>

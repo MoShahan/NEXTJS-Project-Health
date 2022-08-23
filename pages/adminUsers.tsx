@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import AddModal from "../components/adminUsers/AddModal";
+import DetailsModal from "../components/adminUsers/DetailsModal";
 import OptionsMenu from "../components/adminUsers/OptionsMenu";
 import TableComponent from "../components/adminUsers/TableComponent";
 import HeaderComp from "../components/HeaderComp";
@@ -70,13 +71,6 @@ const AdminUsers = () => {
 
   return (
     <div>
-      <Head>
-        <link
-          rel="stylesheet"
-          href="https://cdn.tutorialjinni.com/intl-tel-input/17.0.8/css/intlTelInput.css"
-        />
-        <script src="https://cdn.tutorialjinni.com/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
-      </Head>
       <LeftSideBar />
       <HeaderComp currPage={"admin"} openModal={setAddAdminModal} />
       <OptionsMenu
@@ -99,6 +93,7 @@ const AdminUsers = () => {
         LAST_PAGE={LAST_PAGE}
       />
       <AddModal openModal={addAdminModal} setOpenModal={setAddAdminModal} />
+      <DetailsModal />
     </div>
   );
 };

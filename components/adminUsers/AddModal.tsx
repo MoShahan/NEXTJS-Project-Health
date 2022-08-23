@@ -1,11 +1,22 @@
+import Head from "next/head";
 import React from "react";
-import styles from "../../styles/components/AdminModal.module.css";
+import styles from "../../styles/components/Modal.module.css";
+import uaeFlag from "../../assets/pics/uae-flag.png";
+import Image from "next/image";
 
 type AdminModalProps = { openModal: boolean; setOpenModal: any };
 
 const AddModal = ({ openModal, setOpenModal }: AdminModalProps) => {
   return (
     <>
+      {/* <Head>
+        <link
+          rel="stylesheet"
+          href="https://cdn.tutorialjinni.com/intl-tel-input/17.0.8/css/intlTelInput.css"
+        />
+        <script src="https://cdn.tutorialjinni.com/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+      </Head> */}
+      {/* <Image src={uaeFlag} height={200} width={200}></Image> */}
       <div
         style={{
           opacity: "0.2",
@@ -20,10 +31,7 @@ const AddModal = ({ openModal, setOpenModal }: AdminModalProps) => {
         <div className={styles.addProjectModalContainer}></div>
         <h1 className={styles.modalTitle}>Invite User</h1>
         <div className={styles.modalSep}></div>
-        <div
-          className={styles.modalClose}
-          onClick={() => setOpenModal(false)}
-        >
+        <div className={styles.modalClose} onClick={() => setOpenModal(false)}>
           {" "}
           X{" "}
         </div>
@@ -31,31 +39,51 @@ const AddModal = ({ openModal, setOpenModal }: AdminModalProps) => {
         <input
           className={styles.modalNameInput}
           type="text"
-          placeholder="Enter"
+          placeholder="Harvard University"
         />
-        <h6 className={styles.modalClient}>EMAIL</h6>
+        <h6 className={styles.modalEmail}>EMAIL</h6>
         <input
-          className={styles.modalClientInput}
+          className={styles.modalEmailInput}
           type="text"
           placeholder="Harvard University"
         />
-        <h6 className={styles.modalProjectType}>PHONE NUMBER</h6>
+        <h6 className={styles.modalPhone}>PHONE NUMBER</h6>
+        <div className={styles.modalPhoneInput}>
+          <select
+            className={styles.modalPhoneCountry}
+            name=""
+            id=""
+            style={{ color: "rgba(33, 33, 33, 0.4)" }}
+          >
+            <option selected value="" disabled>
+              Please Select...
+            </option>
+            {/* <option value="">
+              <Image
+                src={uaeFlag}
+                alt=""
+                height={18}
+                width={34}
+                style={{ backgroundSize: "contain" }}
+              />
+            </option> */}
+            <option style={{ backgroundImage: `url(${uaeFlag})` }}>UAE</option>
+            <option value="">🇦🇪&emsp;</option>
+            <option value="">U+1F1EA</option>
+            {/* <option value="">
+              <span className={styles.flag}></span>
+            </option> */}
+          </select>
+          <input
+            type="number"
+            className={styles.modalPhoneNumber}
+            placeholder={"+971"}
+          />
+        </div>
+
+        <h6 className={styles.modalRole}>ROLE</h6>
         <select
-          className={styles.modalProjectTypeInput}
-          name=""
-          id=""
-          style={{ color: "rgba(33, 33, 33, 0.4)" }}
-        >
-          <option selected value="" disabled>
-            Please Select...
-          </option>
-          <option value="">1</option>
-          <option value="">2</option>
-          <option value="">3</option>
-        </select>
-        <h6 className={styles.modalProjectResponsible}>ROLE</h6>
-        <select
-          className={styles.modalProjectResponsibleInput}
+          className={styles.modalRoleInput}
           name=""
           id=""
           style={{ color: "rgba(33, 33, 33, 0.4)" }}
@@ -67,6 +95,7 @@ const AddModal = ({ openModal, setOpenModal }: AdminModalProps) => {
           <option value="">2</option>
           <option value="">3</option>
         </select>
+        <button className={styles.modalAddAnotherBtn}>+ ADD ANOTHER</button>
         <button
           className={styles.modalCancel}
           onClick={() => setOpenModal(false)}

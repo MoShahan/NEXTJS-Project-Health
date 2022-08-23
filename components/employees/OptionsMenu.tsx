@@ -23,6 +23,7 @@ const OptionsMenu = ({
         display: optionsMenu ? "block" : "none",
         top: 290 + currentOptions * 70,
         width: 180,
+        left: 1185,
       }}
     >
       <div onClick={handleEditProject}>Edit</div>
