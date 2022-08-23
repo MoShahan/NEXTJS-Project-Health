@@ -1,22 +1,22 @@
 import Head from "next/head";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../../styles/components/Modal.module.css";
 import uaeFlag from "../../assets/pics/uae-flag.png";
 import Image from "next/image";
+import "react-phone-number-input/style.css";
+import PhoneInput from "react-phone-number-input";
 
 type AdminModalProps = { openModal: boolean; setOpenModal: any };
 
 const AddModal = ({ openModal, setOpenModal }: AdminModalProps) => {
+  const [phoneNumber, setPhoneNumber] = useState<any>("");
+
+  useEffect(() => {
+    console.log(phoneNumber);
+  }, [phoneNumber]);
+
   return (
     <>
-      {/* <Head>
-        <link
-          rel="stylesheet"
-          href="https://cdn.tutorialjinni.com/intl-tel-input/17.0.8/css/intlTelInput.css"
-        />
-        <script src="https://cdn.tutorialjinni.com/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
-      </Head> */}
-      {/* <Image src={uaeFlag} height={200} width={200}></Image> */}
       <div
         style={{
           opacity: "0.2",
@@ -48,39 +48,12 @@ const AddModal = ({ openModal, setOpenModal }: AdminModalProps) => {
           placeholder="Harvard University"
         />
         <h6 className={styles.modalPhone}>PHONE NUMBER</h6>
-        <div className={styles.modalPhoneInput}>
-          <select
-            className={styles.modalPhoneCountry}
-            name=""
-            id=""
-            style={{ color: "rgba(33, 33, 33, 0.4)" }}
-          >
-            <option selected value="" disabled>
-              Please Select...
-            </option>
-            {/* <option value="">
-              <Image
-                src={uaeFlag}
-                alt=""
-                height={18}
-                width={34}
-                style={{ backgroundSize: "contain" }}
-              />
-            </option> */}
-            <option style={{ backgroundImage: `url(${uaeFlag})` }}>UAE</option>
-            <option value="">🇦🇪&emsp;</option>
-            <option value="">U+1F1EA</option>
-            {/* <option value="">
-              <span className={styles.flag}></span>
-            </option> */}
-          </select>
-          <input
-            type="number"
-            className={styles.modalPhoneNumber}
-            placeholder={"+971"}
-          />
-        </div>
-
+        <PhoneInput
+          placeholder="Enter phone number"
+          value={phoneNumber}
+          onChange={setPhoneNumber}
+          className={styles.modalPhoneInput}
+        />
         <h6 className={styles.modalRole}>ROLE</h6>
         <select
           className={styles.modalRoleInput}

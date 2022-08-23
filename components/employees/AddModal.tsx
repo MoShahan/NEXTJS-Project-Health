@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../../styles/components/Modal.module.css";
+import "react-phone-number-input/style.css";
+import PhoneInput from "react-phone-number-input";
 
 type EmployeeModalProps = { openModal: boolean; setOpenModal: any };
 
 const AddModal = ({ openModal, setOpenModal }: EmployeeModalProps) => {
+  const [phoneNumber, setPhoneNumber] = useState<any>("");
+
   return (
     <>
       <div
@@ -40,26 +44,12 @@ const AddModal = ({ openModal, setOpenModal }: EmployeeModalProps) => {
           placeholder="Harvard University"
         />
         <h6 className={styles.modalPhone}>PHONE NUMBER</h6>
-        <div className={styles.modalPhoneInput}>
-          <select
-            className={styles.modalPhoneCountry}
-            name=""
-            id=""
-            style={{ color: "rgba(33, 33, 33, 0.4)" }}
-          >
-            <option selected value="" disabled>
-              Please Select...
-            </option>
-            <option value="">🇦🇪&emsp;</option>
-            <option value="">U+1F1EA</option>
-          </select>
-          <input
-            type="number"
-            className={styles.modalPhoneNumber}
-            placeholder={"+971"}
-          />
-        </div>
-
+        <PhoneInput
+          placeholder="Enter phone number"
+          value={phoneNumber}
+          onChange={setPhoneNumber}
+          className={styles.modalPhoneInput}
+        />
         <h6 className={styles.modalJoiningDate}>Joining Date</h6>
         <input type="date" className={styles.modalJoiningDateInput} />
         <h6 className={styles.modalSkills}>SKILLS</h6>

@@ -25,3 +25,8 @@ Go to http://localhost:3000/projects
 
 ### Employees Page
 Go to http://localhost:3000/employees
+
+### Settings Pages
+Go to http://localhost:3000/settings/admin\
+Go to http://localhost:3000/settings/project\
+Go to http://localhost:3000/settings/employee

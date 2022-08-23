@@ -145,29 +145,22 @@
     background: #ffffff;
     border: 1px solid #dcdce0;
     border-radius: 6px;
-    /* width: 68px; */
     overflow: hidden;
+    padding-right: 10px;
 }
 
-.modalPhoneCountry {
-    position: absolute;
-    width: 68px;
-    height: 43px;
-    left: 1px;
-    top: 2px;
-    background-color: #EBF5FF;
-    /* background-color: red; */
-    border: none;
+.modalPhoneInput div {
+    background: #EBF5FF;
 }
 
-.modalPhoneNumber {
-    position: absolute;
-    width: 280px;
-    height: 43px;
-    left: 70px;
-    top: 2px;
-    /* border: solid 1px red; */
+.modalPhoneInput div div {
+    margin-left: 10px;
+    margin-right: 5px;
+}
+
+.modalPhoneInput input {
     border: none;
+    margin-left: 10px;
 }
 
 .modalRole,
@@ -182,11 +175,9 @@
     font-weight: 600;
     font-size: 14px;
     line-height: 100%;
-    /* identical to box height, or 14px */
     display: flex;
     align-items: center;
     text-transform: uppercase;
-    /* 212121 */
     color: #212121;
 }
 
@@ -214,11 +205,9 @@
     font-weight: 600;
     font-size: 14px;
     line-height: 100%;
-    /* identical to box height, or 14px */
     display: flex;
     align-items: center;
     text-transform: uppercase;
-    /* 212121 */
     color: #212121;
 }
 
@@ -245,11 +234,9 @@
     font-weight: 600;
     font-size: 14px;
     line-height: 100%;
-    /* identical to box height, or 14px */
     display: flex;
     align-items: center;
     text-transform: uppercase;
-    /* 212121 */
     color: #212121;
 }
 
@@ -426,11 +413,4 @@
     color: #9ca3af;
     border: none;
     cursor: pointer;
-}
-
-.flag {
-    background-image: url(../../assets/pics/uae-flag.png);
-    width: 34px;
-    height: 18px;
-    z-index: 2;
 }

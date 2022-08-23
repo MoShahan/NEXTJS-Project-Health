@@ -35,6 +35,13 @@
     width: 200px;
 }
 
+.leftBar:hover .adminUsersIcon {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    transition: all 0.5s ease-in-out;
+}
+
 
 /* =============================== */
 
@@ -232,7 +239,7 @@
 .settingsIcon:hover::after,
 .settingsIcon:hover {
     background-color: white;
-    color: #1996FC;
+    color: #1996fc;
     /* padding: 10px; */
     border-radius: 6px;
 }
