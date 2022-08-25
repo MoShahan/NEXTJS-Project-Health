@@ -32,8 +32,6 @@ const AddModal = ({ openModal, setOpenModal }: AdminModalProps) => {
         <h1 className={styles.modalTitle}>Invite User</h1>
         <div className={styles.modalSep}></div>
         <div className={styles.modalClose} onClick={() => setOpenModal(false)}>
-          {" "}
-          X{" "}
         </div>
         <h6 className={styles.modalName}>NAME</h6>
         <input

@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react";
+import HeaderComp from "../components/HeaderComp";
+import LeftSideBar from "../components/LeftSideBar";
+import Pagination from "../components/Pagination";
 import styles from "../styles/Projects.module.css";
 
 const ITEMS_IN_ONE_PAGE = 15;
@@ -37,7 +40,6 @@ const Projects = () => {
         currentPage * ITEMS_IN_ONE_PAGE
       ),
     ]);
-    console.log("Current Page ===", currentPage);
   }, [currentPage]);
 
   const handlePaginationLeft = () => {
@@ -71,68 +73,8 @@ const Projects = () => {
 
   return (
     <>
-      <div className={styles.navBar}>
-        <div className={styles.bellIcon}></div>
-        <div className={styles.avatorIcon}></div>
-      </div>
-      <div className={styles.divider}></div>
-      <div className={styles.leftBar}>
-        <div className="logo" style={{ cursor: "pointer" }}>
-          <div className={styles.topSemi}></div>
-          <div className={styles.bottomSemi}></div>
-          <div className={styles.middleLine}></div>
-          <div className={styles.topLine}></div>
-          <div className={styles.bottomLine}></div>
-        </div>
-        <div className={styles.logoIconSep}></div>
-        <div className={styles.adminUsersIcon}></div>
-        <div className={styles.projectsIconBG}>
-          <div className={styles.projectsIcon}></div>
-        </div>
-        <div className={styles.employeesIcon}></div>
-        <div
-          onClick={() => {
-            setSettingsDropdown((prev) => !prev);
-          }}
-          className={styles.settingsIcon}
-        ></div>
-        <div
-          style={{
-            display: settingsDropdown ? "block" : "none",
-            marginTop: "150px",
-            position: "fixed",
-            overflow: "hidden",
-          }}
-        >
-          <a href="#">Skills</a>
-          <br />
-          <a href="#">Project Type</a>
-          <br />
-          <a href="#">Employee Type</a>
-        </div>
-      </div>
-      <div className="headerSection">
-        <div className={styles.pageTitle}>Projects</div>
-        <input
-          type="text"
-          className={styles.searchInput}
-          placeholder="Search..."
-        />
-        <div
-        // className={styles.addProjectBtn}
-        >
-          <button
-            className={styles.addProjectBtn}
-            onClick={() => {
-              setAddProjectModal(true);
-              console.log("ADD PROJ BTN CLICKD");
-            }}
-          >
-            + ADD PROJECT
-          </button>
-        </div>
-      </div>
-      <div className={styles.separator}></div>
+      <LeftSideBar />
+      <HeaderComp currPage="project" openModal={setAddProjectModal} />
       <div
         className={styles.optionsMenuBox}
         style={{
@@ -234,31 +176,14 @@ const Projects = () => {
         </tbody>
         <tfoot>
           <tr>
-            <td className={styles.pagination}>
-              <div
-                onClick={handlePaginationLeft}
-                className={styles.paginationLeftBtn}
-              ></div>
-              <div
-                onClick={handlePaginationRight}
-                className={styles.paginationRightBtn}
-              ></div>
-              <div className={styles.paginationText}>
-                Showing{" "}
-                <span className={styles.boldPaginationText}>
-                  {(currentPage - 1) * ITEMS_IN_ONE_PAGE +
-                    1 +
-                    "-" +
-                    (currentPage === LAST_PAGE
-                      ? tempProjectData.length
-                      : currentPage * ITEMS_IN_ONE_PAGE)}
-                </span>{" "}
-                of{" "}
-                <span className={styles.boldPaginationText}>
-                  {tempProjectData.length}
-                </span>
-              </div>
-            </td>
+            <Pagination
+              handlePaginationLeft={handlePaginationLeft}
+              handlePaginationRight={handlePaginationRight}
+              currentPage={currentPage}
+              ITEMS_IN_ONE_PAGE={ITEMS_IN_ONE_PAGE}
+              LAST_PAGE={LAST_PAGE}
+              tempData={tempProjectData}
+            />
           </tr>
         </tfoot>
       </table>
@@ -279,10 +204,7 @@ const Projects = () => {
         <div
           className={styles.modalClose}
           onClick={() => setAddProjectModal(false)}
-        >
-          {" "}
-          X{" "}
-        </div>
+        ></div>
         <h6 className={styles.modalName}>NAME</h6>
         <input
           className={styles.modalNameInput}

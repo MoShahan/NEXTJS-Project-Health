@@ -1,0 +1,111 @@
+.adminUsersIcon {
+    /* background: url(../../assets/pics/admin-icon-white.png); */
+    /* background-repeat: no-repeat; */
+    /* background-size: contain; */
+    position: absolute;
+    /* left: 50%; */
+    transform: translateX(-50%);
+    top: 10%;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+    left: 30px;
+}
+
+
+/* .adminUsersIcon::after {
+    content: "Admin_Users";
+    padding: 10px 40px;
+} */
+
+
+/* 
+.projectsIconBG {
+    background: url(../../assets/pics/icon-bg-white.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    transform: translateX(-50%) translateY(-10%);
+    top: 14.5%;
+    height: 40px;
+    width: 40px;
+    left: 30px;
+} */
+
+.projectsIcon {
+    /* background: url(../../assets/pics/projects-icon-blue.png);
+    background-repeat: no-repeat;
+    background-size: contain; */
+    position: absolute;
+    /* left: 55%; */
+    transform: translateX(-50%) translateY(-55%);
+    top: 50%;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+    /* z-index: 999; */
+    left: 22.5px;
+}
+
+
+/* .projectsIcon::after {
+    content: "Projects";
+    padding: 10px 60px;
+} */
+
+.employeesIcon {
+    /* background-color: #111928; */
+    /* background: url(../../assets/pics/employees-icon-white.png);
+    background-repeat: no-repeat;
+    background-size: contain; */
+    position: absolute;
+    /* left: 50%; */
+    transform: translateX(-50%);
+    top: 20%;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+    left: 30px;
+}
+
+
+/* .employeesIcon::after {
+    content: "Employees";
+    padding: 10px 50px;
+} */
+
+.settingsIcon {
+    /* background: url(../../assets/pics/settings-icon-white.png);
+    background-repeat: no-repeat;
+    background-size: contain; */
+    position: absolute;
+    /* left: 50%; */
+    transform: translateX(-50%);
+    top: 25%;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+    left: 30px;
+    /* z-index: 2; */
+}
+
+
+/* .settingsIcon::after {
+    content: "Settings";
+    padding: 10px 60px;
+} */
+
+
+/* 
+.adminUsersIcon::after,
+.projectsIcon::after,
+.employeesIcon::after,
+.settingsIcon::after {
+    color: white;
+} */
+
+
+/* .adminUsersIcon:hover::after,
+.projectsIcon:hover::after,
+.employeesIcon:hover::after,
+.settingsIcon:hover::after, */

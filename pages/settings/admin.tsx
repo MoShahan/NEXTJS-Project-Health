@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import LeftSideBar from '../../components/LeftSideBar'
 
 const Admin = () => {
   return (
-    <div>Admin</div>
-  )
-}
+    <div>
+      <LeftSideBar />
+    </div>
+  );
+};
 
-export default Admin
+export default Admin;

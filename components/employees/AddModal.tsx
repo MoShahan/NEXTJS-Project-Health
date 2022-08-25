@@ -27,10 +27,10 @@ const AddModal = ({ openModal, setOpenModal }: EmployeeModalProps) => {
         ></div>
         <h1 className={styles.modalTitle}>Add Employee</h1>
         <div className={styles.modalSep}></div>
-        <div className={styles.modalClose} onClick={() => setOpenModal(false)}>
-          {" "}
-          X{" "}
-        </div>
+        <div
+          className={styles.modalClose}
+          onClick={() => setOpenModal(false)}
+        ></div>
         <h6 className={styles.modalName}>NAME</h6>
         <input
           className={styles.modalNameInput}

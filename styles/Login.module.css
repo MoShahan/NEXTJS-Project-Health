@@ -14,7 +14,7 @@
     height: 100px;
     left: 838px;
     top: 20px;
-    background: #FFFFFF;
+    background: #ffffff;
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.16);
     border-radius: 4px;
     transition: all 0.5s ease-in-out;
@@ -27,7 +27,7 @@
     /* left: 838px; */
     /* top: 15px; */
     /* Red */
-    background: #EB5757;
+    background: #eb5757;
     overflow: hidden;
 }
 
@@ -53,7 +53,7 @@
     height: 44px;
     left: 100px;
     top: 28px;
-    font-family: 'Inter';
+    font-family: "Inter";
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
@@ -61,22 +61,19 @@
     /* or 138% */
     display: flex;
     align-items: center;
-    color: #EB5757;
+    color: #eb5757;
 }
 
 .errorClose {
     position: absolute;
-    /* left: 22.53%; */
-    /* right: 22.53%; */
-    top: 22.53%;
-    bottom: 22.53%;
     color: #212121;
-    height: 13.184999465942383px;
-    width: 13.184999465942383px;
+    height: 13px;
+    width: 13px;
     right: 10px;
     top: 10px;
-    /* border-radius: 100px; */
-    /* color: white; */
+    background: url(../assets/pics/close-icon.png);
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 
@@ -133,6 +130,7 @@
     top: 361px;
     border: none;
     border-bottom: solid 2px #212121;
+    font-size: 1.25rem;
 }
 
 .passwordText {
@@ -160,6 +158,7 @@
     border: none;
     border-bottom: solid 2px #212121;
     /* color: red; */
+    font-size: 1.25rem;
 }
 
 .passwordRule {
@@ -189,6 +188,7 @@
     border-radius: 6px;
     border: none;
     color: white;
+    cursor: pointer;
 }
 
 .policyText {
@@ -274,4 +274,14 @@
     top: 85px;
     background: url(../assets/pics/Rectangle\ 5671.png);
     background-repeat: no-repeat;
+}
+
+.errorOffset {
+    box-shadow: 0px -1px 0px 1px #eb5757;
+    border-radius: 5px;
+}
+
+.errorOffset:focus {
+    /* border: none; */
+    outline: none;
 }

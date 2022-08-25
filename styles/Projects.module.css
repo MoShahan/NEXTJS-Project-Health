@@ -602,12 +602,13 @@
 .modalClose {
     position: absolute;
     left: 1030px;
-    /* right: 28%; */
     top: 19%;
     cursor: pointer;
-    /* bottom: 84.51%; */
-    /* background: #454754; */
-    /* border: 0.5px solid #454754; */
+    background: url(../assets/pics/close-icon.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 13px;
+    width: 13px;
 }
 
 .modalSep {

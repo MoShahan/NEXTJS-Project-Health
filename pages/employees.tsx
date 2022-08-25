@@ -31,7 +31,6 @@ const Employees = () => {
         currentPage * ITEMS_IN_ONE_PAGE
       ),
     ]);
-    console.log("Current Page ===", currentPage);
   }, [currentPage]);
 
   const handlePaginationLeft = () => {
