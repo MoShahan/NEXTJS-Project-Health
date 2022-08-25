@@ -3,6 +3,7 @@ import HeaderComp from "../components/HeaderComp";
 import LeftSideBar from "../components/LeftSideBar";
 import Pagination from "../components/Pagination";
 import styles from "../styles/Projects.module.css";
+import { PROJECT } from "../variables";
 
 const ITEMS_IN_ONE_PAGE = 15;
 
@@ -74,7 +75,7 @@ const Projects = () => {
   return (
     <>
       <LeftSideBar />
-      <HeaderComp currPage="project" openModal={setAddProjectModal} />
+      <HeaderComp currPage={PROJECT} openModal={setAddProjectModal} />
       <div
         className={styles.optionsMenuBox}
         style={{

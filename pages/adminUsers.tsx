@@ -6,6 +6,7 @@ import OptionsMenu from "../components/adminUsers/OptionsMenu";
 import TableComponent from "../components/adminUsers/TableComponent";
 import HeaderComp from "../components/HeaderComp";
 import LeftSideBar from "../components/LeftSideBar";
+import { ADMIN } from "../variables";
 
 const ITEMS_IN_ONE_PAGE = 15;
 
@@ -71,7 +72,7 @@ const AdminUsers = () => {
   return (
     <div>
       <LeftSideBar />
-      <HeaderComp currPage={"admin"} openModal={setAddAdminModal} />
+      <HeaderComp currPage={ADMIN} openModal={setAddAdminModal} />
       <OptionsMenu
         optionsMenu={optionsMenu}
         currentOptions={currentOptions}

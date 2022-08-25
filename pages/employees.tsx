@@ -5,6 +5,7 @@ import OptionsMenu from "../components/employees/OptionsMenu";
 import TableComponent from "../components/employees/TableComponent";
 import HeaderComp from "../components/HeaderComp";
 import LeftSideBar from "../components/LeftSideBar";
+import { EMPLOYEE } from "../variables";
 
 const ITEMS_IN_ONE_PAGE = 15;
 
@@ -65,7 +66,7 @@ const Employees = () => {
   return (
     <>
       <LeftSideBar />
-      <HeaderComp currPage={"employee"} openModal={setAddEmployeeModal} />
+      <HeaderComp currPage={EMPLOYEE} openModal={setAddEmployeeModal} />
       <OptionsMenu
         optionsMenu={optionsMenu}
         currentOptions={currentOptions}

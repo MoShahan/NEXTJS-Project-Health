@@ -1,0 +1,111 @@
+.modalBG {
+    position: fixed;
+    width: 1440px;
+    height: 1024px;
+    left: 0px;
+    top: 0px;
+    background: #18181b;
+    opacity: 0.2;
+}
+
+.modalClose {
+    position: absolute;
+    left: 1030px;
+    top: 19%;
+    cursor: pointer;
+    background: url(../../assets/pics/close-icon.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 13px;
+    width: 13px;
+}
+
+.detailsModalContainer {
+    position: absolute;
+    width: 700px;
+    height: 420px;
+    left: 370px;
+    top: 120px;
+    background: #ffffff;
+    border-radius: 16px;
+}
+
+.modalTitle {
+    position: absolute;
+    width: 250px;
+    height: 33px;
+    left: 410px;
+    top: 160px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 150%;
+    color: #111928;
+}
+
+.modalSep {
+    position: absolute;
+    width: 620px;
+    height: 2px;
+    left: 410px;
+    top: 215px;
+    background: #ececef;
+}
+
+.skillHeading,
+.statusHeading,
+.descriptionHeading {
+    position: absolute;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    text-transform: uppercase;
+    color: #757575;
+}
+
+.skillHeading {
+    top: 216px;
+    left: 410px;
+}
+
+.statusHeading {
+    top: 216px;
+    left: 763px;
+}
+
+.descriptionHeading {
+    left: 410px;
+    top: 327px;
+}
+
+.skillBody,
+.statusBody,
+.descriptionBody {
+    position: absolute;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    color: #111928;
+}
+
+.descriptionBody {
+    font-weight: 500;
+    top: 374px;
+    width: 621px;
+    left: 410px;
+}
+
+.skillBody {
+    top: 253px;
+    left: 410px;
+}
+
+.statusBody {
+    top: 253px;
+    left: 763px;
+}

@@ -4,34 +4,34 @@ import LeftSideBar from "../../components/LeftSideBar";
 import Details from "../../components/settings/Details";
 import Modal from "../../components/settings/Modal";
 import Table from "../../components/settings/Table";
-import { EMPLOYEE_TYPE } from "../../variables";
+import { SKILL } from "../../variables";
 
-const ITEMS_IN_ONE_PAGE = 14;
+const ITEMS_IN_ONE_PAGE = 11;
 
-const Employee = () => {
-  const [addEmployeeTypeModal, setAddEmployeeTypeModal] = useState(false);
-  const [employeeDetailsModal, setEmployeeDetailsModal] = useState(false);
+const Skill = () => {
+  const [addNewSkillModal, setAddNewSkillModal] = useState(false);
+  const [addSkillDetailsModal, setAddSkillDetailsModal] = useState(false);
   const [allChecked, setAllChecked] = useState<boolean>(false);
   const [currentPageData, setCurrentPageData] = useState<Array<any>>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [optionsMenu, setOptionsMenu] = useState<boolean>(false);
   const [currentOptions, setCurrentOptions] = useState<number>(0);
 
-  const tempEmployeeTypeData: Array<any> = [];
+  const tempSkillsData: Array<any> = [];
 
-  for (let i = 0; i < 39; i++) {
-    tempEmployeeTypeData.push([
+  for (let i = 0; i < 27; i++) {
+    tempSkillsData.push([
       "Shahan",
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
       "Active",
     ]);
   }
 
-  const LAST_PAGE = Math.ceil(tempEmployeeTypeData.length / ITEMS_IN_ONE_PAGE);
+  const LAST_PAGE = Math.ceil(tempSkillsData.length / ITEMS_IN_ONE_PAGE);
 
   useEffect(() => {
     setCurrentPageData([
-      ...tempEmployeeTypeData.slice(
+      ...tempSkillsData.slice(
         (currentPage - 1) * ITEMS_IN_ONE_PAGE,
         currentPage * ITEMS_IN_ONE_PAGE
       ),
@@ -66,10 +66,7 @@ const Employee = () => {
   return (
     <div>
       <LeftSideBar />
-      <HeaderComp
-        currPage={EMPLOYEE_TYPE}
-        openModal={setAddEmployeeTypeModal}
-      />
+      <HeaderComp currPage={SKILL} openModal={setAddNewSkillModal} />
       <Table
         setAllChecked={setAllChecked}
         currentPageData={currentPageData}
@@ -78,22 +75,22 @@ const Employee = () => {
         handlePaginationLeft={handlePaginationLeft}
         handlePaginationRight={handlePaginationRight}
         currentPage={currentPage}
-        tempSettingsData={tempEmployeeTypeData}
+        tempSettingsData={tempSkillsData}
         ITEMS_IN_ONE_PAGE={ITEMS_IN_ONE_PAGE}
         LAST_PAGE={LAST_PAGE}
-        detailsModal={setEmployeeDetailsModal}
+        detailsModal={setAddSkillDetailsModal}
       />
       <Modal
-        currSetting="Employee Type"
-        openModal={addEmployeeTypeModal}
-        setOpenModal={setAddEmployeeTypeModal}
+        currSetting="Skill"
+        openModal={addNewSkillModal}
+        setOpenModal={setAddNewSkillModal}
       />
       <Details
-        openDetails={employeeDetailsModal}
-        setOpenDetails={setEmployeeDetailsModal}
+        openDetails={addSkillDetailsModal}
+        setOpenDetails={setAddSkillDetailsModal}
       />
     </div>
   );
 };
 
-export default Employee;
+export default Skill;

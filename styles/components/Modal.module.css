@@ -57,7 +57,7 @@
 
 .modalName {
     position: absolute;
-    width: 42px;
+    width: 172px;
     height: 14px;
     left: 410px;
     top: 236px;
@@ -86,9 +86,10 @@
     border-radius: 6px;
 }
 
-.modalEmail {
+.modalEmail,
+.modalDescription {
     position: absolute;
-    width: 51px;
+    width: 251px;
     height: 14px;
     left: 410px;
     top: 335px;
@@ -105,7 +106,8 @@
     color: #212121;
 }
 
-.modalEmailInput {
+.modalEmailInput,
+.modalDescriptionInput {
     box-sizing: border-box;
     position: absolute;
     width: 620px;
@@ -115,6 +117,11 @@
     background: #ffffff;
     border: 1px solid #dcdce0;
     border-radius: 6px;
+}
+
+.modalDescriptionInput {
+    height: 120px;
+    font-size: 1.25rem;
 }
 
 .modalPhone {
@@ -195,7 +202,8 @@
     border-radius: 6px;
 }
 
-.modalSkills {
+.modalSkills,
+.modalStatus {
     position: absolute;
     width: 106px;
     height: 14px;
@@ -212,7 +220,13 @@
     color: #212121;
 }
 
-.modalSkillsInput {
+.modalStatus {
+    width: 200px;
+    top: 510px;
+}
+
+.modalSkillsInput,
+.modalStatusInput {
     box-sizing: border-box;
     position: absolute;
     width: 295px;
@@ -222,6 +236,10 @@
     background: #ffffff;
     border: 1px solid #dcdce0;
     border-radius: 6px;
+}
+
+.modalStatusInput {
+    top: 560px;
 }
 
 .modalEmpType {

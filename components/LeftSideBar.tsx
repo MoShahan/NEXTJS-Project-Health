@@ -1,5 +1,3 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Head from "next/head";
 import { useState } from "react";
 import styles from "../styles/components/LeftSideBar.module.css";
 import { useRouter } from "next/router";
@@ -71,7 +69,7 @@ const LeftSideBar = () => {
             <div className={styles.projectsText}>Projects</div>
           </div>
         </Link>
-        <Link href="employees">
+        <Link href="/employees">
           <div
             className={
               styles.employeesContainer +
@@ -101,7 +99,7 @@ const LeftSideBar = () => {
             className={
               styles.settingsIcon +
               " " +
-              (currentPath === "/settings/admin" ||
+              (currentPath === "/settings/skill" ||
               currentPath === "/settings/project" ||
               currentPath === "/settings/employee"
                 ? styles.currentPageIcon
@@ -123,12 +121,12 @@ const LeftSideBar = () => {
           className={styles.settingsList}
           style={{ display: settingsDropdown ? "flex" : "none" }}
         >
-          <Link href="/settings/admin">
+          <Link href="/settings/skill">
             <a
               className={
                 styles.eachSetting +
                 " " +
-                (currentPath === "/settings/admin"
+                (currentPath === "/settings/skill"
                   ? styles.currentPageContainer
                   : "")
               }

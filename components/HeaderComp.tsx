@@ -1,5 +1,13 @@
 import React from "react";
 import styles from "../styles/components/Header.module.css";
+import {
+  ADMIN,
+  EMPLOYEE,
+  EMPLOYEE_TYPE,
+  PROJECT,
+  PROJECT_TYPE,
+  SKILL,
+} from "../variables";
 
 type HeaderProps = {
   currPage: string;
@@ -11,17 +19,29 @@ const HeaderComp = ({ currPage, openModal }: HeaderProps) => {
   let btnValue;
 
   switch (currPage) {
-    case "admin":
+    case ADMIN:
       pageTitleValue = "Admin Users";
       btnValue = "+ Add User";
       break;
-    case "project":
+    case PROJECT:
       pageTitleValue = "Projects";
       btnValue = "+ Add Project";
       break;
-    case "employee":
+    case EMPLOYEE:
       pageTitleValue = "Employees";
       btnValue = "+ Add Employees";
+      break;
+    case SKILL:
+      pageTitleValue = "Skills";
+      btnValue = "+ Add Skill";
+      break;
+    case PROJECT_TYPE:
+      pageTitleValue = "Project Type";
+      btnValue = "+ Add Project Type";
+      break;
+    case EMPLOYEE_TYPE:
+      pageTitleValue = "Employee Type";
+      btnValue = "+ Add Employee Type";
       break;
     default:
       pageTitleValue = "Page Doesn't Exist";
