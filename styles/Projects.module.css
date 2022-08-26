@@ -918,3 +918,8 @@
     border: none;
     cursor: pointer;
 }
+
+tr:hover .clickDetails {
+    background-color: #f3f4f6;
+    cursor: pointer;
+}

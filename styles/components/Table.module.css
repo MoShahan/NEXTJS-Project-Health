@@ -84,3 +84,8 @@
     margin-right: 5px;
     transform: translateY(20%);
 }
+
+tr:hover .clickDetails {
+    background-color: #f3f4f6;
+    cursor: pointer;
+}

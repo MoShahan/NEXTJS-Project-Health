@@ -9,8 +9,10 @@ import { EMPLOYEE_TYPE } from "../../variables";
 const ITEMS_IN_ONE_PAGE = 14;
 
 const Employee = () => {
-  const [addEmployeeTypeModal, setAddEmployeeTypeModal] = useState(false);
-  const [employeeDetailsModal, setEmployeeDetailsModal] = useState(false);
+  const [addEmployeeTypeModal, setAddEmployeeTypeModal] =
+    useState<boolean>(false);
+  const [employeeDetailsModal, setEmployeeDetailsModal] =
+    useState<boolean>(false);
   const [allChecked, setAllChecked] = useState<boolean>(false);
   const [currentPageData, setCurrentPageData] = useState<Array<any>>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -63,12 +65,18 @@ const Employee = () => {
     }
   };
 
+  const handleDetailClick = () => {
+    setOptionsMenu(false);
+    setEmployeeDetailsModal(true);
+  };
+
   return (
     <div>
       <LeftSideBar />
       <HeaderComp
         currPage={EMPLOYEE_TYPE}
         openModal={setAddEmployeeTypeModal}
+        optionsModal={setOptionsMenu}
       />
       <Table
         setAllChecked={setAllChecked}
@@ -81,7 +89,7 @@ const Employee = () => {
         tempSettingsData={tempEmployeeTypeData}
         ITEMS_IN_ONE_PAGE={ITEMS_IN_ONE_PAGE}
         LAST_PAGE={LAST_PAGE}
-        detailsModal={setEmployeeDetailsModal}
+        detailsModal={handleDetailClick}
       />
       <Modal
         currSetting="Employee Type"

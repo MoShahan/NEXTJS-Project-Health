@@ -1,15 +1,12 @@
 import React from "react";
 import styles from "../../styles/components/ViewDetails.module.css";
 
-type EmployeeDetailsProps = {
+type ProjectDetailsProps = {
   openDetails: boolean;
   setOpenDetails: any;
 };
 
-const DetailsModal = ({
-  openDetails,
-  setOpenDetails,
-}: EmployeeDetailsProps) => {
+const DetailsModal = ({ openDetails, setOpenDetails }: ProjectDetailsProps) => {
   return (
     <div>
       <div
@@ -24,7 +21,7 @@ const DetailsModal = ({
       >
         <div
           className={styles.detailsModalContainer}
-          style={{ height: 670 }}
+          style={{ height: 450 }}
         ></div>
         <h1 className={styles.modalTitle}>View Details</h1>
         <div className={styles.modalSep}></div>
@@ -34,8 +31,6 @@ const DetailsModal = ({
         ></div>
         <h6
           className={
-            styles.userHeading +
-            " " +
             styles.detailsModalHeading +
             " " +
             styles.detailsModalColumnOne +
@@ -43,12 +38,10 @@ const DetailsModal = ({
             styles.detailsModalHeadingRowOne
           }
         >
-          Employer ID
+          Project ID
         </h6>
         <p
           className={
-            styles.userBody +
-            " " +
             styles.detailsModalBody +
             " " +
             styles.detailsModalColumnOne +
@@ -60,8 +53,6 @@ const DetailsModal = ({
         </p>
         <h6
           className={
-            styles.nameHeading +
-            " " +
             styles.detailsModalHeading +
             " " +
             styles.detailsModalColumnTwo +
@@ -73,8 +64,6 @@ const DetailsModal = ({
         </h6>
         <p
           className={
-            styles.nameBody +
-            " " +
             styles.detailsModalBody +
             " " +
             styles.detailsModalColumnTwo +
@@ -86,34 +75,28 @@ const DetailsModal = ({
         </p>
         <h6
           className={
-            styles.emailHeading +
-            " " +
             styles.detailsModalHeading +
             " " +
-            styles.detailsModalColumnThree +
+            styles.projectDetailsModalColumnThree +
             " " +
             styles.detailsModalHeadingRowOne
           }
         >
-          Email
+          Client
         </h6>
         <p
           className={
-            styles.emailBody +
-            " " +
             styles.detailsModalBody +
             " " +
-            styles.detailsModalColumnThree +
+            styles.projectDetailsModalColumnThree +
             " " +
             styles.detailsModalBodyRowOne
           }
         >
-          shahan@cc.com
+          Bruce Wayne
         </p>
         <h6
           className={
-            styles.phoneHeading +
-            " " +
             styles.detailsModalHeading +
             " " +
             styles.detailsModalColumnOne +
@@ -121,12 +104,10 @@ const DetailsModal = ({
             styles.detailsModalHeadingRowTwo
           }
         >
-          Contact Number
+          Project Type
         </h6>
         <p
           className={
-            styles.phoneBody +
-            " " +
             styles.detailsModalBody +
             " " +
             styles.detailsModalColumnOne +
@@ -134,12 +115,10 @@ const DetailsModal = ({
             styles.detailsModalBodyRowTwo
           }
         >
-          +971 508756181
+          Front End
         </p>
         <h6
           className={
-            styles.roleHeading +
-            " " +
             styles.detailsModalHeading +
             " " +
             styles.detailsModalColumnTwo +
@@ -147,12 +126,10 @@ const DetailsModal = ({
             styles.detailsModalHeadingRowTwo
           }
         >
-          Employee Type
+          Project Responsible
         </h6>
         <p
           className={
-            styles.roleBody +
-            " " +
             styles.detailsModalBody +
             " " +
             styles.detailsModalColumnTwo +
@@ -164,24 +141,20 @@ const DetailsModal = ({
         </p>
         <h6
           className={
-            // styles.adminStatusHeading +
-            // " " +
             styles.detailsModalHeading +
             " " +
-            styles.detailsModalColumnThree +
+            styles.projectDetailsModalColumnThree +
             " " +
             styles.detailsModalHeadingRowTwo
           }
         >
-          Joining Date
+          Start Date
         </h6>
         <p
           className={
-            // styles.adminStatusBody +
-            // " " +
             styles.detailsModalBody +
             " " +
-            styles.detailsModalColumnThree +
+            styles.projectDetailsModalColumnThree +
             " " +
             styles.detailsModalBodyRowTwo
           }
@@ -190,8 +163,6 @@ const DetailsModal = ({
         </p>
         <h6
           className={
-            // styles.adminStatusHeading +
-            // " " +
             styles.detailsModalHeading +
             " " +
             styles.detailsModalColumnOne +
@@ -199,12 +170,10 @@ const DetailsModal = ({
             styles.detailsModalHeadingRowThree
           }
         >
-          Salary
+          End Date
         </h6>
         <p
           className={
-            styles.adminStatusBody +
-            " " +
             styles.detailsModalBody +
             " " +
             styles.detailsModalColumnOne +
@@ -212,12 +181,10 @@ const DetailsModal = ({
             styles.detailsModalBodyRowThree
           }
         >
-          0
+          30 Nov 2022
         </p>
         <h6
           className={
-            // styles.adminStatusHeading +
-            // " " +
             styles.detailsModalHeading +
             " " +
             styles.detailsModalColumnTwo +
@@ -225,98 +192,44 @@ const DetailsModal = ({
             styles.detailsModalHeadingRowThree
           }
         >
-          Utilization
+          Project Status
         </h6>
         <p
           className={
-            // styles.adminStatusBody +
-            // " " +
             styles.detailsModalBody +
             " " +
             styles.detailsModalColumnTwo +
             " " +
-            styles.detailsModalBodyRowThree
+            styles.detailsModalBodyRowThree +
+            " " +
+            styles.green
           }
         >
-          uti
+          Running
         </p>
         <h6
           className={
-            // styles.adminStatusHeading +
-            // " " +
             styles.detailsModalHeading +
             " " +
-            styles.detailsModalColumnThree +
+            styles.projectDetailsModalColumnThree +
             " " +
             styles.detailsModalHeadingRowThree
           }
         >
-          Revenue Opportunity
+          Monthly Status
         </h6>
         <p
           className={
-            // styles.adminStatusBody +
-            // " " +
             styles.detailsModalBody +
             " " +
-            styles.detailsModalColumnThree +
+            styles.projectDetailsModalColumnThree +
             " " +
-            styles.detailsModalBodyRowThree
+            styles.detailsModalBodyRowThree +
+            " " +
+            styles.red
           }
         >
-          none
-        </p>
-        <h6
-          className={
-            // styles.adminStatusHeading +
-            // " " +
-            styles.detailsModalHeading +
-            " " +
-            styles.detailsModalColumnOne +
-            " " +
-            styles.detailsModalHeadingRowFour
-          }
-        >
-          Skills
-        </h6>
-        <p
-          className={
-            styles.employeeSkillsBody +
-            " " +
-            styles.detailsModalBody +
-            " " +
-            styles.detailsModalColumnOne +
-            " " +
-            styles.detailsModalBodyRowFour
-          }
-        >
-          React
-        </p>
-        <h6
-          className={
-            // styles.adminStatusHeading +
-            // " " +
-            styles.detailsModalHeading +
-            " " +
-            styles.detailsModalColumnOne +
-            " " +
-            styles.detailsModalHeadingRowFive
-          }
-        >
-          Project Name
-        </h6>
-        <p
-          className={
-            styles.employeeProjectNameBody +
-            " " +
-            styles.detailsModalBody +
-            " " +
-            styles.detailsModalColumnOne +
-            " " +
-            styles.detailsModalBodyRowFive
-          }
-        >
-          Project-Health
+          Behind Schedule
         </p>
       </div>
     </div>

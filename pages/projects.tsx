@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import HeaderComp from "../components/HeaderComp";
 import LeftSideBar from "../components/LeftSideBar";
 import Pagination from "../components/Pagination";
+import DetailsModal from "../components/projects/DetailsModal";
+import UtilModal from "../components/projects/UtilModal";
 import styles from "../styles/Projects.module.css";
 import { PROJECT } from "../variables";
 
@@ -9,10 +11,12 @@ const ITEMS_IN_ONE_PAGE = 15;
 
 const Projects = () => {
   const [addProjectModal, setAddProjectModal] = useState<boolean>(false);
+  const [projectDetailsModal, setProjectDetailsModal] =
+    useState<boolean>(false);
+  const [utilModal, setUtilModal] = useState<boolean>(false);
   const [allChecked, setAllChecked] = useState<boolean>(false);
   const [currentPageData, setCurrentPageData] = useState<Array<any>>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [settingsDropdown, setSettingsDropdown] = useState<boolean>(false);
   const [optionsMenu, setOptionsMenu] = useState<boolean>(false);
   const [currentOptions, setCurrentOptions] = useState<number>(0);
 
@@ -70,12 +74,19 @@ const Projects = () => {
 
   const handleEditProject = () => {};
   const handleActiveProject = () => {};
-  const handleUpdateProject = () => {};
+  const handleUpdateProject = () => {
+    setUtilModal(true);
+    setOptionsMenu(false);
+  };
 
   return (
     <>
       <LeftSideBar />
-      <HeaderComp currPage={PROJECT} openModal={setAddProjectModal} />
+      <HeaderComp
+        currPage={PROJECT}
+        openModal={setAddProjectModal}
+        optionsModal={setOptionsMenu}
+      />
       <div
         className={styles.optionsMenuBox}
         style={{
@@ -156,15 +167,21 @@ const Projects = () => {
                     name=""
                     id=""
                     checked={allChecked ? true : undefined}
-                    // onChange={() => setAllChecked(false)}
                   />
                 </td>
                 {project.map((cell: any) => (
-                  <td>{cell}</td>
+                  <td
+                    onClick={() => {
+                      setProjectDetailsModal(true);
+                      setOptionsMenu(false);
+                    }}
+                    className={styles.clickDetails}
+                  >
+                    {cell}
+                  </td>
                 ))}
                 <td>
                   <div
-                    // onClick={handleOptionsMenu}
                     onClick={() => {
                       handleOptionsMenu(index);
                     }}
@@ -300,6 +317,11 @@ const Projects = () => {
         </button>
         <button className={styles.modalAddProjectBtn}>Add Project</button>
       </div>
+      <DetailsModal
+        openDetails={projectDetailsModal}
+        setOpenDetails={setProjectDetailsModal}
+      />
+      <UtilModal openUtil={utilModal} setOpenUtil={setUtilModal} />
     </>
   );
 };

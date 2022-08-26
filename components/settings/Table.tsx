@@ -72,10 +72,7 @@ const Table = ({
                 />
               </td>
               {admin.map((cell: string) => (
-                <td
-                  style={{ cursor: "pointer" }}
-                  onClick={() => detailsModal(true)}
-                >
+                <td style={{ cursor: "pointer" }} onClick={detailsModal}>
                   {cell}
                 </td>
               ))}

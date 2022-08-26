@@ -3,6 +3,7 @@ import AddModal from "../components/employees/AddModal";
 import DetailsModal from "../components/employees/DetailsModal";
 import OptionsMenu from "../components/employees/OptionsMenu";
 import TableComponent from "../components/employees/TableComponent";
+import UtilizationModal from "../components/employees/UtilizationModal";
 import HeaderComp from "../components/HeaderComp";
 import LeftSideBar from "../components/LeftSideBar";
 import { EMPLOYEE } from "../variables";
@@ -11,6 +12,9 @@ const ITEMS_IN_ONE_PAGE = 15;
 
 const Employees = () => {
   const [addEmployeeModal, setAddEmployeeModal] = useState<boolean>(false);
+  const [employeeDetailsModal, setEmployeeDetailsModal] =
+    useState<boolean>(false);
+  const [utilModal, setUtilModal] = useState<boolean>(false);
   const [allChecked, setAllChecked] = useState<boolean>(false);
   const [currentPageData, setCurrentPageData] = useState<Array<any>>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -59,14 +63,26 @@ const Employees = () => {
     }
   };
 
+  const handleDetailClick = () => {
+    setOptionsMenu(false);
+    setEmployeeDetailsModal(true);
+  };
+
   const handleEditProject = () => {};
   const handleActiveProject = () => {};
-  const handleUpdateProject = () => {};
+  const handleUpdateProject = () => {
+    setUtilModal(true);
+    setOptionsMenu(false);
+  };
 
   return (
     <>
       <LeftSideBar />
-      <HeaderComp currPage={EMPLOYEE} openModal={setAddEmployeeModal} />
+      <HeaderComp
+        currPage={EMPLOYEE}
+        openModal={setAddEmployeeModal}
+        optionsModal={setOptionsMenu}
+      />
       <OptionsMenu
         optionsMenu={optionsMenu}
         currentOptions={currentOptions}
@@ -85,12 +101,17 @@ const Employees = () => {
         tempEmployeesData={tempEmployeesData}
         ITEMS_IN_ONE_PAGE={ITEMS_IN_ONE_PAGE}
         LAST_PAGE={LAST_PAGE}
+        detailsModal={handleDetailClick}
       />
       <AddModal
         openModal={addEmployeeModal}
         setOpenModal={setAddEmployeeModal}
       />
-      <DetailsModal />
+      <DetailsModal
+        openDetails={employeeDetailsModal}
+        setOpenDetails={setEmployeeDetailsModal}
+      />
+      <UtilizationModal openUtil={utilModal} setOpenUtil={setUtilModal} />
     </>
   );
 };

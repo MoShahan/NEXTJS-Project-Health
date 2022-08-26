@@ -9,8 +9,10 @@ import { PROJECT_TYPE, SKILL } from "../../variables";
 const ITEMS_IN_ONE_PAGE = 12;
 
 const ProjectType = () => {
-  const [addNewProjectTypeModal, setAddNewProjectTypeModal] = useState(false);
-  const [projectDetailsModal, setProjectDetailsModal] = useState(false);
+  const [addNewProjectTypeModal, setAddNewProjectTypeModal] =
+    useState<boolean>(false);
+  const [projectDetailsModal, setProjectDetailsModal] =
+    useState<boolean>(false);
   const [allChecked, setAllChecked] = useState<boolean>(false);
   const [currentPageData, setCurrentPageData] = useState<Array<any>>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -63,12 +65,18 @@ const ProjectType = () => {
     }
   };
 
+  const handleDetailClick = () => {
+    setOptionsMenu(false);
+    setProjectDetailsModal(true);
+  };
+
   return (
     <div>
       <LeftSideBar />
       <HeaderComp
         currPage={PROJECT_TYPE}
         openModal={setAddNewProjectTypeModal}
+        optionsModal={setOptionsMenu}
       />
       <Table
         setAllChecked={setAllChecked}
@@ -81,7 +89,7 @@ const ProjectType = () => {
         tempSettingsData={tempProjectTypeData}
         ITEMS_IN_ONE_PAGE={ITEMS_IN_ONE_PAGE}
         LAST_PAGE={LAST_PAGE}
-        detailsModal={setProjectDetailsModal}
+        detailsModal={handleDetailClick}
       />
       <Modal
         currSetting="Project Type"

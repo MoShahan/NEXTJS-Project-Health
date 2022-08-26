@@ -12,6 +12,7 @@ const ITEMS_IN_ONE_PAGE = 15;
 
 const AdminUsers = () => {
   const [addAdminModal, setAddAdminModal] = useState<boolean>(false);
+  const [adminDetailsModal, setAdminDetailsModal] = useState<boolean>(false);
   const [allChecked, setAllChecked] = useState<boolean>(false);
   const [currentPageData, setCurrentPageData] = useState<Array<any>>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -65,6 +66,11 @@ const AdminUsers = () => {
     }
   };
 
+  const handleDetailClick = () => {
+    setOptionsMenu(false);
+    setAdminDetailsModal(true);
+  };
+
   const handleEditProject = () => {};
   const handleArchiveProject = () => {};
   const handleDeleteProject = () => {};
@@ -72,7 +78,11 @@ const AdminUsers = () => {
   return (
     <div>
       <LeftSideBar />
-      <HeaderComp currPage={ADMIN} openModal={setAddAdminModal} />
+      <HeaderComp
+        currPage={ADMIN}
+        openModal={setAddAdminModal}
+        optionsModal={setOptionsMenu}
+      />
       <OptionsMenu
         optionsMenu={optionsMenu}
         currentOptions={currentOptions}
@@ -91,9 +101,13 @@ const AdminUsers = () => {
         tempAdminsData={tempAdminsData}
         ITEMS_IN_ONE_PAGE={ITEMS_IN_ONE_PAGE}
         LAST_PAGE={LAST_PAGE}
+        detailsModal={handleDetailClick}
       />
       <AddModal openModal={addAdminModal} setOpenModal={setAddAdminModal} />
-      <DetailsModal />
+      <DetailsModal
+        openDetails={adminDetailsModal}
+        setOpenDetails={setAdminDetailsModal}
+      />
     </div>
   );
 };

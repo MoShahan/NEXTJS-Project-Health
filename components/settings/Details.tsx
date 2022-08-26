@@ -11,7 +11,6 @@ const Details = ({ openDetails, setOpenDetails }: SettingsDetailsProps) => {
     <div>
       <div
         style={{
-          // opacity: "0.2",
           display: openDetails ? "block" : "none",
         }}
         className={styles.modalBG}

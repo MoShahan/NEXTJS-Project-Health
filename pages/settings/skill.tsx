@@ -9,8 +9,9 @@ import { SKILL } from "../../variables";
 const ITEMS_IN_ONE_PAGE = 11;
 
 const Skill = () => {
-  const [addNewSkillModal, setAddNewSkillModal] = useState(false);
-  const [addSkillDetailsModal, setAddSkillDetailsModal] = useState(false);
+  const [addNewSkillModal, setAddNewSkillModal] = useState<boolean>(false);
+  const [addSkillDetailsModal, setAddSkillDetailsModal] =
+    useState<boolean>(false);
   const [allChecked, setAllChecked] = useState<boolean>(false);
   const [currentPageData, setCurrentPageData] = useState<Array<any>>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -63,10 +64,19 @@ const Skill = () => {
     }
   };
 
+  const handleDetailClick = () => {
+    setOptionsMenu(false);
+    setAddSkillDetailsModal(true);
+  };
+
   return (
     <div>
       <LeftSideBar />
-      <HeaderComp currPage={SKILL} openModal={setAddNewSkillModal} />
+      <HeaderComp
+        currPage={SKILL}
+        openModal={setAddNewSkillModal}
+        optionsModal={setOptionsMenu}
+      />
       <Table
         setAllChecked={setAllChecked}
         currentPageData={currentPageData}
@@ -78,7 +88,7 @@ const Skill = () => {
         tempSettingsData={tempSkillsData}
         ITEMS_IN_ONE_PAGE={ITEMS_IN_ONE_PAGE}
         LAST_PAGE={LAST_PAGE}
-        detailsModal={setAddSkillDetailsModal}
+        detailsModal={handleDetailClick}
       />
       <Modal
         currSetting="Skill"

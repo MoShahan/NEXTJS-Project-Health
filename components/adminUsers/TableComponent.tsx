@@ -13,6 +13,7 @@ type AdminTableProps = {
   tempAdminsData: Array<any>;
   ITEMS_IN_ONE_PAGE: number;
   LAST_PAGE: number;
+  detailsModal: any;
 };
 
 const TableComponent = ({
@@ -26,6 +27,7 @@ const TableComponent = ({
   tempAdminsData,
   ITEMS_IN_ONE_PAGE,
   LAST_PAGE,
+  detailsModal,
 }: AdminTableProps) => {
   return (
     <table className={styles.adminTable}>
@@ -85,7 +87,9 @@ const TableComponent = ({
                 />
               </td>
               {admin.map((cell: string) => (
-                <td>{cell}</td>
+                <td className={styles.clickDetails} onClick={detailsModal}>
+                  {cell}
+                </td>
               ))}
               <td>
                 <div>Admin</div>

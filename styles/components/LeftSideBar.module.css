@@ -127,12 +127,13 @@
 
 .currentPageContainer {
     background-color: #1996fc;
-    transition: all 0.5s ease-out;
+    transition: all 3s;
 }
 
 .leftBar:hover .currentPageContainer {
     background-color: white;
     color: #1996fc;
+    transition: all 0.1s;
 }
 
 .currentPageIcon {

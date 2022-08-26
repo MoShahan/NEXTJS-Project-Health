@@ -12,9 +12,10 @@ import {
 type HeaderProps = {
   currPage: string;
   openModal: any;
+  optionsModal: any;
 };
 
-const HeaderComp = ({ currPage, openModal }: HeaderProps) => {
+const HeaderComp = ({ currPage, openModal, optionsModal }: HeaderProps) => {
   let pageTitleValue;
   let btnValue;
 
@@ -67,6 +68,7 @@ const HeaderComp = ({ currPage, openModal }: HeaderProps) => {
             className={styles.addProjectBtn}
             onClick={() => {
               openModal(true);
+              optionsModal(false);
               console.log("ADD MODAL BTN CLICKD");
             }}
           >

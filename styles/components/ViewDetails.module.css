@@ -55,9 +55,10 @@
 
 .skillHeading,
 .statusHeading,
-.descriptionHeading {
+.descriptionHeading,
+.detailsModalHeading {
     position: absolute;
-    font-family: 'Inter';
+    font-family: "Inter";
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
@@ -83,9 +84,10 @@
 
 .skillBody,
 .statusBody,
-.descriptionBody {
+.descriptionBody,
+.detailsModalBody {
     position: absolute;
-    font-family: 'Inter';
+    font-family: "Inter";
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
@@ -108,4 +110,69 @@
 .statusBody {
     top: 253px;
     left: 763px;
+}
+
+.detailsModalColumnOne {
+    left: 410px;
+}
+
+.detailsModalColumnTwo {
+    left: 632px;
+}
+
+.detailsModalColumnThree {
+    left: 807px;
+}
+
+.projectDetailsModalColumnThree {
+    left: 847px;
+}
+
+.detailsModalHeadingRowOne {
+    top: 217px;
+}
+
+.detailsModalBodyRowOne {
+    top: 257px;
+}
+
+.detailsModalHeadingRowTwo {
+    top: 328px;
+}
+
+.detailsModalBodyRowTwo {
+    top: 368px;
+}
+
+.detailsModalHeadingRowThree {
+    /*  add 111 */
+    top: 439px;
+}
+
+.detailsModalBodyRowThree {
+    top: 479px;
+}
+
+.detailsModalHeadingRowFour {
+    top: 550px;
+}
+
+.detailsModalBodyRowFour {
+    top: 590px;
+}
+
+.detailsModalHeadingRowFive {
+    top: 661px;
+}
+
+.detailsModalBodyRowFive {
+    top: 701px;
+}
+
+.green {
+    color: #33BC28;
+}
+
+.red {
+    color: #E02424;
 }

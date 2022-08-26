@@ -1,0 +1,219 @@
+.modalBG {
+    position: fixed;
+    width: 1440px;
+    height: 1024px;
+    left: 0px;
+    top: 0px;
+    background: #18181b;
+    opacity: 0.2
+}
+
+.modalContainer {
+    position: absolute;
+    width: 700px;
+    height: 596px;
+    left: 370px;
+    top: 120px;
+    background: #ffffff;
+    border-radius: 16px;
+}
+
+.modalTitle {
+    position: absolute;
+    width: 250px;
+    height: 33px;
+    left: 410px;
+    top: 160px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 150%;
+    /* identical to box height, or 33px */
+    /* cool-gray/900 */
+    color: #111928;
+}
+
+.modalClose {
+    position: absolute;
+    left: 1030px;
+    top: 19%;
+    cursor: pointer;
+    background: url(../../assets/pics/close-icon.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 13px;
+    width: 13px;
+}
+
+.modalSep {
+    position: absolute;
+    width: 620px;
+    height: 2px;
+    left: 410px;
+    top: 215px;
+    background: #ececef;
+}
+
+.modalCancel {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9px 17px;
+    position: absolute;
+    width: 88px;
+    height: 42px;
+    left: 805px;
+    top: 634px;
+    /* white */
+    background: #ffffff;
+    /* cool-gray/300 */
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    color: #111928;
+    cursor: pointer;
+}
+
+.modalSaveBtn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9px 17px;
+    position: absolute;
+    width: 150px;
+    height: 42px;
+    left: 905px;
+    top: 634px;
+    background: #f6f6f6;
+    border-radius: 6px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    color: #9ca3af;
+    border: none;
+    cursor: pointer;
+}
+
+.heading {
+    position: absolute;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 100%;
+    text-transform: uppercase;
+    color: #212121;
+}
+
+.modalBody {
+    font-family: 'Inter';
+    position: absolute;
+    background: #FFFFFF;
+    border: 1px solid #DCDCE0;
+    border-radius: 6px;
+    box-sizing: border-box;
+    height: 48px;
+    font-size: 16px;
+}
+
+.columnOne {
+    left: 410px;
+}
+
+.columnTwo {
+    left: 627px;
+}
+
+.columnThree {
+    left: 735px;
+}
+
+.columnFour {
+    left: 857px;
+}
+
+.columnFive {
+    left: 875px;
+}
+
+.headingRowOne {
+    top: 243px;
+}
+
+.headingRowTwo {
+    top: 342px;
+}
+
+.headingRowThree {
+    top: 441px;
+}
+
+.headingRowFour {
+    top: 540px;
+}
+
+.bodyRowOne {
+    top: 294px;
+}
+
+.bodyRowTwo {
+    top: 393px;
+}
+
+.bodyRowThree {
+    top: 492px;
+}
+
+.bodyRowFour {
+    top: 591px;
+}
+
+.addAnotherBtn {
+    padding: 10px 13px;
+    background: #FFFFFF;
+    border: 1px solid #262626;
+    border-radius: 6px;
+    box-sizing: border-box;
+    top: 680px;
+    left: 410px;
+    position: absolute;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 150%;
+    width: 140px;
+    cursor: pointer;
+    color: #262626;
+    transition: all 0.3s;
+}
+
+.addAnotherBtn:hover {
+    background-color: #262626;
+    color: #FFF;
+}
+
+.delete {
+    cursor: pointer;
+    padding: 5px 8px;
+    color: #F05252;
+    top: 599px;
+    position: absolute;
+    font-size: 20px;
+    border-radius: 6px;
+    transition: all 0.3s;
+}
+
+.delete:hover {
+    color: #FFF;
+    background-color: #F05252;
+}
