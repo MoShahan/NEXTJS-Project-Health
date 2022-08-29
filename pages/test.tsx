@@ -10,7 +10,19 @@ const Test = () => {
   // heading - 540
   // body - 591
   // delete - 599
-  const [totalFields, setTotalFields] = useState<Array<any>>([])
+  const [totalFields, setTotalFields] = useState<Array<any>>([]);
+
+  const handleAdd = () => {
+    setNumberOfExtraFields((prev) => prev + 1);
+  };
+
+  const handleDelete = () => {
+    // console.log("Handle Delete is called");
+    if (numberOfExtraFields > 0) {
+      setNumberOfExtraFields((prev) => prev - 1);
+      // console.log("IF === ", numberOfExtraFields);
+    }
+  };
 
   useEffect(() => {
     var tempTotalFields = [];
@@ -68,20 +80,8 @@ const Test = () => {
     }
     // console.log(totalFields);
     // console.log(numberOfExtraFields);
-    setTotalFields(tempTotalFields)
-  }, [numberOfExtraFields]);
-
-  const handleAdd = () => {
-    setNumberOfExtraFields((prev) => prev + 1);
-  };
-
-  const handleDelete = () => {
-    // console.log("Handle Delete is called");
-    if (numberOfExtraFields > 0) {
-      setNumberOfExtraFields((prev) => prev - 1);
-      // console.log("IF === ", numberOfExtraFields);
-    }
-  };
+    setTotalFields(tempTotalFields);
+  }, [numberOfExtraFields, handleDelete]);
 
   return (
     <div>

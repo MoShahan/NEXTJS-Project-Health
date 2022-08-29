@@ -37,7 +37,7 @@ const Skill = () => {
         currentPage * ITEMS_IN_ONE_PAGE
       ),
     ]);
-  }, [currentPage]);
+  }, [currentPage, tempSkillsData]);
 
   const handlePaginationLeft = () => {
     if (currentPage === 1) {

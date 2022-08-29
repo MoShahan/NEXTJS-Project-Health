@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import styles from "../../styles/ForgotPassword.module.css";
 
@@ -5,7 +6,9 @@ const PageOne = ({ setFirstPage }: any) => {
   return (
     <div>
       <div className={styles.backBtn}>
-        <a href="/login">{"< "} Back</a>
+        <Link href="/login">
+          <a>{"< "} Back</a>
+        </Link>
       </div>
       <div className="sec1">
         <h1 className={styles.mainHeading}>Forgot your Password</h1>
@@ -20,7 +23,9 @@ const PageOne = ({ setFirstPage }: any) => {
           Send me instructions
         </button>
         <p className={styles.cancelOne}>
-          <a href="/login">Cancel</a>
+          <Link href="/login">
+            <a>Cancel</a>
+          </Link>
         </p>
       </div>
     </div>

@@ -4,7 +4,7 @@ const ThirdPage = () => {
   return (
     <div className="sec3">
       <div className={styles.backBtn}>
-        <a href="/forgotPassword/2">{"< "} Back</a>
+        {/* <a href="/forgotPassword/2">{"< "} Back</a> */}
       </div>
       <h1 className={styles.mainHeading}>Set new password</h1>
       <h6 className={styles.mainContent}>
@@ -19,9 +19,9 @@ const ThirdPage = () => {
       <input type="password" placeholder="" className={styles.secondPassInput}/>
       <h6 className={styles.secondHelper}>Both password must match.</h6>
       <button className={styles.btnThree} type="submit">
-        <a href="/forgotPassword/4">Reset password</a>
+        {/* <a href="/forgotPassword/4">Reset password</a> */}
       </button>
-      <a className={styles.cancelThree} href="/login">Cancel</a>
+      {/* <a className={styles.cancelThree} href="/login">Cancel</a> */}
     </div>
   );
 };

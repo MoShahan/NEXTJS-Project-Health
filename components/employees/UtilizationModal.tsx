@@ -15,6 +15,18 @@ const UtilizationModal = ({ openUtil, setOpenUtil }: UtilizationModalProps) => {
   const [numberOfExtraFields, setNumberOfExtraFields] = useState<number>(0);
   const [totalFields, setTotalFields] = useState<Array<any>>([]);
 
+  const handleAdd = () => {
+    setNumberOfExtraFields((prev) => prev + 1);
+  };
+
+  const handleDelete = () => {
+    console.log("Handle Delete is called");
+    if (numberOfExtraFields > 0) {
+      setNumberOfExtraFields((prev) => prev - 1);
+      console.log("IF === ", numberOfExtraFields);
+    }
+  };
+
   useEffect(() => {
     var tempTotalFields = [];
     for (let i = 1; i < numberOfExtraFields + 1; i++) {
@@ -86,19 +98,7 @@ const UtilizationModal = ({ openUtil, setOpenUtil }: UtilizationModalProps) => {
       );
     }
     setTotalFields(tempTotalFields);
-  }, [numberOfExtraFields]);
-
-  const handleAdd = () => {
-    setNumberOfExtraFields((prev) => prev + 1);
-  };
-
-  const handleDelete = () => {
-    console.log("Handle Delete is called");
-    if (numberOfExtraFields > 0) {
-      setNumberOfExtraFields((prev) => prev - 1);
-      console.log("IF === ", numberOfExtraFields);
-    }
-  };
+  }, [numberOfExtraFields, handleDelete]);
 
   return (
     <div

@@ -9,7 +9,7 @@ const FourthPage = () => {
         magically
       </h6>
       <button className={styles.btnFour}>
-        <a href="/login">Continue</a>
+        {/* <a href="/login">Continue</a> */}
       </button>
     </div>
   );

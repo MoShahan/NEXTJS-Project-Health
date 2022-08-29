@@ -107,7 +107,7 @@ const TableComponent = ({
       <tbody>
         {currentPageData.map((admin: Array<any>, index: number) => {
           return (
-            <tr>
+            <tr key={index + admin[0]}>
               <td>
                 <input
                   type="checkbox"
@@ -128,7 +128,9 @@ const TableComponent = ({
               <td onClick={detailsModal} className={styles.clickDetails}>
                 {admin[3].map((skill: string) => {
                   return (
-                    <div className={styles.eachEmployeeSkill}>{skill}</div>
+                    <div key={skill} className={styles.eachEmployeeSkill}>
+                      {skill}
+                    </div>
                   );
                 })}
               </td>
@@ -136,6 +138,7 @@ const TableComponent = ({
                 {admin[4].map((skill: string) => {
                   return (
                     <div
+                      key={skill}
                       className={styles.eachEmployeeSkill}
                       style={{ width: 100 }}
                     >

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import styles from "../../styles/ForgotPassword.module.css";
 
@@ -31,9 +32,9 @@ const PageThree = ({ setFirstPage }: any) => {
         {/* <a href="/forgotPassword/4">Reset password</a> */}
         Reset password
       </button>
-      <a className={styles.cancelThree} href="/login">
-        Cancel
-      </a>
+      <Link href="/login">
+        <a className={styles.cancelThree}>Cancel</a>
+      </Link>
     </div>
   );
 };

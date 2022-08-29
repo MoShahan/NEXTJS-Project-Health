@@ -1,10 +1,13 @@
+import Link from "next/link";
 import styles from "../styles/TOS.module.css";
 
 const tos = () => {
   return (
     <>
       <div className={styles.backBtn}>
-        <a href="/login">{"< "} Back</a>
+        <Link href="/login">
+          <a>{"< "} Back</a>
+        </Link>
       </div>
       <h1 className={styles.tosHeading}>Terms of Service</h1>
       <div className={styles.tosBody}>

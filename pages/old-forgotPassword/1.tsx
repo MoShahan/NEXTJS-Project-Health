@@ -7,7 +7,7 @@ const ForgotPassword = () => {
   return (
     <div>
       <div className={styles.backBtn}>
-        <a href="/login">{"< "} Back</a>
+        {/* <a href="/login">{"< "} Back</a> */}
       </div>
       <div className="sec1">
         <h1 className={styles.mainHeading}>Forgot your Password</h1>
@@ -18,10 +18,10 @@ const ForgotPassword = () => {
         <h6 className={styles.firstPlaceholder}>Email</h6>
         <input className={styles.fEmailInput} type="text" />
         <button className={styles.btnOne}>
-          <a href="forgotPassword/2">Send me instructions</a>
+          {/* <a href="forgotPassword/2">Send me instructions</a> */}
         </button>
         <p className={styles.cancelOne}>
-          <a href="/login">Cancel</a>
+          {/* <a href="/login">Cancel</a> */}
         </p>
       </div>
       {/* <div className="sec2">

@@ -49,7 +49,7 @@ const Employees = () => {
         currentPage * ITEMS_IN_ONE_PAGE
       ),
     ]);
-  }, [currentPage]);
+  }, [currentPage,tempEmployeesData]);
 
   const handlePaginationLeft = () => {
     if (currentPage === 1) {

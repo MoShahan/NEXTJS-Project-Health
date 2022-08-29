@@ -38,7 +38,7 @@ const ProjectType = () => {
         currentPage * ITEMS_IN_ONE_PAGE
       ),
     ]);
-  }, [currentPage]);
+  }, [currentPage,tempProjectTypeData]);
 
   const handlePaginationLeft = () => {
     if (currentPage === 1) {

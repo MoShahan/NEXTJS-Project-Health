@@ -1,10 +1,13 @@
+import Link from "next/link";
 import styles from "../styles/PP.module.css";
 
 const pp = () => {
   return (
     <>
       <div className={styles.backBtn}>
-        <a href="/login">{"< "} Back</a>
+        <Link href="/login">
+          <a>{"< "} Back</a>
+        </Link>
       </div>
       <h1 className={styles.ppHeading}>Privacy Policy</h1>
       <div className={styles.ppBody}>

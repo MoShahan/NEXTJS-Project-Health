@@ -45,7 +45,7 @@ const Projects = () => {
         currentPage * ITEMS_IN_ONE_PAGE
       ),
     ]);
-  }, [currentPage]);
+  }, [currentPage, tempProjectData]);
 
   const handlePaginationLeft = () => {
     if (currentPage === 1) {
@@ -160,7 +160,7 @@ const Projects = () => {
         <tbody>
           {currentPageData.map((project: any, index: number) => {
             return (
-              <tr>
+              <tr key={index + project[0]}>
                 <td>
                   <input
                     type="checkbox"
@@ -171,6 +171,7 @@ const Projects = () => {
                 </td>
                 {project.map((cell: any) => (
                   <td
+                    key={cell}
                     onClick={() => {
                       setProjectDetailsModal(true);
                       setOptionsMenu(false);

@@ -39,7 +39,7 @@ const AdminUsers = () => {
         currentPage * ITEMS_IN_ONE_PAGE
       ),
     ]);
-  }, [currentPage]);
+  }, [currentPage,tempAdminsData]);
 
   const handlePaginationLeft = () => {
     if (currentPage === 1) {
