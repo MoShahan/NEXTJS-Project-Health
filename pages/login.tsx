@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { ReactElement, useEffect, useState } from "react";
 import styles from "../styles/Login.module.css";
 
 const DEMO_CORRECT_USERNAME = "admin";
@@ -128,5 +128,9 @@ const Login = () => {
     </>
   );
 };
+
+// Login.getLayout = function getLayout(page: ReactElement) {
+//   return page;
+// };
 
 export default Login;

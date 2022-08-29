@@ -1,14 +1,13 @@
 // import styles from "../../styles/ForgotPassword.module.css";
+import { useState } from "react";
 import styles from "../../styles/ForgotPassword.module.css";
 
 const ForgotPassword = () => {
+  const [firstPage, setfirstPage] = useState(true);
   return (
     <div>
       <div className={styles.backBtn}>
-        <a href="/login">
-          <span>{"<"}</span>
-          <span> Back </span>
-        </a>
+        <a href="/login">{"< "} Back</a>
       </div>
       <div className="sec1">
         <h1 className={styles.mainHeading}>Forgot your Password</h1>

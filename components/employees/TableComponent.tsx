@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "../../styles/components/Table.module.css";
 import Pagination from "../Pagination";
+import { IoIosArrowRoundUp, IoIosArrowRoundDown } from "react-icons/io";
 
 type EmployeeTableProps = {
   setAllChecked: any;
@@ -30,7 +31,12 @@ const TableComponent = ({
   detailsModal,
 }: EmployeeTableProps) => {
   return (
-    <table className={styles.adminTable}>
+    <table
+      className={styles.adminTable}
+      style={{
+        width: 1800,
+      }}
+    >
       <thead>
         <tr>
           <td>
@@ -40,6 +46,30 @@ const TableComponent = ({
               id=""
               onClick={() => setAllChecked((prev: boolean) => !prev)}
             />
+          </td>
+          <td>
+            Employee ID
+            <span className={styles.topArrow}>
+              {/* <IoIosArrowRoundUp /> */}
+            </span>
+            <span className={styles.downArrow}>
+              {/* <IoIosArrowRoundDown /> */}
+            </span>
+          </td>
+          <td>
+            Name
+            <span className={styles.topArrow}></span>
+            <span className={styles.downArrow}></span>
+          </td>
+          <td>
+            Email
+            <span className={styles.topArrow}></span>
+            <span className={styles.downArrow}></span>
+          </td>
+          <td>
+            Project Name
+            <span className={styles.topArrow}></span>
+            <span className={styles.downArrow}></span>
           </td>
           <td>
             Skills
@@ -86,21 +116,49 @@ const TableComponent = ({
                   checked={allChecked ? true : undefined}
                 />
               </td>
-              <td>
-                {["Front End", "Back End"].map((skill: string) => {
+              <td onClick={detailsModal} className={styles.clickDetails}>
+                {index + " - " + admin[0]}
+              </td>
+              <td onClick={detailsModal} className={styles.clickDetails}>
+                {admin[1]}
+              </td>
+              <td onClick={detailsModal} className={styles.clickDetails}>
+                {admin[2]}
+              </td>
+              <td onClick={detailsModal} className={styles.clickDetails}>
+                {admin[3].map((skill: string) => {
                   return (
                     <div className={styles.eachEmployeeSkill}>{skill}</div>
                   );
                 })}
               </td>
-              {admin.map((cell: string) => (
-                <td
-                  onClick={detailsModal}
-                  className={styles.clickDetails}
-                >
-                  {cell}
-                </td>
-              ))}
+              <td onClick={detailsModal} className={styles.clickDetails}>
+                {admin[4].map((skill: string) => {
+                  return (
+                    <div
+                      className={styles.eachEmployeeSkill}
+                      style={{ width: 100 }}
+                    >
+                      {skill}
+                    </div>
+                  );
+                })}
+              </td>
+              <td onClick={detailsModal} className={styles.clickDetails}>
+                {admin[5]}
+              </td>
+              <td onClick={detailsModal} className={styles.clickDetails}>
+                {admin[6]}
+              </td>
+              <td onClick={detailsModal} className={styles.clickDetails}>
+                {admin[7]}
+              </td>
+              <td onClick={detailsModal} className={styles.clickDetails}>
+                {admin[8]}
+              </td>
+              <td onClick={detailsModal} className={styles.clickDetails}>
+                {admin[9]}
+              </td>
               <td>
                 <div
                   onClick={() => {

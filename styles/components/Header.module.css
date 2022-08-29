@@ -36,13 +36,15 @@
 }
 
 .divider {
-    width: 1440px;
+    width: 100%;
+    /* width: 1440px; */
     height: 1px;
     background: #e5e7eb;
     flex: none;
     order: 0;
     position: absolute;
     top: 64px;
+    /* overflow: hidden; */
 }
 
 .pageTitle {
@@ -99,7 +101,8 @@
 }
 
 .separator {
-    width: 1379px;
+    width: 100%;
+    /* width: 1379px; */
     height: 1px;
     background: #e5e7eb;
     flex: none;
@@ -107,5 +110,5 @@
     flex-grow: 0;
     position: absolute;
     top: 145px;
-    left: 60px;
+    /* left: 60px; */
 }

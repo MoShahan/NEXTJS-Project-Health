@@ -13,7 +13,15 @@ const Modal = ({
   setOpenModal,
 }: SettingsModalProps) => {
   return (
-    <div>
+    <div
+      style={{
+        display: openModal ? "block" : "none",
+        zIndex: 2,
+        width: 1440,
+        height: "100vh",
+        position: "absolute",
+      }}
+    >
       <div
         style={{
           opacity: "0.2",
@@ -38,7 +46,9 @@ const Modal = ({
           type="text"
           placeholder="Enter..."
         />
-        <h6 className={styles.modalDescription}>{currSetting + " Description"}</h6>
+        <h6 className={styles.modalDescription}>
+          {currSetting + " Description"}
+        </h6>
         <textarea
           className={styles.modalDescriptionInput}
           placeholder="Type your text here..."

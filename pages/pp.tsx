@@ -3,6 +3,9 @@ import styles from "../styles/PP.module.css";
 const pp = () => {
   return (
     <>
+      <div className={styles.backBtn}>
+        <a href="/login">{"< "} Back</a>
+      </div>
       <h1 className={styles.ppHeading}>Privacy Policy</h1>
       <div className={styles.ppBody}>
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis qui

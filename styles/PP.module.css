@@ -1,3 +1,23 @@
+.backBtn {
+    position: absolute;
+    width: 54px;
+    height: 17px;
+    left: 88px;
+    top: 58px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    /* identical to box height */
+    color: #a6a6a6;
+    cursor: pointer;
+}
+
+.backBtn a {
+    text-decoration: none;
+}
+
 .ppHeading {
     font-family: "Inter";
     margin: 100px;

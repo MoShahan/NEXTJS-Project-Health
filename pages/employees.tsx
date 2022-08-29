@@ -23,8 +23,21 @@ const Employees = () => {
 
   const tempEmployeesData: Array<any> = [];
 
-  for (let i = 0; i < 31; i++) {
-    tempEmployeesData.push(["Shahan", "Sep 01 2022", "0", "uti", "revenue"]);
+  for (let i = 0; i < 27; i++) {
+    // tempEmployeesData.push(["Shahan", "Sep 01 2022", "0", "uti", "revenue"]);
+
+    tempEmployeesData.push([
+      "1234567",
+      "Shahan",
+      "shahan@cc.com",
+      ["Parking", "Quiz"],
+      ["Front End", "Back End"],
+      "Expert",
+      "Sep 01 2022",
+      "0",
+      "uti",
+      "revenue",
+    ]);
   }
 
   const LAST_PAGE = Math.ceil(tempEmployeesData.length / ITEMS_IN_ONE_PAGE);
@@ -78,11 +91,13 @@ const Employees = () => {
   return (
     <>
       <LeftSideBar />
+      {/* <div style={{ width: 1900, position: "absolute" }}> */}
       <HeaderComp
         currPage={EMPLOYEE}
         openModal={setAddEmployeeModal}
         optionsModal={setOptionsMenu}
       />
+      {/* </div> */}
       <OptionsMenu
         optionsMenu={optionsMenu}
         currentOptions={currentOptions}

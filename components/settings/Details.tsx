@@ -8,7 +8,15 @@ type SettingsDetailsProps = {
 
 const Details = ({ openDetails, setOpenDetails }: SettingsDetailsProps) => {
   return (
-    <div>
+    <div
+      style={{
+        display: openDetails ? "block" : "none",
+        zIndex: 2,
+        width: 1440,
+        height: "100vh",
+        position: "absolute",
+      }}
+    >
       <div
         style={{
           display: openDetails ? "block" : "none",

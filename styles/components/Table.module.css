@@ -9,6 +9,8 @@
     width: 1350px;
     border-spacing: 0px;
     font-family: "Inter";
+    /* width: max-content; */
+    /* overflow: scroll; */
 }
 
 .adminTable thead {
@@ -20,6 +22,8 @@
     padding: 5px;
     height: 70px;
     color: #111928;
+    /* width: 500px; */
+    /* width: 100%; */
 }
 
 .optionsMenu {

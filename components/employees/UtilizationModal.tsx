@@ -2,96 +2,114 @@ import React, { useEffect, useState } from "react";
 import styles from "../../styles/components/Utilization.module.css";
 import { HiTrash } from "react-icons/hi";
 
+const TOP_VALUE_OF_FIELD_HEADING = 540;
+const TOP_VALUE_OF_FIELD_INPUT = 590;
+const HEIGHT_BETWEEN = 100;
+
 type UtilizationModalProps = {
   openUtil: boolean;
   setOpenUtil: any;
 };
 
-// var totalFields: Array<any> = [];
-
 const UtilizationModal = ({ openUtil, setOpenUtil }: UtilizationModalProps) => {
-  // const [numberOfExtraFields, setNumberOfExtraFields] = useState<number>(0);
-  // change top of add another button
-  // change height of modal container
-  // difference in top of each hreading and body == 99
-  // heading - 540
-  // body - 591
-  // delete - 599
+  const [numberOfExtraFields, setNumberOfExtraFields] = useState<number>(0);
+  const [totalFields, setTotalFields] = useState<Array<any>>([]);
 
-  //   useEffect(() => {
-  //     totalFields = [];
-  //     for (let i = 1; i < numberOfExtraFields + 1; i++) {
-  //       totalFields.push(
-  //         <div style={{ position: "absolute" }}>
-  //           <h6
-  //             className={styles.columnOne + " " + styles.heading}
-  //             style={{ top: 540 + i * 50, background: "red" }}
-  //           >
-  //             Project Name
-  //           </h6>
-  //           <input
-  //             style={{ width: 300 }}
-  //             type="text"
-  //             className={
-  //               styles.bodyRowFour +
-  //               " " +
-  //               styles.columnOne +
-  //               " " +
-  //               styles.modalBody
-  //             }
-  //             placeholder="Enter..."
-  //           />
-  //           <h6
-  //             className={styles.columnThree + " " + styles.heading}
-  //             style={{ top: 540 + i * 50 }}
-  //           >
-  //             Utilization
-  //           </h6>
-  //           <input
-  //             style={{ width: 200 }}
-  //             type="text"
-  //             className={
-  //               styles.bodyRowFour +
-  //               " " +
-  //               styles.columnThree +
-  //               " " +
-  //               styles.modalBody
-  //             }
-  //             placeholder="0"
-  //           />
-  //           <div
-  //             className={
-  //               styles.headingRowFour +
-  //               " " +
-  //               styles.columnFive +
-  //               " " +
-  //               styles.delete
-  //             }
-  //             style={{ left: 955 }}
-  //             onClick={handleDelete}
-  //           >
-  //             <HiTrash />
-  //           </div>
-  //         </div>
-  //       );
-  //     }
-  //     console.log(totalFields);
-  //     console.log(numberOfExtraFields);
-  //   }, [numberOfExtraFields]);
+  useEffect(() => {
+    var tempTotalFields = [];
+    for (let i = 1; i < numberOfExtraFields + 1; i++) {
+      tempTotalFields.push(
+        <div style={{ position: "absolute" }}>
+          <h6
+            className={styles.columnOne + " " + styles.heading}
+            style={{
+              top: TOP_VALUE_OF_FIELD_HEADING + i * HEIGHT_BETWEEN,
+              width: 200,
+            }}
+          >
+            Project Name
+          </h6>
+          <input
+            style={{
+              width: 300,
+              top: TOP_VALUE_OF_FIELD_INPUT + i * HEIGHT_BETWEEN,
+            }}
+            type="text"
+            className={
+              styles.bodyRowFour +
+              " " +
+              styles.columnOne +
+              " " +
+              styles.modalBody
+            }
+            placeholder="Enter..."
+          />
+          <h6
+            className={styles.columnThree + " " + styles.heading}
+            style={{ top: TOP_VALUE_OF_FIELD_HEADING + i * HEIGHT_BETWEEN }}
+          >
+            Utilization
+          </h6>
+          <input
+            style={{
+              width: 200,
+              top: TOP_VALUE_OF_FIELD_INPUT + i * HEIGHT_BETWEEN,
+            }}
+            type="text"
+            className={
+              styles.bodyRowFour +
+              " " +
+              styles.columnThree +
+              " " +
+              styles.modalBody
+            }
+            placeholder="0"
+          />
+          <div
+            className={
+              styles.headingRowFour +
+              " " +
+              styles.columnFive +
+              " " +
+              styles.delete
+            }
+            style={{
+              left: 955,
+              top: 599 + i * 100,
+              transform: "translateY(-5%)",
+            }}
+            onClick={handleDelete}
+          >
+            <HiTrash />
+          </div>
+        </div>
+      );
+    }
+    setTotalFields(tempTotalFields);
+  }, [numberOfExtraFields]);
 
-  //   const handleAdd = () => {
-  //     setNumberOfExtraFields((prev) => prev + 1);
-  //   };
-  //   const handleDelete = () => {
-  //     console.log("Handle Delete is called");
-  //     if (numberOfExtraFields > 0) {
-  //       setNumberOfExtraFields((prev) => prev - 1);
-  //       console.log("IF === ", numberOfExtraFields);
-  //     }
-  //   };
+  const handleAdd = () => {
+    setNumberOfExtraFields((prev) => prev + 1);
+  };
+
+  const handleDelete = () => {
+    console.log("Handle Delete is called");
+    if (numberOfExtraFields > 0) {
+      setNumberOfExtraFields((prev) => prev - 1);
+      console.log("IF === ", numberOfExtraFields);
+    }
+  };
 
   return (
-    <div>
+    <div
+      style={{
+        display: openUtil ? "block" : "none",
+        zIndex: 2,
+        width: 1440,
+        height: "100vh",
+        position: "absolute",
+      }}
+    >
       <div
         style={{
           display: openUtil ? "block" : "none",
@@ -102,7 +120,10 @@ const UtilizationModal = ({ openUtil, setOpenUtil }: UtilizationModalProps) => {
         style={{ display: openUtil ? "block" : "none" }}
         className="wholeModalContainer"
       >
-        <div className={styles.modalContainer} style={{ height: 800 }}></div>
+        <div
+          className={styles.modalContainer}
+          style={{ height: 700 + numberOfExtraFields * 100 }}
+        ></div>
         <h1 className={styles.modalTitle}>Update Utilization</h1>
         <div className={styles.modalSep}></div>
         <div
@@ -299,26 +320,29 @@ const UtilizationModal = ({ openUtil, setOpenUtil }: UtilizationModalProps) => {
             styles.delete
           }
           style={{ left: 955 }}
-        //   onClick={handleDelete}
+          onClick={handleDelete}
         >
           <HiTrash />
         </div>
-        {/* {totalFields.map((field: any) => field)} */}
+        {totalFields}
         <button
           className={styles.addAnotherBtn}
-        //   onClick={handleAdd}
-        //   style={{ top: 680 + numberOfExtraFields * 70 }}
+          onClick={handleAdd}
+          style={{ top: 680 + numberOfExtraFields * 100 }}
         >
           + Add another
         </button>
         <button
           className={styles.modalCancel}
           onClick={() => setOpenUtil(false)}
-          style={{ top: 849 }}
+          style={{ top: 749 + numberOfExtraFields * 100 }}
         >
           Cancel
         </button>
-        <button className={styles.modalSaveBtn} style={{ top: 849 }}>
+        <button
+          className={styles.modalSaveBtn}
+          style={{ top: 749 + numberOfExtraFields * 100 }}
+        >
           Add Project
         </button>
       </div>

@@ -207,115 +207,127 @@ const Projects = () => {
       </table>
       <div
         style={{
-          opacity: "0.2",
           display: addProjectModal ? "block" : "none",
+          zIndex: 2,
+          width: 1440,
+          height: "100vh",
+          position: "absolute",
         }}
-        className={styles.modalBG}
-      ></div>
-      <div
-        style={{ display: addProjectModal ? "block" : "none" }}
-        className="wholeModalContainer"
       >
-        <div className={styles.addProjectModalContainer}></div>
-        <h1 className={styles.modalTitle}>Add Project</h1>
-        <div className={styles.modalSep}></div>
         <div
-          className={styles.modalClose}
-          onClick={() => setAddProjectModal(false)}
+          style={{
+            opacity: "0.2",
+            display: addProjectModal ? "block" : "none",
+          }}
+          className={styles.modalBG}
         ></div>
-        <h6 className={styles.modalName}>NAME</h6>
-        <input
-          className={styles.modalNameInput}
-          type="text"
-          placeholder="Enter"
-        />
-        <h6 className={styles.modalClient}>CLIENT</h6>
-        <input
-          className={styles.modalClientInput}
-          type="text"
-          placeholder="Harvard University"
-        />
-        <h6 className={styles.modalProjectType}>PROJECT TYPE</h6>
-        <select
-          className={styles.modalProjectTypeInput}
-          name=""
-          id=""
-          style={{ color: "rgba(33, 33, 33, 0.4)" }}
+        <div
+          style={{ display: addProjectModal ? "block" : "none" }}
+          className="wholeModalContainer"
         >
-          <option selected value="" disabled>
-            Please Select...
-          </option>
-          <option value="">1</option>
-          <option value="">2</option>
-          <option value="">3</option>
-        </select>
-        <h6 className={styles.modalProjectResponsible}>PROJECT RESPONSIBLE</h6>
-        <select
-          className={styles.modalProjectResponsibleInput}
-          name=""
-          id=""
-          style={{ color: "rgba(33, 33, 33, 0.4)" }}
-        >
-          <option selected disabled value="">
-            Please Select...
-          </option>
-          <option value="">1</option>
-          <option value="">2</option>
-          <option value="">3</option>
-        </select>
-        <h6 className={styles.modalStartDate}>START DATE</h6>
-        <input
-          className={styles.modalStartDateInput}
-          type="text"
-          name=""
-          id=""
-          placeholder="Please Select..."
-          onFocus={(e) => (e.target.type = "date")}
-        />
-        <h6 className={styles.modalEndDate}>END DATE</h6>
-        <input
-          className={styles.modalEndDateInput}
-          type="text"
-          name=""
-          id=""
-          placeholder="Please Select..."
-          onFocus={(e) => (e.target.type = "date")}
-        />
-        <h6 className={styles.modalProjectStatus}>PROJECT STATUS</h6>
-        <select
-          style={{ color: "rgba(33, 33, 33, 0.4)" }}
-          className={styles.modalProjectStatusInput}
-          name=""
-          id=""
-        >
-          <option selected disabled value="">
-            Please Select...
-          </option>
-          <option value="">1</option>
-          <option value="">2</option>
-          <option value="">3</option>
-        </select>
-        <h6 className={styles.modalMonthlyStatus}>MONTHLY STATUS</h6>
-        <select
-          className={styles.modalMonthlyStatusInput}
-          name=""
-          id=""
-          style={{ color: "rgba(33, 33, 33, 0.4)" }}
-        >
-          <option selected value="" disabled>
-            Please Select...
-          </option>
-          <option value="">1</option>
-          <option value="">2</option>
-          <option value="">3</option>
-        </select>
-        <button
-          className={styles.modalCancel}
-          onClick={() => setAddProjectModal(false)}
-        >
-          Close
-        </button>
-        <button className={styles.modalAddProjectBtn}>Add Project</button>
+          <div className={styles.addProjectModalContainer}></div>
+          <h1 className={styles.modalTitle}>Add Project</h1>
+          <div className={styles.modalSep}></div>
+          <div
+            className={styles.modalClose}
+            onClick={() => setAddProjectModal(false)}
+          ></div>
+          <h6 className={styles.modalName}>NAME</h6>
+          <input
+            className={styles.modalNameInput}
+            type="text"
+            placeholder="Enter"
+          />
+          <h6 className={styles.modalClient}>CLIENT</h6>
+          <input
+            className={styles.modalClientInput}
+            type="text"
+            placeholder="Harvard University"
+          />
+          <h6 className={styles.modalProjectType}>PROJECT TYPE</h6>
+          <select
+            className={styles.modalProjectTypeInput}
+            name=""
+            id=""
+            style={{ color: "rgba(33, 33, 33, 0.4)" }}
+          >
+            <option selected value="" disabled>
+              Please Select...
+            </option>
+            <option value="">1</option>
+            <option value="">2</option>
+            <option value="">3</option>
+          </select>
+          <h6 className={styles.modalProjectResponsible}>
+            PROJECT RESPONSIBLE
+          </h6>
+          <select
+            className={styles.modalProjectResponsibleInput}
+            name=""
+            id=""
+            style={{ color: "rgba(33, 33, 33, 0.4)" }}
+          >
+            <option selected disabled value="">
+              Please Select...
+            </option>
+            <option value="">1</option>
+            <option value="">2</option>
+            <option value="">3</option>
+          </select>
+          <h6 className={styles.modalStartDate}>START DATE</h6>
+          <input
+            className={styles.modalStartDateInput}
+            type="text"
+            name=""
+            id=""
+            placeholder="Please Select..."
+            onFocus={(e) => (e.target.type = "date")}
+          />
+          <h6 className={styles.modalEndDate}>END DATE</h6>
+          <input
+            className={styles.modalEndDateInput}
+            type="text"
+            name=""
+            id=""
+            placeholder="Please Select..."
+            onFocus={(e) => (e.target.type = "date")}
+          />
+          <h6 className={styles.modalProjectStatus}>PROJECT STATUS</h6>
+          <select
+            style={{ color: "rgba(33, 33, 33, 0.4)" }}
+            className={styles.modalProjectStatusInput}
+            name=""
+            id=""
+          >
+            <option selected disabled value="">
+              Please Select...
+            </option>
+            <option value="">1</option>
+            <option value="">2</option>
+            <option value="">3</option>
+          </select>
+          <h6 className={styles.modalMonthlyStatus}>MONTHLY STATUS</h6>
+          <select
+            className={styles.modalMonthlyStatusInput}
+            name=""
+            id=""
+            style={{ color: "rgba(33, 33, 33, 0.4)" }}
+          >
+            <option selected value="" disabled>
+              Please Select...
+            </option>
+            <option value="">1</option>
+            <option value="">2</option>
+            <option value="">3</option>
+          </select>
+          <button
+            className={styles.modalCancel}
+            onClick={() => setAddProjectModal(false)}
+          >
+            Close
+          </button>
+          <button className={styles.modalAddProjectBtn}>Add Project</button>
+        </div>
       </div>
       <DetailsModal
         openDetails={projectDetailsModal}

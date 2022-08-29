@@ -72,7 +72,7 @@ const Table = ({
                 />
               </td>
               {admin.map((cell: string) => (
-                <td style={{ cursor: "pointer" }} onClick={detailsModal}>
+                <td className={styles.clickDetails} onClick={detailsModal}>
                   {cell}
                 </td>
               ))}

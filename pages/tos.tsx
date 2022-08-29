@@ -3,6 +3,9 @@ import styles from "../styles/TOS.module.css";
 const tos = () => {
   return (
     <>
+      <div className={styles.backBtn}>
+        <a href="/login">{"< "} Back</a>
+      </div>
       <h1 className={styles.tosHeading}>Terms of Service</h1>
       <div className={styles.tosBody}>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste harum

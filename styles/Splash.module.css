@@ -63,3 +63,18 @@
     background-repeat: no-repeat;
     background-size: contain;
 }
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 900px;
+}
+
+.splashFullLogo {
+    width: 187px;
+    height: 153.93px;
+    background: url(../assets/pics/splash-full-logo.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}

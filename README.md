@@ -17,6 +17,12 @@ Go to http://localhost:3000/login and from there you can navigate to other pages
 **--> Privacy Policy**\
 **--> Forgot Password**
 
+### Forgot Password Page
+Go to http://localhost:3000/forgotPassword
+
+### Reset Password Page
+Go to http://localhost:3000/resetPassword
+
 ### Admin Users Page
 Go to http://localhost:3000/adminUsers
 
