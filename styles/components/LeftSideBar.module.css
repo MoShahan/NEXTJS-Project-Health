@@ -1,17 +1,13 @@
 .leftBar {
-    /* position: absolute; */
     position: fixed;
     width: 50px;
     height: 1024px;
-    /* height: 100%; */
     left: 0px;
     top: 0px;
     background: #1996fc;
-    /* float: left; */
     transition: all 0.5s;
     z-index: 2;
     overflow: hidden;
-    /* padding-right: 10px; */
 }
 
 .leftBar::after {
