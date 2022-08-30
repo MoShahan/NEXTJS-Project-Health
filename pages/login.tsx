@@ -76,8 +76,8 @@ const Login = () => {
         <div className={styles.errorLine}></div>
         <div className={styles.errorImage}></div>
         <div className={styles.errorText}>
-          This password is not correct. Try again or request a new password if
-          you forgot.
+          Either username or password is not correct. Try again or request a new
+          password if you forgot.
         </div>
         <div className={styles.errorClose}></div>
       </div>
