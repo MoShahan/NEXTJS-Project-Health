@@ -60,7 +60,7 @@ const Modal = ({
           id=""
           style={{ color: "rgba(33, 33, 33, 0.4)" }}
         >
-          <option selected disabled value="">
+          <option disabled value="">
             Please Select Role...
           </option>
           <option value="">1</option>

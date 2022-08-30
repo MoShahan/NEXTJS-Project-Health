@@ -7,6 +7,8 @@ import Table from "../../components/settings/Table";
 import { SKILL } from "../../variables";
 
 const ITEMS_IN_ONE_PAGE = 11;
+const tempSkillsData: Array<any> = [];
+let LAST_PAGE: number;
 
 const Skill = () => {
   const [addNewSkillModal, setAddNewSkillModal] = useState<boolean>(false);
@@ -18,17 +20,16 @@ const Skill = () => {
   const [optionsMenu, setOptionsMenu] = useState<boolean>(false);
   const [currentOptions, setCurrentOptions] = useState<number>(0);
 
-  const tempSkillsData: Array<any> = [];
-
-  for (let i = 0; i < 27; i++) {
-    tempSkillsData.push([
-      "Shahan",
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
-      "Active",
-    ]);
-  }
-
-  const LAST_PAGE = Math.ceil(tempSkillsData.length / ITEMS_IN_ONE_PAGE);
+  useEffect(() => {
+    for (let i = 0; i < 27; i++) {
+      tempSkillsData.push([
+        "Shahan",
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+        "Active",
+      ]);
+    }
+    LAST_PAGE = Math.ceil(tempSkillsData.length / ITEMS_IN_ONE_PAGE);
+  }, []);
 
   useEffect(() => {
     setCurrentPageData([

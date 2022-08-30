@@ -12,7 +12,7 @@ const AddModal = ({ openModal, setOpenModal }: AdminModalProps) => {
   const [phoneNumber, setPhoneNumber] = useState<any>("");
 
   useEffect(() => {
-    console.log(phoneNumber);
+    console.log("Phone Number:", phoneNumber);
   }, [phoneNumber]);
 
   return (
@@ -69,8 +69,9 @@ const AddModal = ({ openModal, setOpenModal }: AdminModalProps) => {
             name=""
             id=""
             style={{ color: "rgba(33, 33, 33, 0.4)" }}
+            defaultValue={"Please Select Role"}
           >
-            <option selected disabled value="">
+            <option disabled value="">
               Please Select Role...
             </option>
             <option value="">1</option>

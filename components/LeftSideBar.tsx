@@ -69,6 +69,7 @@ const LeftSideBar = () => {
             <div className={styles.projectsText}>Projects</div>
           </div>
         </Link>
+        {/* ===================================== */}
         <Link href="/employees">
           <div
             className={
@@ -89,6 +90,7 @@ const LeftSideBar = () => {
             <div className={styles.employeessText}>Employees</div>
           </div>
         </Link>
+        {/* ===================================== */}
         <div
           onClick={() => {
             setSettingsDropdown((prev) => !prev);

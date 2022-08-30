@@ -8,6 +8,8 @@ import styles from "../styles/Projects.module.css";
 import { PROJECT } from "../variables";
 
 const ITEMS_IN_ONE_PAGE = 15;
+const tempProjectData: Array<any> = [];
+let LAST_PAGE: number;
 
 const Projects = () => {
   const [addProjectModal, setAddProjectModal] = useState<boolean>(false);
@@ -20,23 +22,22 @@ const Projects = () => {
   const [optionsMenu, setOptionsMenu] = useState<boolean>(false);
   const [currentOptions, setCurrentOptions] = useState<number>(0);
 
-  const tempProjectData: Array<any> = [];
-
-  for (let i = 0; i < 101; i++) {
-    tempProjectData.push([
-      "1234567",
-      "Shahan",
-      "Shahan",
-      "Shahan",
-      "Shahan",
-      "04 Sep 1999",
-      "30 Nov 2000",
-      "Closed",
-      "On-Track",
-    ]);
-  }
-
-  const LAST_PAGE = Math.ceil(tempProjectData.length / ITEMS_IN_ONE_PAGE);
+  useEffect(() => {
+    for (let i = 0; i < 101; i++) {
+      tempProjectData.push([
+        "1234567",
+        "Shahan",
+        "Shahan",
+        "Shahan",
+        "Shahan",
+        "04 Sep 1999",
+        "30 Nov 2000",
+        "Closed",
+        "On-Track",
+      ]);
+    }
+    LAST_PAGE = Math.ceil(tempProjectData.length / ITEMS_IN_ONE_PAGE);
+  }, []);
 
   useEffect(() => {
     setCurrentPageData([
@@ -169,9 +170,9 @@ const Projects = () => {
                     checked={allChecked ? true : undefined}
                   />
                 </td>
-                {project.map((cell: any) => (
+                {project.map((cell: any, index1: any) => (
                   <td
-                    key={cell}
+                    key={index1 + cell}
                     onClick={() => {
                       setProjectDetailsModal(true);
                       setOptionsMenu(false);
@@ -252,7 +253,7 @@ const Projects = () => {
             id=""
             style={{ color: "rgba(33, 33, 33, 0.4)" }}
           >
-            <option selected value="" disabled>
+            <option value="" disabled>
               Please Select...
             </option>
             <option value="">1</option>
@@ -268,7 +269,7 @@ const Projects = () => {
             id=""
             style={{ color: "rgba(33, 33, 33, 0.4)" }}
           >
-            <option selected disabled value="">
+            <option disabled value="">
               Please Select...
             </option>
             <option value="">1</option>
@@ -300,7 +301,7 @@ const Projects = () => {
             name=""
             id=""
           >
-            <option selected disabled value="">
+            <option disabled value="">
               Please Select...
             </option>
             <option value="">1</option>
@@ -314,7 +315,7 @@ const Projects = () => {
             id=""
             style={{ color: "rgba(33, 33, 33, 0.4)" }}
           >
-            <option selected value="" disabled>
+            <option value="" disabled>
               Please Select...
             </option>
             <option value="">1</option>

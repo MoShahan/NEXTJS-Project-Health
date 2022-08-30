@@ -9,6 +9,8 @@ import LeftSideBar from "../components/LeftSideBar";
 import { EMPLOYEE } from "../variables";
 
 const ITEMS_IN_ONE_PAGE = 15;
+const tempEmployeesData: Array<any> = [];
+let LAST_PAGE: number;
 
 const Employees = () => {
   const [addEmployeeModal, setAddEmployeeModal] = useState<boolean>(false);
@@ -21,26 +23,23 @@ const Employees = () => {
   const [optionsMenu, setOptionsMenu] = useState<boolean>(false);
   const [currentOptions, setCurrentOptions] = useState<number>(0);
 
-  const tempEmployeesData: Array<any> = [];
-
-  for (let i = 0; i < 27; i++) {
-    // tempEmployeesData.push(["Shahan", "Sep 01 2022", "0", "uti", "revenue"]);
-
-    tempEmployeesData.push([
-      "1234567",
-      "Shahan",
-      "shahan@cc.com",
-      ["Parking", "Quiz"],
-      ["Front End", "Back End"],
-      "Expert",
-      "Sep 01 2022",
-      "0",
-      "uti",
-      "revenue",
-    ]);
-  }
-
-  const LAST_PAGE = Math.ceil(tempEmployeesData.length / ITEMS_IN_ONE_PAGE);
+  useEffect(() => {
+    for (let i = 0; i < 27; i++) {
+      tempEmployeesData.push([
+        "1234567",
+        "Shahan",
+        "shahan@cc.com",
+        ["Parking", "Quiz"],
+        ["Front End", "Back End"],
+        "Expert",
+        "Sep 01 2022",
+        "0",
+        "uti",
+        "revenue",
+      ]);
+    }
+    LAST_PAGE = Math.ceil(tempEmployeesData.length / ITEMS_IN_ONE_PAGE);
+  }, []);
 
   useEffect(() => {
     setCurrentPageData([
@@ -49,7 +48,7 @@ const Employees = () => {
         currentPage * ITEMS_IN_ONE_PAGE
       ),
     ]);
-  }, [currentPage,tempEmployeesData]);
+  }, [currentPage, tempEmployeesData]);
 
   const handlePaginationLeft = () => {
     if (currentPage === 1) {

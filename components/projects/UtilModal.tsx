@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import styles from "../../styles/components/Utilization.module.css";
 import { HiTrash } from "react-icons/hi";
 
@@ -12,6 +12,8 @@ type UtilModalProps = {
 };
 
 const UtilModal = ({ openUtil, setOpenUtil }: UtilModalProps) => {
+  console.log("Project Utilization Model Rendered");
+
   const [numberOfExtraFields, setNumberOfExtraFields] = useState<number>(0);
   const [totalFields, setTotalFields] = useState<Array<any>>([]);
 
@@ -19,18 +21,19 @@ const UtilModal = ({ openUtil, setOpenUtil }: UtilModalProps) => {
     setNumberOfExtraFields((prev) => prev + 1);
   };
 
-  const handleDelete = () => {
+  const handleDelete = useCallback(() => {
     if (numberOfExtraFields > 0) {
       setNumberOfExtraFields((prev) => prev - 1);
     }
-  };
-
+  }, [numberOfExtraFields]);
 
   useEffect(() => {
+    console.log("Project Utilization Model useEffect Rendered");
+
     var tempTotalFields: Array<any> = [];
     for (let i = 0; i < numberOfExtraFields; i++) {
       tempTotalFields.push(
-        <div style={{ position: "absolute" }}>
+        <div key={i} style={{ position: "absolute" }}>
           <h6
             className={
               styles.headingRowFour +
@@ -141,7 +144,6 @@ const UtilModal = ({ openUtil, setOpenUtil }: UtilModalProps) => {
     }
     setTotalFields(tempTotalFields);
   }, [numberOfExtraFields, handleDelete]);
-
 
   return (
     <div

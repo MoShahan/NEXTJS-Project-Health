@@ -7,6 +7,8 @@ import Table from "../../components/settings/Table";
 import { PROJECT_TYPE, SKILL } from "../../variables";
 
 const ITEMS_IN_ONE_PAGE = 12;
+const tempProjectTypeData: Array<any> = [];
+let LAST_PAGE: number;
 
 const ProjectType = () => {
   const [addNewProjectTypeModal, setAddNewProjectTypeModal] =
@@ -19,17 +21,16 @@ const ProjectType = () => {
   const [optionsMenu, setOptionsMenu] = useState<boolean>(false);
   const [currentOptions, setCurrentOptions] = useState<number>(0);
 
-  const tempProjectTypeData: Array<any> = [];
-
-  for (let i = 0; i < 39; i++) {
-    tempProjectTypeData.push([
-      "Shahan",
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
-      "Active",
-    ]);
-  }
-
-  const LAST_PAGE = Math.ceil(tempProjectTypeData.length / ITEMS_IN_ONE_PAGE);
+  useEffect(() => {
+    for (let i = 0; i < 39; i++) {
+      tempProjectTypeData.push([
+        "Shahan",
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+        "Active",
+      ]);
+    }
+    LAST_PAGE = Math.ceil(tempProjectTypeData.length / ITEMS_IN_ONE_PAGE);
+  }, []);
 
   useEffect(() => {
     setCurrentPageData([
@@ -38,7 +39,7 @@ const ProjectType = () => {
         currentPage * ITEMS_IN_ONE_PAGE
       ),
     ]);
-  }, [currentPage,tempProjectTypeData]);
+  }, [currentPage, tempProjectTypeData]);
 
   const handlePaginationLeft = () => {
     if (currentPage === 1) {

@@ -68,7 +68,7 @@ const AddModal = ({ openModal, setOpenModal }: EmployeeModalProps) => {
             id=""
             style={{ color: "rgba(33, 33, 33, 0.4)" }}
           >
-            <option selected value="" disabled>
+            <option value="" disabled>
               Please Select...
             </option>
             <option value="">1</option>
@@ -82,7 +82,7 @@ const AddModal = ({ openModal, setOpenModal }: EmployeeModalProps) => {
             id=""
             style={{ color: "rgba(33, 33, 33, 0.4)" }}
           >
-            <option selected disabled value="">
+            <option disabled value="">
               Please Select...
             </option>
             <option value="">1</option>
@@ -113,7 +113,7 @@ const AddModal = ({ openModal, setOpenModal }: EmployeeModalProps) => {
             name=""
             id=""
           >
-            <option selected disabled value="">
+            <option disabled value="">
               Please Select...
             </option>
             <option value="">1</option>

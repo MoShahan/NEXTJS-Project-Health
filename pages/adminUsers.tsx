@@ -10,6 +10,9 @@ import { ADMIN } from "../variables";
 
 const ITEMS_IN_ONE_PAGE = 15;
 
+const tempAdminsData: Array<any> = [];
+let LAST_PAGE: number;
+
 const AdminUsers = () => {
   const [addAdminModal, setAddAdminModal] = useState<boolean>(false);
   const [adminDetailsModal, setAdminDetailsModal] = useState<boolean>(false);
@@ -19,18 +22,17 @@ const AdminUsers = () => {
   const [optionsMenu, setOptionsMenu] = useState<boolean>(false);
   const [currentOptions, setCurrentOptions] = useState<number>(0);
 
-  const tempAdminsData: Array<any> = [];
-
-  for (let i = 0; i < 47; i++) {
-    tempAdminsData.push([
-      "1234567",
-      "Shahan",
-      "shahan@cc.com",
-      "+971 508756181",
-    ]);
-  }
-
-  const LAST_PAGE = Math.ceil(tempAdminsData.length / ITEMS_IN_ONE_PAGE);
+  useEffect(() => {
+    for (let i = 0; i < 47; i++) {
+      tempAdminsData.push([
+        "1234567",
+        "Shahan",
+        "shahan@cc.com",
+        "+971 508756181",
+      ]);
+    }
+    LAST_PAGE = Math.ceil(tempAdminsData.length / ITEMS_IN_ONE_PAGE);
+  }, []);
 
   useEffect(() => {
     setCurrentPageData([
@@ -39,7 +41,7 @@ const AdminUsers = () => {
         currentPage * ITEMS_IN_ONE_PAGE
       ),
     ]);
-  }, [currentPage,tempAdminsData]);
+  }, [currentPage, tempAdminsData]);
 
   const handlePaginationLeft = () => {
     if (currentPage === 1) {
