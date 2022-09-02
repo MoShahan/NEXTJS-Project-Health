@@ -33,15 +33,21 @@ const TableComponent = ({
   detailsModal,
 }: EmployeeTableProps) => {
   return (
-    // <div
-    //   className={tempStyles.tempTable}
-    //   style={{ overflowX: "scroll", width: 1440, height: 900 }}
-    // >
+    <div
+      className={tempStyles.tempEmployeeTable}
+      style={{
+        overflowX: "scroll",
+        width: 1440,
+        height: 900,
+        position: "absolute",
+      }}
+    >
       <table
-        className={styles.adminTable + " " + tempStyles.tempTable}
+        className={styles.adminTable}
+        // className={styles.adminTable+" "+styles.tempTable}
         style={{
           width: 1800,
-          // position: "relative",
+          position: "relative",
         }}
       >
         <thead>
@@ -194,7 +200,7 @@ const TableComponent = ({
           </tr>
         </tfoot>
       </table>
-    // </div>
+    </div>
   );
 };
 

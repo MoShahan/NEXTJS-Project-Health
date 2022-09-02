@@ -7,10 +7,16 @@
 }
 
 .tempTable,
-.tempHeader {
+.tempHeader,
+.tempEmployeeTable {
     transition: all 0.5s;
 }
 
-.tempHeader {
+.tempHeader,
+.tempEmployeeTable {
     left: 0;
+}
+
+.tempLeft:hover~.tempEmployeeTable {
+    left: 150px;
 }
