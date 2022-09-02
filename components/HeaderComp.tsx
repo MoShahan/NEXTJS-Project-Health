@@ -8,6 +8,8 @@ import {
   PROJECT_TYPE,
   SKILL,
 } from "../variables";
+import { MdAdd } from "react-icons/md";
+import tempStyles from "../styles/Temp.module.css";
 
 type HeaderProps = {
   currPage: string;
@@ -15,11 +17,11 @@ type HeaderProps = {
   optionsModal: any;
 };
 
+let pageTitleValue;
+let btnValue;
+
 const HeaderComp = ({ currPage, openModal, optionsModal }: HeaderProps) => {
   const [searchWord, setSearchWord] = useState<string>("");
-
-  let pageTitleValue;
-  let btnValue;
 
   switch (currPage) {
     case ADMIN:
@@ -63,49 +65,45 @@ const HeaderComp = ({ currPage, openModal, optionsModal }: HeaderProps) => {
   }, [searchWord]);
 
   return (
-    <>
-      <div
-        style={{
-          position: "fixed",
-          zIndex: 1,
-          backgroundColor: "white",
-          height: 150,
-          width: 1440,
-        }}
-      >
-        <div className={styles.navBar}>
-          <div className={styles.bellIcon}></div>
-          <div className={styles.avatorIcon}></div>
-        </div>
-        <div className={styles.divider}></div>
-        <div className="headerSection">
-          <div className={styles.pageTitle}>
-            {/* <button>CLICK ME DHANISH</button> */}
-            {pageTitleValue}
-          </div>
-          <input
-            type="text"
-            className={styles.searchInput}
-            placeholder="Search..."
-            value={searchWord}
-            onChange={(e) => setSearchWord(e.target.value)}
-          />
-          <div>
-            <button
-              className={styles.addProjectBtn}
-              onClick={() => {
-                openModal(true);
-                optionsModal(false);
-                console.log("ADD MODAL BTN CLICKD");
-              }}
-            >
-              {btnValue}
-            </button>
-          </div>
-        </div>
-        <div className={styles.separator}></div>
+    <div
+      style={{
+        position: "fixed",
+        zIndex: 1,
+        backgroundColor: "white",
+        height: 150,
+        width: 1440
+      }}
+      className={"headerMain" + " " + tempStyles.tempHeader}
+    >
+      <div className={styles.navBar}>
+        <div className={styles.bellIcon}></div>
+        <div className={styles.avatorIcon}></div>
       </div>
-    </>
+      <div className={styles.divider}></div>
+      <div className="headerSection">
+        <div className={styles.pageTitle}>{pageTitleValue}</div>
+        <input
+          type="text"
+          className={styles.searchInput}
+          placeholder="Search..."
+          value={searchWord}
+          onChange={(e) => setSearchWord(e.target.value)}
+        />
+        <div>
+          <button
+            className={styles.addProjectBtn}
+            onClick={() => {
+              openModal(true);
+              optionsModal(false);
+              console.log("ADD MODAL BTN CLICKD");
+            }}
+          >
+            {btnValue}
+          </button>
+        </div>
+      </div>
+      <div className={styles.separator}></div>
+    </div>
   );
 };
 

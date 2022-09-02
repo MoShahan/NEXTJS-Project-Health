@@ -18,6 +18,14 @@
     color: #4b5563;
 }
 
+.adminTable thead td {
+    cursor: pointer;
+}
+
+.adminTable thead td:hover {
+    background-color: #cccccd42;
+}
+
 .adminTable td {
     padding: 5px;
     height: 70px;

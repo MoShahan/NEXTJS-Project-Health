@@ -1,0 +1,16 @@
+.tempLeft:hover~.tempTable {
+    left: 220px;
+}
+
+.tempLeft:hover~.tempHeader {
+    left: 150px;
+}
+
+.tempTable,
+.tempHeader {
+    transition: all 0.5s;
+}
+
+.tempHeader {
+    left: 0;
+}

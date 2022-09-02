@@ -2,6 +2,8 @@ import React from "react";
 import styles from "../../styles/components/Table.module.css";
 import Pagination from "../Pagination";
 import { IoIosArrowRoundUp, IoIosArrowRoundDown } from "react-icons/io";
+import { MdMoreVert } from "react-icons/md";
+import tempStyles from "../../styles/Temp.module.css";
 
 type EmployeeTableProps = {
   setAllChecked: any;
@@ -32,7 +34,7 @@ const TableComponent = ({
 }: EmployeeTableProps) => {
   return (
     <table
-      className={styles.adminTable}
+      className={styles.adminTable + " " + tempStyles.tempTable}
       style={{
         width: 1800,
       }}

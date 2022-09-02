@@ -1,43 +1,3 @@
-.leftBar {
-    /* position: absolute; */
-    position: fixed;
-    width: 50px;
-    height: 1024px;
-    /* height: 100%; */
-    left: 0px;
-    top: 0px;
-    background: #1996fc;
-    /* float: left; */
-    transition: all 0.5s;
-    z-index: 1;
-    overflow: hidden;
-    /* padding-right: 10px; */
-}
-
-.leftBar::after {
-    content: "";
-    background-color: #1996fc;
-    /* background-color: red; */
-    width: 10px;
-    height: 1024px;
-    z-index: 2;
-    left: 50px;
-    position: fixed;
-    top: 0;
-    transition: all 0.5s;
-}
-
-.leftBar:hover::after {
-    left: 200px;
-}
-
-.leftBar:hover {
-    width: 200px;
-}
-
-
-/* =============================== */
-
 .topSemi {
     /* position: absolute; */
     width: 40px;
@@ -450,6 +410,7 @@
     width: 1350px;
     border-spacing: 0px;
     font-family: "Inter";
+    transition: all 0.5s;
 }
 
 .projectTable thead {
@@ -922,4 +883,17 @@
 tr:hover .clickDetails {
     background-color: #f3f4f6;
     cursor: pointer;
+}
+
+
+/* ===================================== */
+
+.leftSideBarMain {
+    width: 60px;
+    height: 900px;
+    position: absolute;
+}
+
+.leftSideBarMain:hover~.projectTable {
+    left: 220px;
 }

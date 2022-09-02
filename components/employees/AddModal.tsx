@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from "../../styles/components/Modal.module.css";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
+import { MdClose } from "react-icons/md";
 
 type EmployeeModalProps = { openModal: boolean; setOpenModal: any };
 

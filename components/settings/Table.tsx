@@ -1,6 +1,8 @@
 import React from "react";
 import Pagination from "../Pagination";
 import styles from "../../styles/components/Table.module.css";
+import { MdMoreVert } from "react-icons/md";
+import tempStyles from "../../styles/Temp.module.css";
 
 type SettingsTableProps = {
   setAllChecked: any;
@@ -30,7 +32,7 @@ const Table = ({
   detailsModal,
 }: SettingsTableProps) => {
   return (
-    <table className={styles.adminTable}>
+    <table className={styles.adminTable + " " + tempStyles.tempTable}>
       <thead>
         <tr>
           <td>

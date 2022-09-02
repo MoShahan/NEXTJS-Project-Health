@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import styles from "../../styles/components/Utilization.module.css";
 import { HiTrash } from "react-icons/hi";
+import { MdAdd, MdClose } from "react-icons/md";
 
 const TOP_VALUE_OF_FIELD_HEADING = 540;
 const TOP_VALUE_OF_FIELD_INPUT = 590;

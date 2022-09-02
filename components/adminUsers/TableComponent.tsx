@@ -1,6 +1,8 @@
 import React from "react";
 import styles from "../../styles/components/Table.module.css";
 import Pagination from "../Pagination";
+import { MdCheckCircle, MdMoreVert, MdCancel } from "react-icons/md";
+import tempStyles from "../../styles/Temp.module.css";
 
 type AdminTableProps = {
   setAllChecked: any;
@@ -30,7 +32,7 @@ const TableComponent = ({
   detailsModal,
 }: AdminTableProps) => {
   return (
-    <table className={styles.adminTable}>
+    <table className={styles.adminTable + " " + tempStyles.tempTable}>
       <thead>
         <tr>
           <td>
@@ -95,10 +97,10 @@ const TableComponent = ({
                   {cell}
                 </td>
               ))}
-              <td>
+              <td className={styles.clickDetails} onClick={detailsModal}>
                 <div>Admin</div>
               </td>
-              <td>
+              <td className={styles.clickDetails} onClick={detailsModal}>
                 <span></span>
                 Active
               </td>

@@ -6,6 +6,7 @@ import DetailsModal from "../components/projects/DetailsModal";
 import UtilModal from "../components/projects/UtilModal";
 import styles from "../styles/Projects.module.css";
 import { PROJECT } from "../variables";
+import { MdMoreVert, MdClose } from "react-icons/md";
 
 const ITEMS_IN_ONE_PAGE = 15;
 const tempProjectData: Array<any> = [];
@@ -82,12 +83,16 @@ const Projects = () => {
 
   return (
     <>
-      <LeftSideBar />
-      <HeaderComp
-        currPage={PROJECT}
-        openModal={setAddProjectModal}
-        optionsModal={setOptionsMenu}
-      />
+      <div className={styles.leftSideBarMain}>
+        <LeftSideBar />
+      </div>
+      <div className={styles.headerCompMain}>
+        <HeaderComp
+          currPage={PROJECT}
+          openModal={setAddProjectModal}
+          optionsModal={setOptionsMenu}
+        />
+      </div>
       <div
         className={styles.optionsMenuBox}
         style={{

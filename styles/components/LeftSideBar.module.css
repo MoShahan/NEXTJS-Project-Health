@@ -119,26 +119,6 @@
     opacity: 0.3;
 }
 
-
-/* ================================== */
-
-.currentPageContainer {
-    background-color: #1996fc;
-    transition: all 3s;
-}
-
-.leftBar:hover .currentPageContainer {
-    background-color: white;
-    color: #1996fc;
-    transition: all 0.1s;
-    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.5);
-}
-
-.currentPageIcon {
-    background-color: white;
-    color: #1996fc;
-}
-
 .adminUsersIcon,
 .projectsIcon,
 .employeesIcon,
@@ -174,7 +154,7 @@
     min-width: 170px;
     overflow: hidden;
     cursor: pointer;
-    color: #FFF;
+    color: #fff;
     text-decoration: none;
     border-radius: 6px;
 }
@@ -199,6 +179,25 @@
 .settingsText {
     display: flex;
     gap: 2rem;
+}
+
+
+/* ================================== */
+
+.currentPageContainer {
+    background-color: #1996fc;
+    transition: all 2s;
+}
+
+.leftBar:hover .currentPageContainer {
+    background-color: white;
+    color: #1996fc;
+    transition: all 0.1s;
+}
+
+.currentPageIcon {
+    background-color: white;
+    color: #1996fc;
 }
 
 

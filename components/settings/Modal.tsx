@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "../../styles/components/Modal.module.css";
+import { MdClose } from "react-icons/md";
 
 type SettingsModalProps = {
   currSetting: string;

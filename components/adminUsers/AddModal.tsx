@@ -5,6 +5,7 @@ import uaeFlag from "../../assets/pics/uae-flag.png";
 import Image from "next/image";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
+import { MdAdd, MdClose } from "react-icons/md";
 
 type AdminModalProps = { openModal: boolean; setOpenModal: any };
 
