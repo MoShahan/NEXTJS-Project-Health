@@ -86,13 +86,11 @@ const Projects = () => {
       <div className={styles.leftSideBarMain}>
         <LeftSideBar />
       </div>
-      <div className={styles.headerCompMain}>
-        <HeaderComp
-          currPage={PROJECT}
-          openModal={setAddProjectModal}
-          optionsModal={setOptionsMenu}
-        />
-      </div>
+      <HeaderComp
+        currPage={PROJECT}
+        openModal={setAddProjectModal}
+        optionsModal={setOptionsMenu}
+      />
       <div
         className={styles.optionsMenuBox}
         style={{
