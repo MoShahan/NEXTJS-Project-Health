@@ -7,6 +7,7 @@ import UtilModal from "../components/projects/UtilModal";
 import styles from "../styles/Projects.module.css";
 import { PROJECT } from "../variables";
 import { MdMoreVert, MdClose } from "react-icons/md";
+import tempStyles from "../styles/Temp.module.css";
 
 const ITEMS_IN_ONE_PAGE = 15;
 const tempProjectData: Array<any> = [];
@@ -83,7 +84,7 @@ const Projects = () => {
 
   return (
     <>
-      <div className={styles.leftSideBarMain}>
+      <div className={styles.leftSideBarMain + " " + tempStyles.tempLeft}>
         <LeftSideBar />
       </div>
       <HeaderComp
