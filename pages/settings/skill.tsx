@@ -6,8 +6,8 @@ import Modal from "../../components/settings/Modal";
 import Table from "../../components/settings/Table";
 import { SKILL } from "../../variables";
 
-const ITEMS_IN_ONE_PAGE = 11;
-const tempSkillsData: Array<any> = [];
+const ITEMS_IN_ONE_PAGE = 10;
+let tempSkillsData: Array<any> = [];
 let LAST_PAGE: number;
 
 const Skill = () => {
@@ -21,7 +21,8 @@ const Skill = () => {
   const [currentOptions, setCurrentOptions] = useState<number>(0);
 
   useEffect(() => {
-    for (let i = 0; i < 27; i++) {
+    tempSkillsData = [];
+    for (let i = 0; i < 99; i++) {
       tempSkillsData.push([
         "Shahan",
         "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",

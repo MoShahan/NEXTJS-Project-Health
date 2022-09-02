@@ -9,8 +9,8 @@ import { PROJECT } from "../variables";
 import { MdMoreVert, MdClose } from "react-icons/md";
 import tempStyles from "../styles/Temp.module.css";
 
-const ITEMS_IN_ONE_PAGE = 15;
-const tempProjectData: Array<any> = [];
+const ITEMS_IN_ONE_PAGE = 10;
+let tempProjectData: Array<any> = [];
 let LAST_PAGE: number;
 
 const Projects = () => {
@@ -25,7 +25,8 @@ const Projects = () => {
   const [currentOptions, setCurrentOptions] = useState<number>(0);
 
   useEffect(() => {
-    for (let i = 0; i < 101; i++) {
+    tempProjectData = [];
+    for (let i = 0; i < 27; i++) {
       tempProjectData.push([
         "1234567",
         "Shahan",

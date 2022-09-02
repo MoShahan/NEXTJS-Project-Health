@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { ReactElement, useEffect, useState } from "react";
+import { memo, ReactElement, useEffect, useState } from "react";
 import styles from "../styles/Login.module.css";
+import axios from "axios";
 
 const DEMO_CORRECT_USERNAME = "admin";
 const DEMO_CORRECT_PASSWORD = "admin123";
@@ -14,30 +15,53 @@ const PASSWORD_FORMAT =
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [wrongPassword, setWrongPassword] = useState(false);
-  const [wrongUsername, setWrongUsername] = useState(false);
   const [invalidUsername, setInvalidUsername] = useState(true);
   const [invalidPassword, setInvalidPassword] = useState(true);
+  const [wrongCredentials, setWrongCredentials] = useState(false);
 
   const router = useRouter();
+
+  // KAVYA
+  useEffect(() => {
+    const loginData = {
+      user: {
+        email: "ms@gmail.com",
+        password: "admin123",
+      },
+    };
+
+    axios
+      .post("https://health27.herokuapp.com/users/sign_in", loginData)
+      .then((res) => console.log(res))
+      .catch((e) => console.log(e));
+  }, []);
+
+  // PUNEETH
+  // useEffect(() => {
+  //   const loginData = { user: { email: "pk@gmail.com", password: "XyZ@1998" } };
+
+  //   axios
+  //     .post(
+  //       "https://floating-falls-55336.herokuapp.com/users/sign_in",
+  //       loginData
+  //     )
+  //     .then((res) => {
+  //       console.log("RESPONSE ==", res);
+  //       console.log("DATA ==", res.data);
+  //     })
+  //     .catch((e) => console.log(e));
+  // }, []);
 
   const handleLogin = () => {
     if (
       username === DEMO_CORRECT_USERNAME &&
       password === DEMO_CORRECT_PASSWORD
     ) {
-      setWrongPassword(false);
-      setWrongUsername(false);
+      setWrongCredentials(false);
       console.log("LOGIN SUCCESSFUL");
       router.push("/projects");
-    } else if (
-      username === DEMO_CORRECT_USERNAME &&
-      password !== DEMO_CORRECT_PASSWORD
-    ) {
-      setWrongUsername(false);
-      setWrongPassword(true);
-    } else if (username !== DEMO_CORRECT_USERNAME) {
-      setWrongUsername(true);
+    } else {
+      setWrongCredentials(true);
     }
   };
 
@@ -45,7 +69,7 @@ const Login = () => {
     if (MAIL_FORMAT.test(username)) {
       console.log("ACCEPTED -->", username);
     } else {
-      console.log("REJECTED -->", username);
+      // console.log("REJECTED -->", username);
     }
   }, [username]);
 
@@ -53,7 +77,7 @@ const Login = () => {
     if (PASSWORD_FORMAT.test(password)) {
       console.log("ACCEPTED -->", password);
     } else {
-      console.log("REJECTED -->", password);
+      // console.log("REJECTED -->", password);
     }
   }, [password]);
 
@@ -70,7 +94,7 @@ const Login = () => {
         </div>
       </div>
       <div
-        style={{ opacity: wrongPassword ? "1" : "0" }}
+        style={{ opacity: wrongCredentials ? "1" : "0" }}
         className={styles.errorBox}
       >
         <div className={styles.errorLine}></div>
@@ -84,9 +108,9 @@ const Login = () => {
       <h1 className={styles.loginTitle}>Log In</h1>
       <h6 className={styles.emailText}>Email</h6>
       <input
-        style={{ color: wrongUsername ? "#eb5757" : "black" }}
+        style={{ color: wrongCredentials ? "#eb5757" : "black" }}
         className={
-          styles.emailInput + " " + (wrongUsername ? styles.errorOffset : "")
+          styles.emailInput + " " + (wrongCredentials ? styles.errorOffset : "")
         }
         type="text"
         placeholder=""
@@ -95,9 +119,9 @@ const Login = () => {
       />
       <h6 className={styles.passwordText}>Password</h6>
       <input
-        style={{ color: wrongPassword || wrongUsername ? "#eb5757" : "black" }}
+        style={{ color: wrongCredentials ? "#eb5757" : "black" }}
         className={
-          styles.passwordInput + " " + (wrongPassword ? styles.errorOffset : "")
+          styles.passwordInput + " " + (wrongCredentials ? styles.errorOffset : "")
         }
         type="password"
         placeholder=""

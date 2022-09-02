@@ -6,8 +6,8 @@ import Modal from "../../components/settings/Modal";
 import Table from "../../components/settings/Table";
 import { PROJECT_TYPE, SKILL } from "../../variables";
 
-const ITEMS_IN_ONE_PAGE = 12;
-const tempProjectTypeData: Array<any> = [];
+const ITEMS_IN_ONE_PAGE = 10;
+let tempProjectTypeData: Array<any> = [];
 let LAST_PAGE: number;
 
 const ProjectType = () => {
@@ -22,7 +22,8 @@ const ProjectType = () => {
   const [currentOptions, setCurrentOptions] = useState<number>(0);
 
   useEffect(() => {
-    for (let i = 0; i < 39; i++) {
+    tempProjectTypeData = [];
+    for (let i = 0; i < 12; i++) {
       tempProjectTypeData.push([
         "Shahan",
         "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",

@@ -8,8 +8,8 @@ import HeaderComp from "../components/HeaderComp";
 import LeftSideBar from "../components/LeftSideBar";
 import { EMPLOYEE } from "../variables";
 
-const ITEMS_IN_ONE_PAGE = 15;
-const tempEmployeesData: Array<any> = [];
+const ITEMS_IN_ONE_PAGE = 10;
+let tempEmployeesData: Array<any> = [];
 let LAST_PAGE: number;
 
 const Employees = () => {
@@ -24,7 +24,8 @@ const Employees = () => {
   const [currentOptions, setCurrentOptions] = useState<number>(0);
 
   useEffect(() => {
-    for (let i = 0; i < 27; i++) {
+    tempEmployeesData = [];
+    for (let i = 0; i < 69; i++) {
       tempEmployeesData.push([
         "1234567",
         "Shahan",

@@ -8,9 +8,9 @@ import HeaderComp from "../components/HeaderComp";
 import LeftSideBar from "../components/LeftSideBar";
 import { ADMIN } from "../variables";
 
-const ITEMS_IN_ONE_PAGE = 15;
+const ITEMS_IN_ONE_PAGE = 10;
 
-const tempAdminsData: Array<any> = [];
+let tempAdminsData: Array<any> = [];
 let LAST_PAGE: number;
 
 const AdminUsers = () => {
@@ -23,7 +23,8 @@ const AdminUsers = () => {
   const [currentOptions, setCurrentOptions] = useState<number>(0);
 
   useEffect(() => {
-    for (let i = 0; i < 47; i++) {
+    tempAdminsData = [];
+    for (let i = 0; i < 36; i++) {
       tempAdminsData.push([
         "1234567",
         "Shahan",

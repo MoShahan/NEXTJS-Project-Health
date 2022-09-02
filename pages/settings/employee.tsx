@@ -6,8 +6,8 @@ import Modal from "../../components/settings/Modal";
 import Table from "../../components/settings/Table";
 import { EMPLOYEE_TYPE } from "../../variables";
 
-const ITEMS_IN_ONE_PAGE = 14;
-const tempEmployeeTypeData: Array<any> = [];
+const ITEMS_IN_ONE_PAGE = 10;
+let tempEmployeeTypeData: Array<any> = [];
 let LAST_PAGE: number;
 
 const Employee = () => {
@@ -22,7 +22,8 @@ const Employee = () => {
   const [currentOptions, setCurrentOptions] = useState<number>(0);
 
   useEffect(() => {
-    for (let i = 0; i < 39; i++) {
+    tempEmployeeTypeData = [];
+    for (let i = 0; i < 21; i++) {
       tempEmployeeTypeData.push([
         "Shahan",
         "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
