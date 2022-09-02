@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "../styles/components/Pagination.module.css";
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 
 type PaginationProps = {
   handlePaginationLeft: any;
@@ -20,14 +21,17 @@ const Pagination = ({
 }: PaginationProps) => {
   return (
     <td className={styles.pagination}>
-      <div
-        onClick={handlePaginationLeft}
-        className={styles.paginationLeftBtn}
-      ></div>
+      <div onClick={handlePaginationLeft} className={styles.paginationLeftBtn}>
+        <MdKeyboardArrowLeft color={currentPage === 1 ? "grey" : "black"} />
+      </div>
       <div
         onClick={handlePaginationRight}
         className={styles.paginationRightBtn}
-      ></div>
+      >
+        <MdKeyboardArrowRight
+          color={currentPage === LAST_PAGE ? "grey" : "black"}
+        />
+      </div>
       <div className={styles.paginationText}>
         Showing{" "}
         <span className={styles.boldPaginationText}>
@@ -38,10 +42,7 @@ const Pagination = ({
               ? tempData.length
               : currentPage * ITEMS_IN_ONE_PAGE)}
         </span>{" "}
-        of{" "}
-        <span className={styles.boldPaginationText}>
-          {tempData.length}
-        </span>
+        of <span className={styles.boldPaginationText}>{tempData.length}</span>
       </div>
     </td>
   );

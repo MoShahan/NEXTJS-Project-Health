@@ -15,26 +15,18 @@
     position: absolute;
     left: 30px;
     top: 50%;
-    bottom: 25.06%;
-    background: url(../../assets/pics/lefticon.png);
-    background-repeat: no-repeat;
-    width: 20px;
-    height: 20px;
-    transform: translateY(-50%);
+    transform: translateY(-40%);
     cursor: pointer;
+    font-size: 30px;
 }
 
 .paginationRightBtn {
     position: absolute;
     left: 70px;
     top: 50%;
-    bottom: 25.06%;
-    background: url(../../assets/pics/righticon.png);
-    background-repeat: no-repeat;
-    width: 20px;
-    height: 20px;
-    transform: translateY(-50%);
+    transform: translateY(-40%);
     cursor: pointer;
+    font-size: 30px;
 }
 
 .paginationText {
