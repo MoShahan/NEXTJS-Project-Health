@@ -13,8 +13,6 @@ type UtilizationModalProps = {
 };
 
 const UtilizationModal = ({ openUtil, setOpenUtil }: UtilizationModalProps) => {
-  console.log("Employee Utilization Model Rendered");
-
   const [numberOfExtraFields, setNumberOfExtraFields] = useState<number>(0);
   const [totalFields, setTotalFields] = useState<Array<any>>([]);
 
@@ -23,24 +21,12 @@ const UtilizationModal = ({ openUtil, setOpenUtil }: UtilizationModalProps) => {
   };
 
   const handleDelete = useCallback(() => {
-    console.log("Handle Delete is called");
     if (numberOfExtraFields > 0) {
       setNumberOfExtraFields((prev) => prev - 1);
-      console.log("IF === ", numberOfExtraFields);
     }
   }, [numberOfExtraFields]);
 
-  // const handleDelete = () => {
-  //   console.log("Handle Delete is called");
-  //   if (numberOfExtraFields > 0) {
-  //     setNumberOfExtraFields((prev) => prev - 1);
-  //     console.log("IF === ", numberOfExtraFields);
-  //   }
-  // };
-
   useEffect(() => {
-    console.log("Employee Utilization Model useEffect Rendered");
-
     var tempTotalFields = [];
     for (let i = 1; i < numberOfExtraFields + 1; i++) {
       tempTotalFields.push(
@@ -135,7 +121,7 @@ const UtilizationModal = ({ openUtil, setOpenUtil }: UtilizationModalProps) => {
       >
         <div
           className={styles.modalContainer}
-          style={{ height: 700 + numberOfExtraFields * 100 }}
+          style={{ height: 700 + numberOfExtraFields * 100}}
         ></div>
         <h1 className={styles.modalTitle}>Update Utilization</h1>
         <div className={styles.modalSep}></div>

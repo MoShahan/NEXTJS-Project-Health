@@ -91,13 +91,11 @@ const Employees = () => {
   return (
     <>
       <LeftSideBar />
-      {/* <div style={{ width: 1900, position: "absolute" }}> */}
       <HeaderComp
         currPage={EMPLOYEE}
         openModal={setAddEmployeeModal}
         optionsModal={setOptionsMenu}
       />
-      {/* </div> */}
       <OptionsMenu
         optionsMenu={optionsMenu}
         currentOptions={currentOptions}
