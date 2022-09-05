@@ -20,3 +20,11 @@
 .tempLeft:hover~.tempEmployeeTable {
     left: 150px;
 }
+
+.tempOptions {
+    display: block;
+}
+
+.tempLeft:hover~.tempOptions {
+    display: none !important;
+}

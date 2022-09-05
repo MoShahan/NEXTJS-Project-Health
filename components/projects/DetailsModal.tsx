@@ -60,6 +60,15 @@ const DetailsModal = ({ openDetails, setOpenDetails }: ProjectDetailsProps) => {
         >
           1234567
         </p>
+        <div
+          className={
+            styles.separator +
+            " " +
+            styles.projectSeparatorRowOne +
+            " " +
+            styles.projectSeparatorColumnOne
+          }
+        ></div>
         <h6
           className={
             styles.detailsModalHeading +
@@ -82,6 +91,15 @@ const DetailsModal = ({ openDetails, setOpenDetails }: ProjectDetailsProps) => {
         >
           Shahan
         </p>
+        <div
+          className={
+            styles.separator +
+            " " +
+            styles.projectSeparatorRowOne +
+            " " +
+            styles.projectSeparatorColumnTwo
+          }
+        ></div>
         <h6
           className={
             styles.detailsModalHeading +
@@ -126,6 +144,15 @@ const DetailsModal = ({ openDetails, setOpenDetails }: ProjectDetailsProps) => {
         >
           Front End
         </p>
+        <div
+          className={
+            styles.separator +
+            " " +
+            styles.projectSeparatorRowTwo +
+            " " +
+            styles.projectSeparatorColumnOnw
+          }
+        ></div>
         <h6
           className={
             styles.detailsModalHeading +
@@ -147,7 +174,16 @@ const DetailsModal = ({ openDetails, setOpenDetails }: ProjectDetailsProps) => {
           }
         >
           Blah Blah
-        </p>
+        </p>  
+        <div
+          className={
+            styles.separator +
+            " " +
+            styles.projectSeparatorRowTwo +
+            " " +
+            styles.projectSeparatorColumnTwo
+          }
+        ></div>
         <h6
           className={
             styles.detailsModalHeading +
@@ -192,6 +228,15 @@ const DetailsModal = ({ openDetails, setOpenDetails }: ProjectDetailsProps) => {
         >
           30 Nov 2022
         </p>
+        <div
+          className={
+            styles.separator +
+            " " +
+            styles.projectSeparatorRowThree +
+            " " +
+            styles.projectSeparatorColumnOne
+          }
+        ></div>
         <h6
           className={
             styles.detailsModalHeading +
@@ -216,6 +261,15 @@ const DetailsModal = ({ openDetails, setOpenDetails }: ProjectDetailsProps) => {
         >
           Running
         </p>
+        <div
+          className={
+            styles.separator +
+            " " +
+            styles.projectSeparatorRowThree +
+            " " +
+            styles.projectSeparatorColumnTwo
+          }
+        ></div>
         <h6
           className={
             styles.detailsModalHeading +

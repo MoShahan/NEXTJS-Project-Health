@@ -11,6 +11,14 @@ const DetailsModal = ({
   openDetails,
   setOpenDetails,
 }: EmployeeDetailsProps) => {
+  const skillsList = ["Front End", "Back End"];
+  const projectsNameList = [
+    "Parking",
+    "Quiz",
+    "Hacker Stories",
+    "Country & Weather App",
+  ];
+
   return (
     <div
       style={{
@@ -67,6 +75,15 @@ const DetailsModal = ({
         >
           1234567
         </p>
+        <div
+          className={
+            styles.separator +
+            " " +
+            styles.employeeSeparatorRowOne +
+            " " +
+            styles.employeeSeparatorColumnOne
+          }
+        ></div>
         <h6
           className={
             styles.nameHeading +
@@ -93,6 +110,15 @@ const DetailsModal = ({
         >
           Shahan
         </p>
+        <div
+          className={
+            styles.separator +
+            " " +
+            styles.employeeSeparatorRowOne +
+            " " +
+            styles.employeeSeparatorColumnTwo
+          }
+        ></div>
         <h6
           className={
             styles.emailHeading +
@@ -145,6 +171,15 @@ const DetailsModal = ({
         >
           +971 508756181
         </p>
+        <div
+          className={
+            styles.separator +
+            " " +
+            styles.employeeSeparatorRowTwo +
+            " " +
+            styles.employeeSeparatorColumnOne
+          }
+        ></div>
         <h6
           className={
             styles.roleHeading +
@@ -171,10 +206,17 @@ const DetailsModal = ({
         >
           Blah Blah
         </p>
+        <div
+          className={
+            styles.separator +
+            " " +
+            styles.employeeSeparatorRowTwo +
+            " " +
+            styles.employeeSeparatorColumnTwo
+          }
+        ></div>
         <h6
           className={
-            // styles.adminStatusHeading +
-            // " " +
             styles.detailsModalHeading +
             " " +
             styles.detailsModalColumnThree +
@@ -186,8 +228,6 @@ const DetailsModal = ({
         </h6>
         <p
           className={
-            // styles.adminStatusBody +
-            // " " +
             styles.detailsModalBody +
             " " +
             styles.detailsModalColumnThree +
@@ -199,8 +239,6 @@ const DetailsModal = ({
         </p>
         <h6
           className={
-            // styles.adminStatusHeading +
-            // " " +
             styles.detailsModalHeading +
             " " +
             styles.detailsModalColumnOne +
@@ -223,10 +261,17 @@ const DetailsModal = ({
         >
           0
         </p>
+        <div
+          className={
+            styles.separator +
+            " " +
+            styles.employeeSeparatorRowThree +
+            " " +
+            styles.employeeSeparatorColumnOne
+          }
+        ></div>
         <h6
           className={
-            // styles.adminStatusHeading +
-            // " " +
             styles.detailsModalHeading +
             " " +
             styles.detailsModalColumnTwo +
@@ -238,8 +283,6 @@ const DetailsModal = ({
         </h6>
         <p
           className={
-            // styles.adminStatusBody +
-            // " " +
             styles.detailsModalBody +
             " " +
             styles.detailsModalColumnTwo +
@@ -249,10 +292,17 @@ const DetailsModal = ({
         >
           uti
         </p>
+        <div
+          className={
+            styles.separator +
+            " " +
+            styles.employeeSeparatorRowThree +
+            " " +
+            styles.employeeSeparatorColumnTwo
+          }
+        ></div>
         <h6
           className={
-            // styles.adminStatusHeading +
-            // " " +
             styles.detailsModalHeading +
             " " +
             styles.detailsModalColumnThree +
@@ -264,8 +314,6 @@ const DetailsModal = ({
         </h6>
         <p
           className={
-            // styles.adminStatusBody +
-            // " " +
             styles.detailsModalBody +
             " " +
             styles.detailsModalColumnThree +
@@ -277,8 +325,6 @@ const DetailsModal = ({
         </p>
         <h6
           className={
-            // styles.adminStatusHeading +
-            // " " +
             styles.detailsModalHeading +
             " " +
             styles.detailsModalColumnOne +
@@ -292,19 +338,19 @@ const DetailsModal = ({
           className={
             styles.employeeSkillsBody +
             " " +
-            styles.detailsModalBody +
-            " " +
             styles.detailsModalColumnOne +
             " " +
             styles.detailsModalBodyRowFour
           }
         >
-          React
+          {skillsList.map((skill) => (
+            <p key={skill} className={styles.eachEmployeeSkill}>
+              {skill}
+            </p>
+          ))}
         </p>
         <h6
           className={
-            // styles.adminStatusHeading +
-            // " " +
             styles.detailsModalHeading +
             " " +
             styles.detailsModalColumnOne +
@@ -318,14 +364,16 @@ const DetailsModal = ({
           className={
             styles.employeeProjectNameBody +
             " " +
-            styles.detailsModalBody +
-            " " +
             styles.detailsModalColumnOne +
             " " +
             styles.detailsModalBodyRowFive
           }
         >
-          Project-Health
+          {projectsNameList.map((name) => (
+            <p key={name} className={styles.eachEmployeeProjectName}>
+              {name}
+            </p>
+          ))}
         </p>
       </div>
     </div>

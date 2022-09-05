@@ -15,8 +15,8 @@ const PASSWORD_FORMAT =
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [invalidUsername, setInvalidUsername] = useState(true);
-  const [invalidPassword, setInvalidPassword] = useState(true);
+  const [invalidUsername, setInvalidUsername] = useState(false);
+  const [invalidPassword, setInvalidPassword] = useState(false);
   const [wrongCredentials, setWrongCredentials] = useState(false);
 
   const router = useRouter();
@@ -25,16 +25,27 @@ const Login = () => {
   useEffect(() => {
     const loginData = {
       user: {
-        email: "ms@gmail.com",
-        password: "admin123",
+        email: "kavya1@gmail.com",
+        password: "00112233",
       },
     };
 
     axios
       .post("https://health27.herokuapp.com/users/sign_in", loginData)
-      .then((res) => console.log(res))
+      .then((res) => {
+        console.log("RESPONSE ==", res);
+        console.log("HEADERS ==", res.headers);
+        console.log("DATA ==", res.data);
+      })
       .catch((e) => console.log(e));
   }, []);
+
+  // Cache-Control
+  // Content-Language
+  // Content-Type
+  // Expires
+  // Last-Modified
+  // Pragma
 
   // PUNEETH
   // useEffect(() => {
@@ -53,6 +64,25 @@ const Login = () => {
   // }, []);
 
   const handleLogin = () => {
+    // checking for username pattern
+    if (MAIL_FORMAT.test(username)) {
+      setInvalidUsername(false);
+      console.log("ACCEPTED -->", username);
+    } else {
+      setInvalidUsername(true);
+      console.log("REJECTED -->", username);
+    }
+
+    // checking for password pattern
+    if (PASSWORD_FORMAT.test(password)) {
+      setInvalidPassword(false);
+      console.log("ACCEPTED -->", password);
+    } else {
+      setInvalidPassword(true);
+      console.log("REJECTED -->", password);
+    }
+
+    // checking if the username and password is correct
     if (
       username === DEMO_CORRECT_USERNAME &&
       password === DEMO_CORRECT_PASSWORD
@@ -64,22 +94,6 @@ const Login = () => {
       setWrongCredentials(true);
     }
   };
-
-  useEffect(() => {
-    if (MAIL_FORMAT.test(username)) {
-      console.log("ACCEPTED -->", username);
-    } else {
-      // console.log("REJECTED -->", username);
-    }
-  }, [username]);
-
-  useEffect(() => {
-    if (PASSWORD_FORMAT.test(password)) {
-      console.log("ACCEPTED -->", password);
-    } else {
-      // console.log("REJECTED -->", password);
-    }
-  }, [password]);
 
   return (
     <>
@@ -106,7 +120,12 @@ const Login = () => {
         <div className={styles.errorClose}></div>
       </div>
       <h1 className={styles.loginTitle}>Log In</h1>
-      <h6 className={styles.emailText}>Email</h6>
+      <h6
+        className={styles.emailText}
+        style={{ color: invalidUsername ? "#eb5757" : "" }}
+      >
+        Email
+      </h6>
       <input
         style={{ color: wrongCredentials ? "#eb5757" : "black" }}
         className={
@@ -117,18 +136,28 @@ const Login = () => {
         value={username}
         onChange={(e) => setUsername(e.target.value)}
       />
-      <h6 className={styles.passwordText}>Password</h6>
+      <h6
+        className={styles.passwordText}
+        style={{ color: invalidPassword ? "#eb5757" : "" }}
+      >
+        Password
+      </h6>
       <input
         style={{ color: wrongCredentials ? "#eb5757" : "black" }}
         className={
-          styles.passwordInput + " " + (wrongCredentials ? styles.errorOffset : "")
+          styles.passwordInput +
+          " " +
+          (wrongCredentials ? styles.errorOffset : "")
         }
         type="password"
         placeholder=""
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <h6 className={styles.passwordRule}>
+      <h6
+        className={styles.passwordRule}
+        style={{ color: invalidPassword ? "#eb5757" : "" }}
+      >
         Minimum 8 characters with at least 1 number
       </h6>
       <button onClick={handleLogin} type="submit" className={styles.loginBtn}>

@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../../styles/components/Table.module.css";
 import Pagination from "../Pagination";
-import { IoIosArrowRoundUp, IoIosArrowRoundDown } from "react-icons/io";
+import { FiArrowDown, FiArrowUp } from "react-icons/fi";
 import { MdMoreVert } from "react-icons/md";
 import tempStyles from "../../styles/Temp.module.css";
 
@@ -32,6 +32,19 @@ const TableComponent = ({
   LAST_PAGE,
   detailsModal,
 }: EmployeeTableProps) => {
+  const employeeTableHeaders = [
+    "Employee ID",
+    "Name",
+    "Email",
+    "Project Name",
+    "Skills",
+    "Employee Type",
+    "Joining Date",
+    "Salary",
+    "Utilization",
+    "Revenue Opportunity",
+  ];
+
   return (
     <div
       className={tempStyles.tempEmployeeTable}
@@ -60,60 +73,17 @@ const TableComponent = ({
                 onClick={() => setAllChecked((prev: boolean) => !prev)}
               />
             </td>
-            <td>
-              Employee ID
-              <span className={styles.topArrow}>
-                {/* <IoIosArrowRoundUp /> */}
-              </span>
-              <span className={styles.downArrow}>
-                {/* <IoIosArrowRoundDown /> */}
-              </span>
-            </td>
-            <td>
-              Name
-              <span className={styles.topArrow}></span>
-              <span className={styles.downArrow}></span>
-            </td>
-            <td>
-              Email
-              <span className={styles.topArrow}></span>
-              <span className={styles.downArrow}></span>
-            </td>
-            <td>
-              Project Name
-              <span className={styles.topArrow}></span>
-              <span className={styles.downArrow}></span>
-            </td>
-            <td>
-              Skills
-              <span className={styles.topArrow}></span>
-              <span className={styles.downArrow}></span>
-            </td>
-            <td>
-              Employee Type
-              <span className={styles.topArrow}></span>
-              <span className={styles.downArrow}></span>
-            </td>
-            <td>
-              Joining Date
-              <span className={styles.topArrow}></span>
-              <span className={styles.downArrow}></span>
-            </td>
-            <td>
-              Salary
-              <span className={styles.topArrow}></span>
-              <span className={styles.downArrow}></span>
-            </td>
-            <td>
-              Utilization
-              <span className={styles.topArrow}></span>
-              <span className={styles.downArrow}></span>
-            </td>
-            <td>
-              Revenue Opportunity
-              <span className={styles.topArrow}></span>
-              <span className={styles.downArrow}></span>
-            </td>
+            {employeeTableHeaders.map((header) => (
+              <td key={header}>
+                {header}
+                <span className={styles.topArrow}>
+                  <FiArrowUp />
+                </span>
+                <span className={styles.downArrow}>
+                  <FiArrowDown />
+                </span>
+              </td>
+            ))}
             <td>Options</td>
           </tr>
         </thead>
@@ -181,7 +151,7 @@ const TableComponent = ({
                       handleOptionsMenu(index);
                     }}
                     className={styles.optionsMenu}
-                  ></div>
+                  ><MdMoreVert/></div>
                 </td>
               </tr>
             );

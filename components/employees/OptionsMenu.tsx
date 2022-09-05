@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "../../styles/components/OptionsMenu.module.css";
+import tempStyles from "../../styles/Temp.module.css";
 
 type OptionsMenuProps = {
   optionsMenu: boolean;
@@ -18,7 +19,7 @@ const OptionsMenu = ({
 }: OptionsMenuProps) => {
   return (
     <div
-      className={styles.optionsMenuBox}
+      className={styles.optionsMenuBox + " " + tempStyles.tempOptions}
       style={{
         display: optionsMenu ? "block" : "none",
         top: 290 + currentOptions * 70,

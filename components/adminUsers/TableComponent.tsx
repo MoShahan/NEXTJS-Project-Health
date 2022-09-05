@@ -2,6 +2,7 @@ import React from "react";
 import styles from "../../styles/components/Table.module.css";
 import Pagination from "../Pagination";
 import { MdCheckCircle, MdMoreVert, MdCancel } from "react-icons/md";
+import { FiArrowDown, FiArrowUp } from "react-icons/fi";
 import tempStyles from "../../styles/Temp.module.css";
 
 type AdminTableProps = {
@@ -31,6 +32,15 @@ const TableComponent = ({
   LAST_PAGE,
   detailsModal,
 }: AdminTableProps) => {
+  const adminTableHeaders = [
+    "User ID",
+    "Name",
+    "Email",
+    "Phone",
+    "Role(s)",
+    "Status",
+  ];
+
   return (
     <table className={styles.adminTable + " " + tempStyles.tempTable}>
       <thead>
@@ -43,36 +53,17 @@ const TableComponent = ({
               onClick={() => setAllChecked((prev: boolean) => !prev)}
             />
           </td>
-          <td>
-            User ID
-            <span className={styles.topArrow}></span>
-            <span className={styles.downArrow}></span>
-          </td>
-          <td>
-            Name
-            <span className={styles.topArrow}></span>
-            <span className={styles.downArrow}></span>
-          </td>
-          <td>
-            Email
-            <span className={styles.topArrow}></span>
-            <span className={styles.downArrow}></span>
-          </td>
-          <td>
-            Phone
-            <span className={styles.topArrow}></span>
-            <span className={styles.downArrow}></span>
-          </td>
-          <td>
-            Role(s)
-            <span className={styles.topArrow}></span>
-            <span className={styles.downArrow}></span>
-          </td>
-          <td>
-            Status
-            <span className={styles.topArrow}></span>
-            <span className={styles.downArrow}></span>
-          </td>
+          {adminTableHeaders.map((header) => (
+            <td key={header}>
+              {header}
+              <span className={styles.topArrow}>
+                <FiArrowUp />
+              </span>
+              <span className={styles.downArrow}>
+                <FiArrowDown />
+              </span>
+            </td>
+          ))}
           <td>Options</td>
         </tr>
       </thead>
@@ -110,7 +101,7 @@ const TableComponent = ({
                     handleOptionsMenu(index);
                   }}
                   className={styles.optionsMenu}
-                ></div>
+                ><MdMoreVert/></div>
               </td>
             </tr>
           );

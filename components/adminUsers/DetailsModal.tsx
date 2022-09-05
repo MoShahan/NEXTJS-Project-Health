@@ -64,6 +64,15 @@ const DetailsModal = ({ openDetails, setOpenDetails }: AdminDetailsProps) => {
         >
           1234567
         </p>
+        <div
+          className={
+            styles.separator +
+            " " +
+            styles.adminSeparatorRowOne +
+            " " +
+            styles.adminSeparatorColumnOne
+          }
+        ></div>
         <h6
           className={
             styles.nameHeading +
@@ -90,6 +99,15 @@ const DetailsModal = ({ openDetails, setOpenDetails }: AdminDetailsProps) => {
         >
           Shahan
         </p>
+        <div
+          className={
+            styles.separator +
+            " " +
+            styles.adminSeparatorRowOne +
+            " " +
+            styles.adminSeparatorColumnTwo
+          }
+        ></div>
         <h6
           className={
             styles.emailHeading +
@@ -142,6 +160,15 @@ const DetailsModal = ({ openDetails, setOpenDetails }: AdminDetailsProps) => {
         >
           +971 508756181
         </p>
+        <div
+          className={
+            styles.separator +
+            " " +
+            styles.adminSeparatorRowTwo +
+            " " +
+            styles.adminSeparatorColumnOne
+          }
+        ></div>
         <h6
           className={
             styles.roleHeading +
@@ -168,6 +195,15 @@ const DetailsModal = ({ openDetails, setOpenDetails }: AdminDetailsProps) => {
         >
           Blah Blah
         </p>
+        <div
+          className={
+            styles.separator +
+            " " +
+            styles.adminSeparatorRowTwo +
+            " " +
+            styles.adminSeparatorColumnTwo
+          }
+        ></div>
         <h6
           className={
             styles.adminStatusHeading +
@@ -194,12 +230,6 @@ const DetailsModal = ({ openDetails, setOpenDetails }: AdminDetailsProps) => {
         >
           04 Sep 2022
         </p>
-        {/* <h6 className={styles.descriptionHeading}>Description</h6>
-        <p className={styles.descriptionBody}>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit modi
-          obcaecati dolor atque deleniti facere nulla possimus vitae ratione
-          iste itaque, illo suscipit nobis non!
-        </p> */}
       </div>
     </div>
   );

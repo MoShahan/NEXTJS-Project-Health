@@ -1,371 +1,16 @@
-.topSemi {
-    /* position: absolute; */
-    width: 40px;
-    height: 30px;
-    /* left: 50%; */
-    transform: translateX(35%);
-    margin-top: 20px;
-    background: url(../assets/pics/topSemi-white.png);
-    background-repeat: no-repeat;
-    /* background-size: contain; */
-}
-
-.bottomSemi {
-    /* position: absolute; */
-    width: 40px;
-    height: 30px;
-    /* left: 50%; */
-    transform: translateX(35%) translateY(-40%);
-    /* top: 60px; */
-    background: url(../assets/pics/bottomSemi-white.png);
-    background-repeat: no-repeat;
-    /* background-size: contain; */
-}
-
-.middleLine {
-    /* position: absolute; */
-    width: 54px;
-    height: 6px;
-    /* left: 50%; */
-    transform: translateX(41%) translateY(-760%);
-    /* top: 85px; */
-    background: url(../assets/pics/middle-line-white.png);
-    background-repeat: no-repeat;
-}
-
-.topLine {
-    /* position: absolute; */
-    width: 16px;
-    height: 55px;
-    /* left: 50%; */
-    transform: translateX(175%) translateY(-105%);
-    /* top: 75px; */
-    background: url(../assets/pics/vertical-line-white.png);
-    background-repeat: no-repeat;
-}
-
-.topLine::after {
-    content: url(../assets/pics/HEALTH-white.png);
-    margin-left: 30px;
-}
-
-.bottomLine {
-    /* position: absolute; */
-    width: 16px;
-    height: 15px;
-    left: 50%;
-    transform: translateX(175%) translateY(-705%);
-    top: 85px;
-    background: url(../assets/pics/vertical-line-white.png);
-    background-repeat: no-repeat;
-}
-
-
-/* =============================== */
-
-.logoIconSep {
-    position: absolute;
-    width: 400px;
-    /* width: 44px; */
-    height: 2px;
-    left: 10px;
-    top: 64px;
-    background: #ffffff;
-    opacity: 0.3;
-}
-
-.adminUsersIcon {
-    background: url(../assets/pics/admin-icon-white.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    position: absolute;
-    /* left: 50%; */
-    transform: translateX(-50%);
-    top: 10%;
-    height: 20px;
-    width: 20px;
-    cursor: pointer;
-    left: 30px;
-}
-
-.adminUsersIcon::after {
-    content: "Admin_Users";
-    padding: 10px 40px;
-    /* padding-left: 50px; */
-    /* width: 200px; */
-}
-
-.projectsIconBG {
-    background: url(../assets/pics/icon-bg-white.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    position: absolute;
-    /* left: 50%; */
-    transform: translateX(-50%) translateY(-10%);
-    top: 14.5%;
-    height: 40px;
-    width: 40px;
-    left: 30px;
-}
-
-.projectsIcon {
-    background: url(../assets/pics/projects-icon-blue.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    position: absolute;
-    /* left: 55%; */
-    transform: translateX(-50%) translateY(-55%);
-    top: 50%;
-    height: 20px;
-    width: 20px;
-    cursor: pointer;
-    /* z-index: 999; */
-    left: 22.5px;
-}
-
-.projectsIcon::after {
-    content: "Projects";
-    padding: 10px 60px;
-    /* padding-left: 50px; */
-}
-
-.employeesIcon {
-    /* background-color: #111928; */
-    background: url(../assets/pics/employees-icon-white.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    position: absolute;
-    /* left: 50%; */
-    transform: translateX(-50%);
-    top: 20%;
-    height: 20px;
-    width: 20px;
-    cursor: pointer;
-    left: 30px;
-}
-
-.employeesIcon::after {
-    content: "Employees";
-    padding: 10px 50px;
-    /* color: #33bc28; */
-    /* background-color: #111928; */
-}
-
-.settingsIcon {
-    background: url(../assets/pics/settings-icon-white.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    position: absolute;
-    /* left: 50%; */
-    transform: translateX(-50%);
-    top: 25%;
-    height: 20px;
-    width: 20px;
-    cursor: pointer;
-    left: 30px;
-    /* z-index: 2; */
-}
-
-.settingsIcon::after {
-    content: "Settings";
-    padding: 10px 60px;
-    /* padding-left: 50px; */
-}
-
-.adminUsersIcon::after,
-.projectsIcon::after,
-.employeesIcon::after,
-.settingsIcon::after {
-    /* padding: 10px 20px 10px 50px; */
-    /* width: 280px; */
-    /* height: 20px; */
-    /* background: yellow; */
-    color: white;
-}
-
-.adminUsersIcon:hover::after,
-.adminUsersIcon:hover,
-.projectsIcon:hover::after,
-.projectsIcon:hover,
-.employeesIcon:hover::after,
-.employeesIcon:hover,
-.settingsIcon:hover::after,
-.settingsIcon:hover {
-    background-color: white;
-    color: #1996FC;
-    /* padding: 10px; */
-    border-radius: 6px;
-}
-
-
-/* ======================= */
-
-.navBar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0px;
-    position: absolute;
-    width: 1440px;
-    height: 64px;
-    left: 0px;
-    top: 0px;
-    /* white */
-    background: #ffffff;
-    /* background: #2b2b2b; */
-}
-
-.bellIcon {
-    position: absolute;
-    /* left: 15%; */
-    right: 10%;
-    top: 35%;
-    /* bottom: 10%; */
-    /* cool-gray/900 */
-    background: url(../assets/pics/bellicon.png);
-    width: 32px;
-    height: 32px;
-    background-repeat: no-repeat;
-}
-
-.avatorIcon {
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; */
-    padding: 0px;
-    width: 32px;
-    height: 32px;
-    /* Avatar/Jese Leos */
-    background: url(../assets/pics/avataricon.png);
-    /* border-radius: 16px; */
-    /* Inside auto layout */
-    flex: none;
-    order: 1;
-    flex-grow: 0;
-    position: absolute;
-    right: 5%;
-    top: 25%;
-    /* bottom: 10%; */
-    background-repeat: no-repeat;
-}
-
-.divider {
-    width: 1440px;
-    height: 1px;
-    /* cool-gray/200 */
-    background: #e5e7eb;
-    /* background: black; */
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    /* flex-grow: 1; */
-    position: absolute;
-    top: 64px;
-    /* bottom: 0; */
-}
-
-.pageTitle {
-    width: 204px;
-    height: 27px;
-    /* text-lg/font-semibold */
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 150%;
-    /* identical to box height, or 27px */
-    /* cool-gray/900 */
-    color: #111928;
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-    top: 92.5px;
-    position: absolute;
-    left: 100px;
-}
-
-.searchInput {
-    box-sizing: border-box;
-    /* Auto layout */
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    padding: 13px 20px;
-    width: 562.58px;
-    height: 50px;
-    /* cool-gray/50 */
-    background: #f9fafb;
-    /* cool-gray/200 */
-    border: 1px solid #e5e7eb;
-    border-radius: 16px;
-    /* Inside auto layout */
-    flex: none;
-    order: 1;
-    flex-grow: 0;
-    top: 80px;
-    position: absolute;
-    left: 300px;
-}
-
-.addProjectBtn {
-    /* display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center; */
-    padding: 9px 13px;
-    gap: 8px;
-    width: 150px;
-    height: 39px;
-    /* Style */
-    background: #262626;
-    border-radius: 12px;
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-    top: 85px;
-    /* right: 50px; */
-    left: 1250px;
-    position: absolute;
-    color: #ffffff;
-    cursor: pointer;
-}
-
-.separator {
-    width: 1379px;
-    height: 1px;
-    /* cool-gray/200 */
-    background: #e5e7eb;
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-    position: absolute;
-    top: 145px;
-    left: 60px;
-}
-
 .topArrow {
-    background: url(../assets/pics/top-gray.png);
-    /* background-color: #111928; */
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 15px;
-    height: 15px;
     display: inline-block;
     margin-left: 5px;
+    font-size: 18px;
+    color: #71717A;
+    font-weight: 500;
     transform: translateY(20%);
 }
 
 .downArrow {
-    /* background-color: green; */
-    background: url(../assets/pics/down-gray.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 15px;
-    height: 15px;
+    font-size: 18px;
+    color: #71717A;
+    font-weight: 500;
     display: inline-block;
     margin-right: 5px;
     transform: translateY(20%);
@@ -379,7 +24,7 @@
     width: 180px;
     position: absolute;
     background-color: #f3f4f6;
-    left: 1210px;
+    left: 1190px;
     z-index: 1;
     font-family: "Inter";
     background: #FFFFFF;
@@ -396,6 +41,9 @@
     background-color: #dfe0e1;
 }
 
+
+/* ================== */
+
 .projectTable tr td {
     border-bottom: solid 1px #e5e7eb;
 }
@@ -404,40 +52,33 @@
     top: 170px;
     position: absolute;
     left: 70px;
-    /* left: 10%; */
-    /* right: 10px; */
-    width: 1350px;
+    width: 1696px;
     border-spacing: 0px;
     font-family: "Inter";
     transition: all 0.5s;
 }
 
 .projectTable thead {
-    /* padding: 50px; */
-    /* margin: 5px; */
     background-color: #f3f4f6;
-    /* gap: 5px;
-    column-gap: 5px; */
     color: #4b5563;
+}
+
+.projectTable thead td:hover {
+    background-color: #cccccd42;
+    cursor: pointer;
 }
 
 .projectTable td {
     padding: 5px;
-    /* width: 0px; */
     height: 70px;
     color: #111928;
 }
 
 .optionsMenu {
-    background: url(../assets/pics/ellipsis-vertical.png);
-    background-repeat: no-repeat;
-    height: 30px;
-    width: 30px;
-    /* left: 25%; */
-    /* color: black; */
-    background-size: contain;
     margin-left: 10px;
     cursor: pointer;
+    font-size: 24px;
+    color: #000;
 }
 
 .projectTable tbody td:nth-child(9) {
@@ -448,80 +89,18 @@
     color: #33bc28;
 }
 
-.pagination {
-    display: flex;
-    flex-direction: row;
-    /* justify-content: center; */
-    align-items: center;
-    padding: 0px;
-    position: absolute;
-    /* position: sticky; */
-    width: 1350px;
-    height: 76px;
-    /* left: 81px; */
-    /* bottom: 0; */
-    /* top: 938px; */
-    /* top: 100%; */
-    /* white */
-    /* background: #FFFFFF; */
-    background-color: #e5e7eb;
-    padding-left: 30px;
-}
-
-.paginationLeftBtn {
-    position: absolute;
-    left: 30px;
-    /* right: 35%; */
-    top: 50%;
-    bottom: 25.06%;
-    background: url(../assets/pics/lefticon.png);
-    background-repeat: no-repeat;
-    width: 20px;
-    height: 20px;
-    transform: translateY(-50%);
+tr:hover .clickDetails {
+    background-color: #f3f4f6;
     cursor: pointer;
 }
 
-.paginationRightBtn {
-    position: absolute;
-    left: 70px;
-    /* right: 35%; */
-    top: 50%;
-    bottom: 25.06%;
-    background: url(../assets/pics/righticon.png);
-    background-repeat: no-repeat;
-    width: 20px;
-    height: 20px;
-    transform: translateY(-50%);
-    cursor: pointer;
+.projectTable input[type="checkbox"] {
+    height: 18px;
+    width: 18px;
 }
 
-.paginationText {
-    width: 250px;
-    height: 21px;
-    /* text-sm/font-normal */
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 20px;
-    /* or 143% */
-    /* cool-gray/500 */
-    color: #6b7280;
-    /* Inside auto layout */
-    flex: none;
-    order: 2;
-    flex-grow: 0;
-    /* text-align: left; */
-    position: absolute;
-    left: 10%;
-    letter-spacing: 1px;
-}
 
-.boldPaginationText {
-    font-weight: 900;
-    color: #111928;
-}
+/* ================== */
 
 .modalBG {
     position: fixed;
@@ -554,8 +133,6 @@
     font-weight: 600;
     font-size: 22px;
     line-height: 150%;
-    /* identical to box height, or 33px */
-    /* cool-gray/900 */
     color: #111928;
 }
 
@@ -591,11 +168,9 @@
     font-weight: 600;
     font-size: 14px;
     line-height: 100%;
-    /* identical to box height, or 14px */
     display: flex;
     align-items: center;
     text-transform: uppercase;
-    /* 212121 */
     color: #212121;
 }
 
@@ -622,11 +197,9 @@
     font-weight: 600;
     font-size: 14px;
     line-height: 100%;
-    /* identical to box height, or 14px */
     display: flex;
     align-items: center;
     text-transform: uppercase;
-    /* 212121 */
     color: #212121;
 }
 
@@ -653,11 +226,9 @@
     font-weight: 600;
     font-size: 14px;
     line-height: 100%;
-    /* identical to box height, or 14px */
     display: flex;
     align-items: center;
     text-transform: uppercase;
-    /* 212121 */
     color: #212121;
 }
 
@@ -684,11 +255,9 @@
     font-weight: 600;
     font-size: 14px;
     line-height: 100%;
-    /* identical to box height, or 14px */
     display: flex;
     align-items: center;
     text-transform: uppercase;
-    /* 212121 */
     color: #212121;
 }
 
@@ -715,11 +284,9 @@
     font-weight: 600;
     font-size: 14px;
     line-height: 100%;
-    /* identical to box height, or 14px */
     display: flex;
     align-items: center;
     text-transform: uppercase;
-    /* 212121 */
 }
 
 .modalStartDateInput {
@@ -745,11 +312,9 @@
     font-weight: 600;
     font-size: 14px;
     line-height: 100%;
-    /* identical to box height, or 14px */
     display: flex;
     align-items: center;
     text-transform: uppercase;
-    /* 212121 */
     color: #212121;
 }
 
@@ -776,11 +341,9 @@
     font-weight: 600;
     font-size: 14px;
     line-height: 100%;
-    /* identical to box height, or 14px */
     display: flex;
     align-items: center;
     text-transform: uppercase;
-    /* 212121 */
     color: #212121;
 }
 
@@ -807,11 +370,9 @@
     font-weight: 600;
     font-size: 14px;
     line-height: 100%;
-    /* identical to box height, or 14px */
     display: flex;
     align-items: center;
     text-transform: uppercase;
-    /* 212121 */
     color: #212121;
 }
 
@@ -838,9 +399,7 @@
     height: 42px;
     left: 805px;
     top: 781px;
-    /* white */
     background: #ffffff;
-    /* cool-gray/300 */
     border: 1px solid #d1d5db;
     border-radius: 6px;
     font-family: "Inter";
@@ -848,8 +407,6 @@
     font-weight: 600;
     font-size: 16px;
     line-height: 150%;
-    /* identical to box height, or 24px */
-    /* cool-gray/900 */
     color: #111928;
     cursor: pointer;
 }
@@ -877,11 +434,6 @@
     cursor: pointer;
 }
 
-tr:hover .clickDetails {
-    background-color: #f3f4f6;
-    cursor: pointer;
-}
-
 
 /* ===================================== */
 
@@ -891,6 +443,16 @@ tr:hover .clickDetails {
     position: absolute;
 }
 
-.leftSideBarMain:hover~.projectTable {
-    left: 220px;
+.projectTableContainer {
+    position: absolute;
+    left: 0px;
+    transition: all 0.5s;
+    overflow-y: scroll;
+    /* overflow-x: scroll; */
+    width: 1440px;
+    height: 900px
+}
+
+.leftSideBarMain:hover~.projectTableContainer {
+    left: 150px;
 }

@@ -6,6 +6,7 @@ import DetailsModal from "../components/projects/DetailsModal";
 import UtilModal from "../components/projects/UtilModal";
 import styles from "../styles/Projects.module.css";
 import { PROJECT } from "../variables";
+import { FiArrowDown, FiArrowUp } from "react-icons/fi";
 import { MdMoreVert, MdClose } from "react-icons/md";
 import tempStyles from "../styles/Temp.module.css";
 
@@ -83,6 +84,18 @@ const Projects = () => {
     setOptionsMenu(false);
   };
 
+  const projectTableHeaders = [
+    "Project ID",
+    "Name",
+    "Client",
+    "Project Type",
+    "Project Responsible",
+    "Start Date",
+    "End Date",
+    "Project Status",
+    "Monthly Status",
+  ];
+
   return (
     <>
       <div className={styles.leftSideBarMain + " " + tempStyles.tempLeft}>
@@ -94,7 +107,7 @@ const Projects = () => {
         optionsModal={setOptionsMenu}
       />
       <div
-        className={styles.optionsMenuBox}
+        className={styles.optionsMenuBox + " " + tempStyles.tempOptions}
         style={{
           display: optionsMenu ? "block" : "none",
           top: 290 + currentOptions * 70,
@@ -104,114 +117,85 @@ const Projects = () => {
         <div onClick={handleActiveProject}>Active / Inactive</div>
         <div onClick={handleUpdateProject}>Update Utilization</div>
       </div>
-      <table className={styles.projectTable}>
-        <thead>
-          <tr>
-            <td>
-              <input
-                type="checkbox"
-                name=""
-                id=""
-                onClick={() => setAllChecked((prev) => !prev)}
-              />
-            </td>
-            <td>
-              Project ID
-              <span className={styles.topArrow}></span>
-              <span className={styles.downArrow}></span>
-            </td>
-            <td>
-              Name
-              <span className={styles.topArrow}></span>
-              <span className={styles.downArrow}></span>
-            </td>
-            <td>
-              Client
-              <span className={styles.topArrow}></span>
-              <span className={styles.downArrow}></span>
-            </td>
-            <td>
-              Project Type
-              <span className={styles.topArrow}></span>
-              <span className={styles.downArrow}></span>
-            </td>
-            <td>
-              Project Responsible
-              <span className={styles.topArrow}></span>
-              <span className={styles.downArrow}></span>
-            </td>
-            <td>
-              Start Date
-              <span className={styles.topArrow}></span>
-              <span className={styles.downArrow}></span>
-            </td>
-            <td>
-              End Date
-              <span className={styles.topArrow}></span>
-              <span className={styles.downArrow}></span>
-            </td>
-            <td>
-              Project Status
-              <span className={styles.topArrow}></span>
-              <span className={styles.downArrow}></span>
-            </td>
-            <td>
-              Monthly Status
-              <span className={styles.topArrow}></span>
-              <span className={styles.downArrow}></span>
-            </td>
-            <td>Options</td>
-          </tr>
-        </thead>
-        <tbody>
-          {currentPageData.map((project: any, index: number) => {
-            return (
-              <tr key={index + project[0]}>
-                <td>
-                  <input
-                    type="checkbox"
-                    name=""
-                    id=""
-                    checked={allChecked ? true : undefined}
-                  />
+      <div className={styles.projectTableContainer}
+      >
+        <table className={styles.projectTable}>
+          <thead>
+            <tr>
+              <td>
+                <input
+                  type="checkbox"
+                  name=""
+                  id=""
+                  onClick={() => setAllChecked((prev) => !prev)}
+                />
+              </td>
+              {projectTableHeaders.map((header) => (
+                <td key={header}>
+                  {header}
+                  <span className={styles.topArrow}>
+                    <FiArrowUp />
+                  </span>
+                  <span className={styles.downArrow}>
+                    <FiArrowDown />
+                  </span>
                 </td>
-                {project.map((cell: any, index1: any) => (
-                  <td
-                    key={index1 + cell}
-                    onClick={() => {
-                      setProjectDetailsModal(true);
-                      setOptionsMenu(false);
-                    }}
-                    className={styles.clickDetails}
-                  >
-                    {cell}
+              ))}
+              <td>Options</td>
+            </tr>
+          </thead>
+          <tbody>
+            {currentPageData.map((project: any, index: number) => {
+              return (
+                <tr key={index + project[0]}>
+                  <td>
+                    <input
+                      type="checkbox"
+                      name=""
+                      id=""
+                      checked={allChecked ? true : undefined}
+                    />
                   </td>
-                ))}
-                <td>
-                  <div
-                    onClick={() => {
-                      handleOptionsMenu(index);
-                    }}
-                    className={styles.optionsMenu}
-                  ></div>
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-        <tfoot>
-          <tr>
-            <Pagination
-              handlePaginationLeft={handlePaginationLeft}
-              handlePaginationRight={handlePaginationRight}
-              currentPage={currentPage}
-              ITEMS_IN_ONE_PAGE={ITEMS_IN_ONE_PAGE}
-              LAST_PAGE={LAST_PAGE}
-              tempData={tempProjectData}
-            />
-          </tr>
-        </tfoot>
-      </table>
+                  {project.map((cell: any, index1: any) => (
+                    <td
+                      key={index1 + cell}
+                      onClick={() => {
+                        setProjectDetailsModal(true);
+                        setOptionsMenu(false);
+                      }}
+                      className={styles.clickDetails}
+                    >
+                      {cell}
+                    </td>
+                  ))}
+                  <td>
+                    <div
+                      onClick={() => {
+                        handleOptionsMenu(index);
+                      }}
+                      className={styles.optionsMenu}
+                    >
+                      <MdMoreVert />
+                    </div>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+          <tfoot>
+            <tr>
+              <Pagination
+                handlePaginationLeft={handlePaginationLeft}
+                handlePaginationRight={handlePaginationRight}
+                currentPage={currentPage}
+                ITEMS_IN_ONE_PAGE={ITEMS_IN_ONE_PAGE}
+                LAST_PAGE={LAST_PAGE}
+                tempData={tempProjectData}
+              />
+            </tr>
+          </tfoot>
+        </table>
+      </div>
       <div
         style={{
           display: addProjectModal ? "block" : "none",
