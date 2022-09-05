@@ -110,7 +110,7 @@ const Projects = () => {
         className={styles.optionsMenuBox + " " + tempStyles.tempOptions}
         style={{
           display: optionsMenu ? "block" : "none",
-          top: 290 + currentOptions * 70,
+          top: 260 + currentOptions * 65,
         }}
       >
         <div onClick={handleEditProject}>Edit</div>

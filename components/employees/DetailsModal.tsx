@@ -344,9 +344,9 @@ const DetailsModal = ({
           }
         >
           {skillsList.map((skill) => (
-            <p key={skill} className={styles.eachEmployeeSkill}>
+            <span key={skill} className={styles.eachEmployeeSkill}>
               {skill}
-            </p>
+            </span>
           ))}
         </p>
         <h6
@@ -370,9 +370,9 @@ const DetailsModal = ({
           }
         >
           {projectsNameList.map((name) => (
-            <p key={name} className={styles.eachEmployeeProjectName}>
+            <span key={name} className={styles.eachEmployeeProjectName}>
               {name}
-            </p>
+            </span>
           ))}
         </p>
       </div>

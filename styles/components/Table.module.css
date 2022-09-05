@@ -21,6 +21,7 @@
 
 .adminTable thead td {
     cursor: pointer;
+    height: 46px;
 }
 
 .adminTable thead td:hover {
@@ -28,8 +29,8 @@
 }
 
 .adminTable td {
-    padding: 5px;
-    height: 70px;
+    /* padding: 5px; */
+    height: 65px;
 }
 
 .adminTable tbody td {

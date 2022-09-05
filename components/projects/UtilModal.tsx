@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import styles from "../../styles/components/Utilization.module.css";
 import { HiTrash } from "react-icons/hi";
-import { MdAdd,MdClose } from "react-icons/md";
+import { MdAdd, MdClose } from "react-icons/md";
 
 const TOP_VALUE_OF_FIELD_HEADING = 640;
 const TOP_VALUE_OF_FIELD_INPUT = 690;
@@ -13,8 +13,6 @@ type UtilModalProps = {
 };
 
 const UtilModal = ({ openUtil, setOpenUtil }: UtilModalProps) => {
-  console.log("Project Utilization Model Rendered");
-
   const [numberOfExtraFields, setNumberOfExtraFields] = useState<number>(0);
   const [totalFields, setTotalFields] = useState<Array<any>>([]);
 
@@ -29,8 +27,6 @@ const UtilModal = ({ openUtil, setOpenUtil }: UtilModalProps) => {
   }, [numberOfExtraFields]);
 
   useEffect(() => {
-    console.log("Project Utilization Model useEffect Rendered");
-
     var tempTotalFields: Array<any> = [];
     for (let i = 0; i < numberOfExtraFields; i++) {
       tempTotalFields.push(
