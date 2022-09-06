@@ -151,6 +151,20 @@
     font-family: "Inter";
 }
 
+.passwordInput::-ms-reveal,
+.passwordInput::-ms-clear {
+    /* hiding built in eye icon */
+    display: none;
+}
+
+.showPasswordIcon {
+    position: absolute;
+    top: 485px;
+    left: 1255px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
 .passwordRule {
     position: absolute;
     width: 297px;

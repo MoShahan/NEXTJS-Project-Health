@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { memo, ReactElement, useEffect, useState } from "react";
 import styles from "../styles/Login.module.css";
 import axios from "axios";
+import { MdVisibility, MdVisibilityOff } from "react-icons/md";
 
 const DEMO_CORRECT_USERNAME = "admin@cc.com";
 const DEMO_CORRECT_PASSWORD = "Admin@123";
@@ -13,11 +14,12 @@ const PASSWORD_FORMAT =
   /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^A-Za-z0-9])(.{8,24})$/;
 
 const Login = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [invalidUsername, setInvalidUsername] = useState(false);
-  const [invalidPassword, setInvalidPassword] = useState(false);
-  const [wrongCredentials, setWrongCredentials] = useState(false);
+  const [username, setUsername] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [invalidUsername, setInvalidUsername] = useState<boolean>(false);
+  const [invalidPassword, setInvalidPassword] = useState<boolean>(false);
+  const [wrongCredentials, setWrongCredentials] = useState<boolean>(false);
+  const [showPassword, setShowPassword] = useState<boolean>(false);
 
   const router = useRouter();
 
@@ -39,13 +41,6 @@ const Login = () => {
       })
       .catch((e) => console.log(e));
   }, []);
-
-  // Cache-Control
-  // Content-Language
-  // Content-Type
-  // Expires
-  // Last-Modified
-  // Pragma
 
   // PUNEETH
   // useEffect(() => {
@@ -149,11 +144,17 @@ const Login = () => {
           " " +
           (wrongCredentials ? styles.errorOffset : "")
         }
-        type="password"
+        type={showPassword ? "text" : "password"}
         placeholder=""
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
+      <div
+        onClick={() => setShowPassword((prev) => !prev)}
+        className={styles.showPasswordIcon}
+      >
+        {showPassword ? <MdVisibility /> : <MdVisibilityOff />}
+      </div>
       <h6
         className={styles.passwordRule}
         style={{ color: invalidPassword ? "#eb5757" : "" }}
