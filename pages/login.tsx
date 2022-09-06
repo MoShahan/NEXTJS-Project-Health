@@ -4,8 +4,8 @@ import { memo, ReactElement, useEffect, useState } from "react";
 import styles from "../styles/Login.module.css";
 import axios from "axios";
 
-const DEMO_CORRECT_USERNAME = "admin";
-const DEMO_CORRECT_PASSWORD = "admin123";
+const DEMO_CORRECT_USERNAME = "admin@cc.com";
+const DEMO_CORRECT_PASSWORD = "Admin@123";
 
 const MAIL_FORMAT = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
