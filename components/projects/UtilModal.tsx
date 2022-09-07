@@ -157,6 +157,7 @@ const UtilModal = ({ openUtil, setOpenUtil }: UtilModalProps) => {
           display: openUtil ? "block" : "none",
         }}
         className={styles.modalBG}
+        onClick={() => setOpenUtil(false)}
       ></div>
       <div
         style={{ display: openUtil ? "block" : "none" }}

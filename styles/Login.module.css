@@ -107,7 +107,6 @@
     font-weight: 600;
     font-size: 12px;
     line-height: 15px;
-    color: #212121;
     opacity: 0.4;
 }
 
@@ -118,9 +117,11 @@
     left: 834px;
     top: 361px;
     border: none;
-    border-bottom: solid 2px #212121;
-    font-size: 1.1rem;
-    padding: 5px;
+    border-bottom: solid 2px rgba(33, 33, 33, 0.3);
+    font-weight: 400;
+    font-size: 23px;
+    line-height: 28px;
+    font-family: "Inter";
 }
 
 .passwordText {
@@ -134,7 +135,6 @@
     font-weight: 600;
     font-size: 12px;
     line-height: 15px;
-    color: #212121;
     opacity: 0.4;
 }
 
@@ -145,16 +145,11 @@
     left: 834px;
     top: 482px;
     border: none;
-    border-bottom: solid 2px #212121;
-    font-size: 1.1rem;
-    padding: 5px;
+    border-bottom: solid 2px rgba(33, 33, 33, 0.3);
     font-family: "Inter";
-}
-
-.passwordInput::-ms-reveal,
-.passwordInput::-ms-clear {
-    /* hiding built in eye icon */
-    display: none;
+    font-weight: 400;
+    font-size: 23px;
+    line-height: 28px;
 }
 
 .showPasswordIcon {
@@ -163,6 +158,30 @@
     left: 1255px;
     font-size: 20px;
     cursor: pointer;
+}
+
+.emailInput:focus,
+.passwordInput:focus {
+    outline: none;
+}
+
+.passwordInput::-ms-reveal,
+.passwordInput::-ms-clear {
+    /* hiding built in eye icon */
+    display: none;
+}
+
+.errorColor,
+.errorColor:-webkit-autofill,
+.errorColor:-webkit-autofill:focus {
+    -webkit-text-fill-color: #eb5757;
+    border-bottom: solid 2px #eb5757;
+}
+
+.normalColor,
+.normalColor:-webkit-autofill,
+.normalColor:-webkit-autofill:focus {
+    -webkit-text-fill-color: #18181B;
 }
 
 .passwordRule {
@@ -176,8 +195,6 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
-    /* identical to box height */
-    color: #212121;
     opacity: 0.4;
 }
 
@@ -187,12 +204,15 @@
     height: 50px;
     left: 834px;
     top: 561px;
-    /* background: #d2d3d9; */
     background-color: #1996fc;
     border-radius: 6px;
     border: none;
     color: white;
     cursor: pointer;
+}
+
+.loginBtn:hover {
+    background-color: #1a6cb0;
 }
 
 .policyText {
@@ -225,7 +245,6 @@
     font-weight: 600;
     font-size: 14px;
     line-height: 17px;
-    /* identical to box height */
     text-align: center;
     color: #1996fc;
 }
@@ -278,14 +297,4 @@
     top: 85px;
     background: url(../assets/pics/Rectangle\ 5671.png);
     background-repeat: no-repeat;
-}
-
-.errorOffset {
-    box-shadow: 0px -1px 0px 1px #eb5757;
-    border-radius: 5px;
-}
-
-.errorOffset:focus {
-    /* border: none; */
-    outline: none;
 }

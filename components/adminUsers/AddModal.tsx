@@ -33,6 +33,7 @@ const AddModal = ({ openModal, setOpenModal }: AdminModalProps) => {
             display: openModal ? "block" : "none",
           }}
           className={styles.modalBG}
+          onClick={() => setOpenModal(false)}
         ></div>
         <div
           style={{ display: openModal ? "block" : "none" }}

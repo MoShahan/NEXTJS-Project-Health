@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { memo, ReactElement, useEffect, useState } from "react";
+import { ReactElement, useEffect, useState } from "react";
 import styles from "../styles/Login.module.css";
 import axios from "axios";
 import { MdVisibility, MdVisibilityOff } from "react-icons/md";
@@ -20,43 +20,116 @@ const Login = () => {
   const [invalidPassword, setInvalidPassword] = useState<boolean>(false);
   const [wrongCredentials, setWrongCredentials] = useState<boolean>(false);
   const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [authToken, setAuthToken] = useState<string>("");
 
   const router = useRouter();
 
-  // KAVYA
-  useEffect(() => {
-    const loginData = {
-      user: {
-        email: "kavya1@gmail.com",
-        password: "00112233",
-      },
-    };
-
+  const signIn = () => {
     axios
-      .post("https://health27.herokuapp.com/users/sign_in", loginData)
+      .post("https://health27.herokuapp.com/users/sign_in", {
+        user: {
+          email: "kavya1@gmail.com",
+          password: "00112233",
+        },
+      })
       .then((res) => {
-        console.log("RESPONSE ==", res);
+        console.log("----------------------------------------");
+        console.log("KAVYA");
         console.log("HEADERS ==", res.headers);
         console.log("DATA ==", res.data);
       })
       .catch((e) => console.log(e));
+
+    axios
+      .post("https://obscure-springs-16848.herokuapp.com/users/sign_in", {
+        user: {
+          email: "batman@gmail.com",
+          password: "batman",
+        },
+      })
+      .then((res) => {
+        console.log("----------------------------------------");
+        console.log("SURAJ");
+        console.log("HEADERS ==", res.headers);
+        console.log("DATA ==", res.data);
+      })
+      .catch((e) => console.log(e));
+
+    axios
+      .post("https://sheltered-retreat-12255.herokuapp.com/users/sign_in", {
+        user: {
+          email: "test@gmail.com",
+          password: "1234567",
+        },
+      })
+      .then((res) => {
+        console.log("----------------------------------------");
+        console.log("PRAMODINI");
+        console.log("HEADERS ==", res.headers);
+        console.log("DATA ==", res.data);
+      })
+      .catch((e) => console.log(e));
+
+    axios
+      .post("https://floating-falls-55336.herokuapp.com/users/sign_in", {
+        user: { email: "pk@gmail.com", password: "XyZ@1998" },
+      })
+      .then((res) => {
+        console.log("----------------------------------------");
+        console.log("PUNEETH");
+        console.log("HEADERS ==", res.headers);
+        console.log("AUTH TOKEN ==", res.headers.authorization);
+        console.log("DATA ==", res.data);
+        // setAuthToken(res.headers.authorization);
+      })
+      .catch((e) => console.log(e));
+  };
+
+  const signOut = () => {
+    console.log("Signing Out...");
+
+    axios({
+      method: "delete",
+      url: "https://obscure-springs-16848.herokuapp.com/users/sign_out",
+      headers: {
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzIiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjYyMzYyNjIzLCJleHAiOjE2NjIzNjYyMjMsImp0aSI6IjQ3MTgzN2MyLWM4ZDItNDc1Ni1hMTVmLTY3YWZhMWM5NzNiMiJ9.JyfszlFlzQCWo3IvWAy6ft_iy96tiuH5RXVM1MTB68Q",
+        Cookie: "",
+      },
+    })
+      .then((res) => {
+        console.log("------------------------------------------------------");
+        console.log("SURAJ");
+        console.log(res);
+      })
+      .catch((e) => console.log(e));
+
+    axios({
+      method: "delete",
+      url: "https://health27.herokuapp.com/users/sign_out",
+      headers: {
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjYyNDY5NjY0LCJleHAiOjE2NjI0NzMyNjQsImp0aSI6IjdlNTdjMTFhLTdkMWYtNDQwNS04NWM4LTM5ODMwOTY3OTM0YiJ9.TTiJwLzxmSjFE4Gd8pUtmACDhXIfow_gUCAyI19beU4",
+      },
+      withCredentials: true,
+    })
+      .then((res) => {
+        console.log("------------------------------------------------------");
+        console.log("KAVYA");
+        console.log("RESPONSE ==", res);
+        // console.log("HEADERS ==", res.headers);
+        console.log("DATA ==", res.data);
+        console.log("MESSAGE ==", res.data.message);
+      })
+      .catch((e) => console.log(e));
+
+    // axios.defaults.headers.common["Authorization"] = authToken;
+  };
+
+  useEffect(() => {
+    signIn();
+    // signOut();
   }, []);
-
-  // PUNEETH
-  // useEffect(() => {
-  //   const loginData = { user: { email: "pk@gmail.com", password: "XyZ@1998" } };
-
-  //   axios
-  //     .post(
-  //       "https://floating-falls-55336.herokuapp.com/users/sign_in",
-  //       loginData
-  //     )
-  //     .then((res) => {
-  //       console.log("RESPONSE ==", res);
-  //       console.log("DATA ==", res.data);
-  //     })
-  //     .catch((e) => console.log(e));
-  // }, []);
 
   const handleLogin = () => {
     // checking for username pattern
@@ -117,14 +190,15 @@ const Login = () => {
       <h1 className={styles.loginTitle}>Log In</h1>
       <h6
         className={styles.emailText}
-        style={{ color: invalidUsername ? "#eb5757" : "" }}
+        style={{ color: invalidUsername ? "#eb5757" : "#212121" }}
       >
         Email
       </h6>
       <input
-        style={{ color: wrongCredentials ? "#eb5757" : "black" }}
         className={
-          styles.emailInput + " " + (wrongCredentials ? styles.errorOffset : "")
+          styles.emailInput +
+          " " +
+          (wrongCredentials ? styles.errorColor : styles.normalColor)
         }
         type="text"
         placeholder=""
@@ -133,16 +207,15 @@ const Login = () => {
       />
       <h6
         className={styles.passwordText}
-        style={{ color: invalidPassword ? "#eb5757" : "" }}
+        style={{ color: invalidPassword ? "#eb5757" : "#212121" }}
       >
         Password
       </h6>
       <input
-        style={{ color: wrongCredentials ? "#eb5757" : "black" }}
         className={
           styles.passwordInput +
           " " +
-          (wrongCredentials ? styles.errorOffset : "")
+          (wrongCredentials ? styles.errorColor : styles.normalColor)
         }
         type={showPassword ? "text" : "password"}
         placeholder=""
@@ -157,7 +230,7 @@ const Login = () => {
       </div>
       <h6
         className={styles.passwordRule}
-        style={{ color: invalidPassword ? "#eb5757" : "" }}
+        style={{ color: invalidPassword ? "#eb5757" : "#212121" }}
       >
         Minimum 8 characters with at least 1 number
       </h6>

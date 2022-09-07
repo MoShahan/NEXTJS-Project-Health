@@ -114,6 +114,7 @@ const UtilizationModal = ({ openUtil, setOpenUtil }: UtilizationModalProps) => {
           display: openUtil ? "block" : "none",
         }}
         className={styles.modalBG}
+        onClick={() => setOpenUtil(false)}
       ></div>
       <div
         style={{ display: openUtil ? "block" : "none" }}
@@ -121,7 +122,7 @@ const UtilizationModal = ({ openUtil, setOpenUtil }: UtilizationModalProps) => {
       >
         <div
           className={styles.modalContainer}
-          style={{ height: 700 + numberOfExtraFields * 100}}
+          style={{ height: 700 + numberOfExtraFields * 100 }}
         ></div>
         <h1 className={styles.modalTitle}>Update Utilization</h1>
         <div className={styles.modalSep}></div>

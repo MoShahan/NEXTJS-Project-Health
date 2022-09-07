@@ -23,6 +23,7 @@ const DetailsModal = ({ openDetails, setOpenDetails }: AdminDetailsProps) => {
           display: openDetails ? "block" : "none",
         }}
         className={styles.modalBG}
+        onClick={() => setOpenDetails(false)}
       ></div>
       <div
         style={{ display: openDetails ? "block" : "none" }}
