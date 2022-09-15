@@ -29,7 +29,7 @@ const DetailsModal = ({
     } else {
       setAdminDetails({});
     }
-  }, [openDetails]);
+  }, [openDetails, adminDataID]);
 
   return (
     <div

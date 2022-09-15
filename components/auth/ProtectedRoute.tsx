@@ -1,12 +1,10 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
+import Router from "next/router";
 import Splash from "../Splash";
 
 const ProtectedRoute = (Component: any) => {
-  const protecRout = () => {
-    const router = useRouter();
-
+  const ProtecRout = () => {
     const [authState, setAuthState] = useState<boolean>(false);
 
     useEffect(() => {
@@ -14,13 +12,13 @@ const ProtectedRoute = (Component: any) => {
       if (authPassed === "true") {
         setAuthState(true);
       } else {
-        router.push("/");
+        Router.push("/");
       }
     }, [setAuthState]);
 
     return <>{authState ? <Component /> : <Splash />}</>;
   };
-  return protecRout;
+  return ProtecRout;
 };
 
 export default ProtectedRoute;

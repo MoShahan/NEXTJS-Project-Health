@@ -29,7 +29,7 @@ const DetailsModal = ({
     } else {
       setProjectDetails({});
     }
-  }, [openDetails]);
+  }, [openDetails, projectDataID]);
 
   return (
     <div

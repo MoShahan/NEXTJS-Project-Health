@@ -9,9 +9,13 @@ const PageOne = ({ setFirstPage }: any) => {
   const handleSendInstructionsBtn = () => {
     setFirstPage(false);
     axios
-      .post("https://tranquil-hamlet-54124.herokuapp.com/users/password", {
-        user: { email: email },
-      })
+      .post(
+        "https://tranquil-hamlet-54124.herokuapp.com/users/password",
+        {
+          user: { email: email },
+        },
+        { headers: { Accept: "application/json" } }
+      )
       .then((res) => console.log(res))
       .catch((e) => console.log(e));
   };
