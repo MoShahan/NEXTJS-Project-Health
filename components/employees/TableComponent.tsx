@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../../styles/components/Table.module.css";
 import Pagination from "../Pagination";
 import { FiArrowDown, FiArrowUp } from "react-icons/fi";
 import { MdMoreVert } from "react-icons/md";
 import tempStyles from "../../styles/Temp.module.css";
+import axios from "axios";
 
 type EmployeeTableProps = {
   setAllChecked: any;
   currentPageData: Array<any>;
+  setCurrentPageData: any;
   allChecked: boolean;
   handleOptionsMenu: any;
   handlePaginationLeft: any;
@@ -22,6 +24,7 @@ type EmployeeTableProps = {
 const TableComponent = ({
   setAllChecked,
   currentPageData,
+  setCurrentPageData,
   allChecked,
   handleOptionsMenu,
   handlePaginationLeft,
@@ -44,6 +47,62 @@ const TableComponent = ({
     "Utilization",
     "Revenue Opportunity",
   ];
+
+  const [sortDirection, setSortDirection] = useState<"none" | "up" | "down">(
+    "none"
+  );
+
+  const sortData = (column: string) => {
+    const tempData = [...currentPageData];
+    switch (column) {
+      case "phone":
+      case "employee id":
+        tempData.sort((a: any, b: any) =>
+          sortDirection === "up" ? a.id - b.id : b.id - a.id
+        );
+        break;
+      case "name":
+        tempData.sort((a: any, b: any) =>
+          sortDirection === "up"
+            ? `${a.first_name} ${a.last_name}`.localeCompare(
+                `${b.first_name} ${b.last_name}`
+              )
+            : `${b.first_name} ${b.last_name}`.localeCompare(
+                `${a.first_name} ${a.last_name}`
+              )
+        );
+        break;
+      case "role":
+      case "revenue opportunity":
+      case "project name":
+      case "skills":
+      case "salary":
+        break;
+      case "employee type":
+        tempData.sort((a: any, b: any) =>
+          sortDirection === "up"
+            ? a.employee_type.localeCompare(b.employee_type)
+            : b.employee_type.localeCompare(a.employee_type)
+        );
+        break;
+      case "joining date":
+        tempData.sort((a: any, b: any) =>
+          sortDirection === "up"
+            ? a?.join_date?.localeCompare(b?.join_date)
+            : b?.join_date?.localeCompare(a?.join_date)
+        );
+        break;
+      default:
+        tempData.sort((a: any, b: any) =>
+          sortDirection === "up"
+            ? a[column].localeCompare(b[column])
+            : b[column].localeCompare(a[column])
+        );
+    }
+
+    setSortDirection((prev) => (prev === "up" ? "down" : "up"));
+    setCurrentPageData(tempData);
+  };
 
   return (
     <div
@@ -74,7 +133,7 @@ const TableComponent = ({
               />
             </td>
             {employeeTableHeaders.map((header) => (
-              <td key={header}>
+              <td key={header} onClick={() => sortData(header.toLowerCase())}>
                 {header}
                 <span className={styles.topArrow}>
                   <FiArrowUp />
@@ -88,74 +147,69 @@ const TableComponent = ({
           </tr>
         </thead>
         <tbody>
-          {currentPageData.map((admin: Array<any>, index: number) => {
-            return (
-              <tr key={index + admin[0]}>
-                <td>
-                  <input
-                    type="checkbox"
-                    name=""
-                    id=""
-                    checked={allChecked ? true : undefined}
-                  />
-                </td>
-                <td onClick={detailsModal} className={styles.clickDetails}>
-                  {index + " - " + admin[0]}
-                </td>
-                <td onClick={detailsModal} className={styles.clickDetails}>
-                  {admin[1]}
-                </td>
-                <td onClick={detailsModal} className={styles.clickDetails}>
-                  {admin[2]}
-                </td>
-                <td onClick={detailsModal} className={styles.clickDetails}>
-                  {admin[3].map((skill: string) => {
-                    return (
-                      <div key={skill} className={styles.eachEmployeeSkill}>
-                        {skill}
-                      </div>
-                    );
-                  })}
-                </td>
-                <td onClick={detailsModal} className={styles.clickDetails}>
-                  {admin[4].map((skill: string) => {
-                    return (
-                      <div
-                        key={skill}
-                        className={styles.eachEmployeeSkill}
-                        style={{ width: 100 }}
-                      >
-                        {skill}
-                      </div>
-                    );
-                  })}
-                </td>
-                <td onClick={detailsModal} className={styles.clickDetails}>
-                  {admin[5]}
-                </td>
-                <td onClick={detailsModal} className={styles.clickDetails}>
-                  {admin[6]}
-                </td>
-                <td onClick={detailsModal} className={styles.clickDetails}>
-                  {admin[7]}
-                </td>
-                <td onClick={detailsModal} className={styles.clickDetails}>
-                  {admin[8]}
-                </td>
-                <td onClick={detailsModal} className={styles.clickDetails}>
-                  {admin[9]}
-                </td>
-                <td>
-                  <div
-                    onClick={() => {
-                      handleOptionsMenu(index);
-                    }}
-                    className={styles.optionsMenu}
-                  ><MdMoreVert/></div>
-                </td>
-              </tr>
-            );
-          })}
+          {currentPageData?.map((employee: any, index: number) => (
+            <tr
+              key={index + employee?.email}
+              onClick={() => {
+                detailsModal(index);
+              }}
+            >
+              <td
+                onClick={(e) => e.stopPropagation()}
+                className={styles.dontClickDetails}
+              >
+                <input
+                  type="checkbox"
+                  name=""
+                  id=""
+                  checked={allChecked ? true : undefined}
+                />
+              </td>
+              <td>{employee?.id}</td>
+              <td>
+                {employee?.first_name} {employee?.last_name}
+              </td>
+              <td>{employee?.email}</td>
+              <td>
+                {["Parking", "Quiz"].map((skill: string) => {
+                  return (
+                    <div key={skill} className={styles.eachEmployeeSkill}>
+                      {skill}
+                    </div>
+                  );
+                })}
+              </td>
+              <td>
+                {["Front End", "Back End"].map((skill: string) => {
+                  return (
+                    <div
+                      key={skill}
+                      className={styles.eachEmployeeSkill}
+                      style={{ width: 100 }}
+                    >
+                      {skill}
+                    </div>
+                  );
+                })}
+              </td>
+              <td>{employee?.employee_type}</td>
+              <td>{employee?.join_date}</td>
+              <td>{employee?.salary}</td>
+              <td>{employee?.tilization}</td>
+              <td>Rev Opp</td>
+              <td className={styles.dontClickDetails}>
+                <div
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleOptionsMenu(index);
+                  }}
+                  className={styles.optionsMenu}
+                >
+                  <MdMoreVert />
+                </div>
+              </td>
+            </tr>
+          ))}
         </tbody>
         <tfoot>
           <tr>

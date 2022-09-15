@@ -89,6 +89,8 @@
     color: #000;
 }
 
+
+/* 
 .projectTable tbody td:nth-child(9) {
     color: #e02424;
 }
@@ -100,6 +102,16 @@
 tr:hover .clickDetails {
     background-color: #f3f4f6;
     cursor: pointer;
+} */
+
+.projectTable tbody tr:hover {
+    background-color: #f3f4f6;
+    cursor: pointer;
+}
+
+.projectTable tbody tr:hover .dontClickDetails {
+    background-color: #fff;
+    cursor: auto;
 }
 
 .projectTable input[type="checkbox"] {
@@ -416,6 +428,7 @@ tr:hover .clickDetails {
     font-size: 16px;
     line-height: 150%;
     color: #111928;
+    transition: all 0.5s;
     cursor: pointer;
 }
 
@@ -430,16 +443,27 @@ tr:hover .clickDetails {
     height: 42px;
     left: 905px;
     top: 781px;
-    background: #f6f6f6;
+    /* background: #f6f6f6; */
+    background: #fff;
     border-radius: 6px;
     font-family: "Inter";
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
     line-height: 150%;
-    color: #9ca3af;
+    color: #111928;
+    /* color: #9ca3af; */
     border: none;
+    transition: all 0.5s;
     cursor: pointer;
+    border: 1px solid #d1d5db;
+}
+
+.modalAddProjectBtn:hover,
+.modalCancel:hover {
+    background: #111928;
+    color: #ffffff;
+    /* border: 1px solid #d1d5db; */
 }
 
 

@@ -1,13 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../../styles/components/ViewDetails.module.css";
 import { MdClose } from "react-icons/md";
+import axios from "axios";
 
 type AdminDetailsProps = {
   openDetails: boolean;
   setOpenDetails: any;
+  adminDataID: any;
 };
 
-const DetailsModal = ({ openDetails, setOpenDetails }: AdminDetailsProps) => {
+const DetailsModal = ({
+  openDetails,
+  setOpenDetails,
+  adminDataID,
+}: AdminDetailsProps) => {
+  const [adminDetails, setAdminDetails] = useState<any>({});
+
+  useEffect(() => {
+    if (openDetails) {
+      axios
+        .get(
+          `https://tranquil-hamlet-54124.herokuapp.com/user_profile/${adminDataID}`
+        )
+        .then((res) => {
+          setAdminDetails(res.data);
+        })
+        .catch((e) => console.log(e));
+    } else {
+      setAdminDetails({});
+    }
+  }, [openDetails]);
+
   return (
     <div
       style={{
@@ -63,7 +86,7 @@ const DetailsModal = ({ openDetails, setOpenDetails }: AdminDetailsProps) => {
             styles.detailsModalBodyRowOne
           }
         >
-          1234567
+          {adminDetails?.id}
         </p>
         <div
           className={
@@ -98,7 +121,7 @@ const DetailsModal = ({ openDetails, setOpenDetails }: AdminDetailsProps) => {
             styles.detailsModalBodyRowOne
           }
         >
-          Shahan
+          {adminDetails?.first_name} {adminDetails?.last_name}
         </p>
         <div
           className={
@@ -133,7 +156,7 @@ const DetailsModal = ({ openDetails, setOpenDetails }: AdminDetailsProps) => {
             styles.detailsModalBodyRowOne
           }
         >
-          shahan@cc.com
+          {adminDetails?.email}
         </p>
         <h6
           className={
@@ -159,7 +182,7 @@ const DetailsModal = ({ openDetails, setOpenDetails }: AdminDetailsProps) => {
             styles.detailsModalBodyRowTwo
           }
         >
-          +971 508756181
+          {adminDetails?.phone}
         </p>
         <div
           className={
@@ -194,7 +217,7 @@ const DetailsModal = ({ openDetails, setOpenDetails }: AdminDetailsProps) => {
             styles.detailsModalBodyRowTwo
           }
         >
-          Blah Blah
+          Admin
         </p>
         <div
           className={
@@ -229,7 +252,7 @@ const DetailsModal = ({ openDetails, setOpenDetails }: AdminDetailsProps) => {
             styles.detailsModalBodyRowTwo
           }
         >
-          04 Sep 2022
+          {adminDetails?.status}
         </p>
       </div>
     </div>

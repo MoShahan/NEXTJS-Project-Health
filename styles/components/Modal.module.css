@@ -157,7 +157,7 @@
 }
 
 .modalPhoneInput div {
-    background: #EBF5FF;
+    background: #ebf5ff;
 }
 
 .modalPhoneInput div div {
@@ -392,9 +392,7 @@
     height: 42px;
     left: 805px;
     top: 634px;
-    /* white */
     background: #ffffff;
-    /* cool-gray/300 */
     border: 1px solid #d1d5db;
     border-radius: 6px;
     font-family: "Inter";
@@ -402,10 +400,9 @@
     font-weight: 600;
     font-size: 16px;
     line-height: 150%;
-    /* identical to box height, or 24px */
-    /* cool-gray/900 */
     color: #111928;
     cursor: pointer;
+    transition: all 0.5s;
 }
 
 .modalAddProjectBtn {
@@ -419,16 +416,31 @@
     height: 42px;
     left: 905px;
     top: 634px;
-    background: #f6f6f6;
+    /* background: #f6f6f6; */
+    background: #ffffff;
     border-radius: 6px;
     font-family: "Inter";
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
     line-height: 150%;
-    /* identical to box height, or 24px */
-    /* cool-gray/400 */
-    color: #9ca3af;
+    /* color: #9ca3af; */
+    color: #111928;
     border: none;
     cursor: pointer;
+    transition: all 0.5s;
+    border: 1px solid #d1d5db;
+}
+
+.disabledAddBtn {
+    color: #9ca3af;
+    background: #f6f6f6;
+    border: none;
+}
+
+.modalAddProjectBtn:hover,
+.modalCancel:hover {
+    background: #111928;
+    color: #ffffff;
+    /* border: 1px solid #d1d5db; */
 }

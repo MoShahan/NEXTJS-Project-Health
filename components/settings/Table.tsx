@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Pagination from "../Pagination";
 import styles from "../../styles/components/Table.module.css";
 import { MdMoreVert } from "react-icons/md";
@@ -8,6 +8,7 @@ import tempStyles from "../../styles/Temp.module.css";
 type SettingsTableProps = {
   setAllChecked: any;
   currentPageData: Array<any>;
+  setCurrentPageData: any;
   allChecked: boolean;
   handleOptionsMenu: any;
   handlePaginationLeft: any;
@@ -22,6 +23,7 @@ type SettingsTableProps = {
 const Table = ({
   setAllChecked,
   currentPageData,
+  setCurrentPageData,
   allChecked,
   handleOptionsMenu,
   handlePaginationLeft,
@@ -33,6 +35,21 @@ const Table = ({
   detailsModal,
 }: SettingsTableProps) => {
   const settingsTableHeaders = ["Name", "Description", "Status"];
+
+  const [sortDirection, setSortDirection] = useState<"none" | "up" | "down">(
+    "none"
+  );
+
+  const sortData = (column: string) => {
+    const tempData = [...currentPageData];
+    tempData.sort((a: any, b: any) =>
+      sortDirection === "up"
+        ? a[column]?.localeCompare(b[column])
+        : b[column]?.localeCompare(a[column])
+    );
+    setSortDirection((prev) => (prev === "up" ? "down" : "up"));
+    setCurrentPageData(tempData);
+  };
 
   return (
     <table className={styles.adminTable + " " + tempStyles.tempTable}>
@@ -47,7 +64,7 @@ const Table = ({
             />
           </td>
           {settingsTableHeaders.map((header) => (
-            <td key={header}>
+            <td key={header} onClick={() => sortData(header.toLowerCase())}>
               {header}
               <span className={styles.topArrow}>
                 <FiArrowUp />
@@ -61,9 +78,9 @@ const Table = ({
         </tr>
       </thead>
       <tbody>
-        {currentPageData.map((admin: Array<any>, index: number) => {
+        {currentPageData.map((eachRow: any, index: number) => {
           return (
-            <tr key={index + admin[0]}>
+            <tr key={index + eachRow?.name}>
               <td>
                 <input
                   type="checkbox"
@@ -72,22 +89,24 @@ const Table = ({
                   checked={allChecked ? true : undefined}
                 />
               </td>
-              {admin.map((cell: string) => (
-                <td
-                  key={cell}
-                  className={styles.clickDetails}
-                  onClick={detailsModal}
-                >
-                  {cell}
-                </td>
-              ))}
+              <td className={styles.clickDetails} onClick={detailsModal}>
+                {eachRow?.name}
+              </td>
+              <td className={styles.clickDetails} onClick={detailsModal}>
+                {eachRow?.description}
+              </td>
+              <td className={styles.clickDetails} onClick={detailsModal}>
+                {eachRow?.status}
+              </td>
               <td>
                 <div
                   onClick={() => {
                     handleOptionsMenu(index);
                   }}
                   className={styles.optionsMenu}
-                ><MdMoreVert/></div>
+                >
+                  <MdMoreVert />
+                </div>
               </td>
             </tr>
           );

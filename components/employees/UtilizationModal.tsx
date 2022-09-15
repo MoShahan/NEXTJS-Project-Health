@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import styles from "../../styles/components/Utilization.module.css";
 import { HiTrash } from "react-icons/hi";
 import { MdAdd, MdClose } from "react-icons/md";
+import axios from "axios";
 
 const TOP_VALUE_OF_FIELD_HEADING = 540;
 const TOP_VALUE_OF_FIELD_INPUT = 590;
@@ -15,6 +16,7 @@ type UtilizationModalProps = {
 const UtilizationModal = ({ openUtil, setOpenUtil }: UtilizationModalProps) => {
   const [numberOfExtraFields, setNumberOfExtraFields] = useState<number>(0);
   const [totalFields, setTotalFields] = useState<Array<any>>([]);
+  const [projectNamesList, setProjectNamesList] = useState<Array<any>>([]);
 
   const handleAdd = () => {
     setNumberOfExtraFields((prev) => prev + 1);
@@ -25,6 +27,14 @@ const UtilizationModal = ({ openUtil, setOpenUtil }: UtilizationModalProps) => {
       setNumberOfExtraFields((prev) => prev - 1);
     }
   }, [numberOfExtraFields]);
+
+  useEffect(() => {
+    //getting project names
+    axios
+      .get("https://tranquil-hamlet-54124.herokuapp.com/projects/name")
+      .then((res) => setProjectNamesList(res.data))
+      .catch((e) => console.log(e));
+  }, []);
 
   useEffect(() => {
     var tempTotalFields = [];
@@ -280,14 +290,25 @@ const UtilizationModal = ({ openUtil, setOpenUtil }: UtilizationModalProps) => {
         >
           Project Name
         </h6>
-        <input
-          style={{ width: 300 }}
-          type="text"
+        <select
           className={
             styles.bodyRowFour + " " + styles.columnOne + " " + styles.modalBody
           }
-          placeholder="Enter..."
-        />
+          style={{ width: 300 }}
+        >
+          <option value="" disabled style={{ color: "rgba(33, 33, 33, 0.4)" }}>
+            Please Select...
+          </option>
+          {projectNamesList?.map((pname: any) => (
+            <option
+              style={{ color: "black" }}
+              key={pname?.split(",")[1]}
+              value={pname?.split(",")[1]}
+            >
+              {pname?.split(",")[0]}
+            </option>
+          ))}
+        </select>
         <h6
           className={
             styles.headingRowFour +

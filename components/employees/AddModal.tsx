@@ -1,13 +1,50 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../../styles/components/Modal.module.css";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
 import { MdClose } from "react-icons/md";
+import axios from "axios";
 
 type EmployeeModalProps = { openModal: boolean; setOpenModal: any };
 
 const AddModal = ({ openModal, setOpenModal }: EmployeeModalProps) => {
   const [phoneNumber, setPhoneNumber] = useState<any>("");
+  const [email, setEmail] = useState<string>("");
+  const [skillList, setSkillList] = useState<Array<any>>([]);
+  const [empTypeList, setEmpTypeList] = useState<Array<any>>([]);
+
+  const handleAddBtn = () => {
+    // axios
+    //   .post("https://obscure-springs-16848.herokuapp.com/users/clients", {
+    //     name: "SonyLiv",
+    //     description:
+    //       "SonyLIV is an Indian over-the-top freemium streaming platform owned by Culver Max Entertainment.",
+    //     phone: "1234567898",
+    //     email: "sony@gmail.com",
+    //     primary_contact_name: "Puneeth",
+    //   })
+    //   .then((res) => {
+    //     console.log(res);
+    //     setOpenModal(false);
+    //   })
+    //   .catch((e) => console.log(e));
+  };
+
+  useEffect(() => {
+    axios
+      .get(`https://tranquil-hamlet-54124.herokuapp.com/skills/all`)
+      .then((res) => {
+        setSkillList(res.data);
+      })
+      .catch((e) => console.log(e));
+
+    axios
+      .get(`https://tranquil-hamlet-54124.herokuapp.com/employee_types/names`)
+      .then((res) => {
+        setEmpTypeList(res.data);
+      })
+      .catch((e) => console.log(e));
+  }, []);
 
   return (
     <>
@@ -73,9 +110,11 @@ const AddModal = ({ openModal, setOpenModal }: EmployeeModalProps) => {
             <option value="" disabled>
               Please Select...
             </option>
-            <option value="">1</option>
-            <option value="">2</option>
-            <option value="">3</option>
+            {skillList?.map((skill: any) => (
+              <option key={skill?.id} value={skill?.id}>
+                {skill?.name}
+              </option>
+            ))}
           </select>
           <h6 className={styles.modalEmpType}>Employee Type</h6>
           <select
@@ -87,9 +126,14 @@ const AddModal = ({ openModal, setOpenModal }: EmployeeModalProps) => {
             <option disabled value="">
               Please Select...
             </option>
-            <option value="">1</option>
-            <option value="">2</option>
-            <option value="">3</option>
+            {empTypeList?.map((client: any) => (
+              <option
+                key={client?.split(",")[1]}
+                value={client?.split(",")[1].trim()}
+              >
+                {client?.split(",")[0]}
+              </option>
+            ))}
           </select>
           <h6 className={styles.modalSalary}>Salary</h6>
           <input
@@ -129,7 +173,11 @@ const AddModal = ({ openModal, setOpenModal }: EmployeeModalProps) => {
           >
             Cancel
           </button>
-          <button className={styles.modalAddProjectBtn} style={{ top: 849 }}>
+          <button
+            className={styles.modalAddProjectBtn}
+            style={{ top: 849 }}
+            onClick={handleAddBtn}
+          >
             Add Project
           </button>
         </div>

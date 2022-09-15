@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 import AddModal from "../components/employees/AddModal";
 import DetailsModal from "../components/employees/DetailsModal";
@@ -9,7 +10,7 @@ import LeftSideBar from "../components/LeftSideBar";
 import { EMPLOYEE } from "../variables";
 
 const ITEMS_IN_ONE_PAGE = 10;
-let tempEmployeesData: Array<any> = [];
+// let tempEmployeesData: Array<any> = [];
 let LAST_PAGE: number;
 
 const Employees = () => {
@@ -22,34 +23,55 @@ const Employees = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [optionsMenu, setOptionsMenu] = useState<boolean>(false);
   const [currentOptions, setCurrentOptions] = useState<number>(0);
+  const [projectNamesList, setProjectNamesList] = useState<Array<any>>([]);
+  const [employeesData, setEmployeesData] = useState<Array<any>>([]);
 
-  useEffect(() => {
-    tempEmployeesData = [];
-    for (let i = 0; i < 69; i++) {
-      tempEmployeesData.push([
-        "1234567",
-        "Shahan",
-        "shahan@cc.com",
-        ["Parking", "Quiz"],
-        ["Front End", "Back End"],
-        "Expert",
-        "Sep 01 2022",
-        "0",
-        "uti",
-        "revenue",
-      ]);
-    }
-    LAST_PAGE = Math.ceil(tempEmployeesData.length / ITEMS_IN_ONE_PAGE);
-  }, []);
+  // useEffect(() => {
+  //   tempEmployeesData = [];
+  //   for (let i = 0; i < 69; i++) {
+  //     tempEmployeesData.push([
+  //       "1234567",
+  //       "Shahan",
+  //       "shahan@cc.com",
+  //       ["Parking", "Quiz"],
+  //       ["Front End", "Back End"],
+  //       "Expert",
+  //       "Sep 01 2022",
+  //       "0",
+  //       "uti",
+  //       "revenue",
+  //     ]);
+  //   }
+  //   LAST_PAGE = Math.ceil(tempEmployeesData.length / ITEMS_IN_ONE_PAGE);
+  // }, []);
 
   useEffect(() => {
     setCurrentPageData([
-      ...tempEmployeesData.slice(
+      ...employeesData.slice(
         (currentPage - 1) * ITEMS_IN_ONE_PAGE,
         currentPage * ITEMS_IN_ONE_PAGE
       ),
     ]);
-  }, [currentPage, tempEmployeesData]);
+  }, [currentPage, employeesData]);
+
+  const getProjectsNames = () => {
+    axios
+      .get("https://tranquil-hamlet-54124.herokuapp.com/projects/name")
+      .then((res) => {
+        setProjectNamesList(res.data);
+      })
+      .catch((e) => console.log(e));
+  };
+
+  const getEmployeeData = () => {
+    axios
+      .get("https://tranquil-hamlet-54124.herokuapp.com/user_profiles")
+      .then((res) => {
+        setEmployeesData(res.data);
+        LAST_PAGE = Math.ceil(res.data.length / ITEMS_IN_ONE_PAGE);
+      })
+      .catch((e) => console.log(e));
+  };
 
   const handlePaginationLeft = () => {
     if (currentPage === 1) {
@@ -76,9 +98,10 @@ const Employees = () => {
     }
   };
 
-  const handleDetailClick = () => {
+  const handleDetailClick = (currIndex: any) => {
     setOptionsMenu(false);
     setEmployeeDetailsModal(true);
+    setCurrentOptions(currIndex);
   };
 
   const handleEditProject = () => {};
@@ -87,6 +110,11 @@ const Employees = () => {
     setUtilModal(true);
     setOptionsMenu(false);
   };
+
+  useEffect(() => {
+    getProjectsNames();
+    getEmployeeData();
+  }, []);
 
   return (
     <>
@@ -106,12 +134,14 @@ const Employees = () => {
       <TableComponent
         setAllChecked={setAllChecked}
         currentPageData={currentPageData}
+        setCurrentPageData={setCurrentPageData}
         allChecked={allChecked}
         handleOptionsMenu={handleOptionsMenu}
         handlePaginationLeft={handlePaginationLeft}
         handlePaginationRight={handlePaginationRight}
         currentPage={currentPage}
-        tempEmployeesData={tempEmployeesData}
+        tempEmployeesData={employeesData}
+        // tempEmployeesData={tempEmployeesData}
         ITEMS_IN_ONE_PAGE={ITEMS_IN_ONE_PAGE}
         LAST_PAGE={LAST_PAGE}
         detailsModal={handleDetailClick}
@@ -123,6 +153,7 @@ const Employees = () => {
       <DetailsModal
         openDetails={employeeDetailsModal}
         setOpenDetails={setEmployeeDetailsModal}
+        employeeDataID={currentPageData[currentOptions]?.id}
       />
       <UtilizationModal openUtil={utilModal} setOpenUtil={setUtilModal} />
     </>

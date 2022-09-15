@@ -39,7 +39,7 @@ const Pagination = ({
             1 +
             "-" +
             (currentPage === LAST_PAGE
-              ? tempData.length
+              ? tempData?.length
               : currentPage * ITEMS_IN_ONE_PAGE)}
         </span>{" "}
         of <span className={styles.boldPaginationText}>{tempData.length}</span>

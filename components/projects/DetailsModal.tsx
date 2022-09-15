@@ -1,13 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../../styles/components/ViewDetails.module.css";
 import { MdClose } from "react-icons/md";
+import axios from "axios";
 
 type ProjectDetailsProps = {
   openDetails: boolean;
   setOpenDetails: any;
+  projectDataID: any;
 };
 
-const DetailsModal = ({ openDetails, setOpenDetails }: ProjectDetailsProps) => {
+const DetailsModal = ({
+  openDetails,
+  setOpenDetails,
+  projectDataID,
+}: ProjectDetailsProps) => {
+  const [projectDetails, setProjectDetails] = useState<any>({});
+
+  useEffect(() => {
+    if (openDetails) {
+      axios
+        .get(
+          `https://tranquil-hamlet-54124.herokuapp.com/project/${projectDataID}`
+        )
+        .then((res) => {
+          setProjectDetails(res.data);
+        })
+        .catch((e) => console.log(e));
+    } else {
+      setProjectDetails({});
+    }
+  }, [openDetails]);
+
   return (
     <div
       style={{
@@ -59,7 +82,7 @@ const DetailsModal = ({ openDetails, setOpenDetails }: ProjectDetailsProps) => {
             styles.detailsModalBodyRowOne
           }
         >
-          1234567
+          {projectDetails?.id}
         </p>
         <div
           className={
@@ -90,7 +113,7 @@ const DetailsModal = ({ openDetails, setOpenDetails }: ProjectDetailsProps) => {
             styles.detailsModalBodyRowOne
           }
         >
-          Shahan
+          {projectDetails?.name}
         </p>
         <div
           className={
@@ -121,7 +144,7 @@ const DetailsModal = ({ openDetails, setOpenDetails }: ProjectDetailsProps) => {
             styles.detailsModalBodyRowOne
           }
         >
-          Bruce Wayne
+          {projectDetails?.client_id}
         </p>
         <h6
           className={
@@ -143,7 +166,7 @@ const DetailsModal = ({ openDetails, setOpenDetails }: ProjectDetailsProps) => {
             styles.detailsModalBodyRowTwo
           }
         >
-          Front End
+          {projectDetails?.master_type_id}
         </p>
         <div
           className={
@@ -151,7 +174,7 @@ const DetailsModal = ({ openDetails, setOpenDetails }: ProjectDetailsProps) => {
             " " +
             styles.projectSeparatorRowTwo +
             " " +
-            styles.projectSeparatorColumnOnw
+            styles.projectSeparatorColumnOne
           }
         ></div>
         <h6
@@ -174,8 +197,8 @@ const DetailsModal = ({ openDetails, setOpenDetails }: ProjectDetailsProps) => {
             styles.detailsModalBodyRowTwo
           }
         >
-          Blah Blah
-        </p>  
+          {projectDetails?.project_manager_id}
+        </p>
         <div
           className={
             styles.separator +
@@ -205,7 +228,7 @@ const DetailsModal = ({ openDetails, setOpenDetails }: ProjectDetailsProps) => {
             styles.detailsModalBodyRowTwo
           }
         >
-          01 Sep 2022
+          {projectDetails?.start_date}
         </p>
         <h6
           className={
@@ -227,7 +250,7 @@ const DetailsModal = ({ openDetails, setOpenDetails }: ProjectDetailsProps) => {
             styles.detailsModalBodyRowThree
           }
         >
-          30 Nov 2022
+          {projectDetails?.end_date}
         </p>
         <div
           className={
@@ -260,7 +283,7 @@ const DetailsModal = ({ openDetails, setOpenDetails }: ProjectDetailsProps) => {
             styles.green
           }
         >
-          Running
+          {projectDetails?.project_closure_status}
         </p>
         <div
           className={
@@ -293,7 +316,7 @@ const DetailsModal = ({ openDetails, setOpenDetails }: ProjectDetailsProps) => {
             styles.red
           }
         >
-          Behind Schedule
+          yet to recieve
         </p>
       </div>
     </div>

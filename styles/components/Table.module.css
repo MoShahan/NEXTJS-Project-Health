@@ -97,9 +97,21 @@
     font-weight: 500;
 }
 
+
+/* 
 tr:hover .clickDetails {
     background-color: #f3f4f6;
     cursor: pointer;
+} */
+
+.adminTable tbody tr:hover {
+    background-color: #f3f4f6;
+    cursor: pointer;
+}
+
+.adminTable tbody tr:hover .dontClickDetails {
+    background-color: #fff;
+    cursor: auto;
 }
 
 .adminTable input[type="checkbox"] {

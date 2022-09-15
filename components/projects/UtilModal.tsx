@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import styles from "../../styles/components/Utilization.module.css";
 import { HiTrash } from "react-icons/hi";
 import { MdAdd, MdClose } from "react-icons/md";
+import axios from "axios";
 
 const TOP_VALUE_OF_FIELD_HEADING = 640;
 const TOP_VALUE_OF_FIELD_INPUT = 690;
@@ -15,6 +16,8 @@ type UtilModalProps = {
 const UtilModal = ({ openUtil, setOpenUtil }: UtilModalProps) => {
   const [numberOfExtraFields, setNumberOfExtraFields] = useState<number>(0);
   const [totalFields, setTotalFields] = useState<Array<any>>([]);
+  const [projectNamesList, setProjectNamesList] = useState<Array<any>>([]);
+  const [projectTypesList, setProjectTypesList] = useState<Array<any>>([]);
 
   const handleAdd = () => {
     setNumberOfExtraFields((prev) => prev + 1);
@@ -25,6 +28,20 @@ const UtilModal = ({ openUtil, setOpenUtil }: UtilModalProps) => {
       setNumberOfExtraFields((prev) => prev - 1);
     }
   }, [numberOfExtraFields]);
+
+  useEffect(() => {
+    //getting project names
+    axios
+      .get("https://tranquil-hamlet-54124.herokuapp.com/projects/name")
+      .then((res) => setProjectNamesList(res.data))
+      .catch((e) => console.log(e));
+
+    //getting project types
+    axios
+      .get("https://tranquil-hamlet-54124.herokuapp.com/project_types/names")
+      .then((res) => setProjectTypesList(res.data))
+      .catch((e) => console.log(e));
+  }, []);
 
   useEffect(() => {
     var tempTotalFields: Array<any> = [];
@@ -173,6 +190,7 @@ const UtilModal = ({ openUtil, setOpenUtil }: UtilModalProps) => {
           className={styles.modalClose}
           onClick={() => setOpenUtil(false)}
         ></div>
+        {/* ============================================ */}
         <h6
           className={
             styles.headingRowOne + " " + styles.columnOne + " " + styles.heading
@@ -180,14 +198,26 @@ const UtilModal = ({ openUtil, setOpenUtil }: UtilModalProps) => {
         >
           Project Name
         </h6>
-        <input
+        <select
           className={
             styles.bodyRowOne + " " + styles.columnOne + " " + styles.modalBody
           }
-          type="text"
           style={{ width: 420 }}
-          placeholder="Enter..."
-        />
+        >
+          <option value="" disabled style={{ color: "rgba(33, 33, 33, 0.4)" }}>
+            Please Select...
+          </option>
+          {projectNamesList?.map((pname: any) => (
+            <option
+              style={{ color: "black" }}
+              key={pname?.split(",")[1]}
+              value={pname?.split(",")[1]}
+            >
+              {pname?.split(",")[0]}
+            </option>
+          ))}
+        </select>
+        {/* ============================================ */}
         <h6
           className={
             styles.headingRowOne +
@@ -199,14 +229,26 @@ const UtilModal = ({ openUtil, setOpenUtil }: UtilModalProps) => {
         >
           Project Type
         </h6>
-        <input
-          style={{ width: 180 }}
-          type="text"
+        <select
           className={
             styles.bodyRowOne + " " + styles.columnFour + " " + styles.modalBody
           }
-          placeholder="Enter..."
-        />
+          style={{ width: 180 }}
+        >
+          <option value="" disabled style={{ color: "rgba(33, 33, 33, 0.4)" }}>
+            Please Select...
+          </option>
+          {projectTypesList?.map((ptype: any) => (
+            <option
+              style={{ color: "black" }}
+              key={ptype?.split(",")[1]}
+              value={ptype?.split(",")[1].trim()}
+            >
+              {ptype?.split(",")[0]}
+            </option>
+          ))}
+        </select>
+        {/* ============================================ */}
         <h6
           className={
             styles.headingRowTwo + " " + styles.columnOne + " " + styles.heading

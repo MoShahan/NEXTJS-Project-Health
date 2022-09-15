@@ -12,7 +12,6 @@ const PageFour = () => {
       </h6>
       <Link href="/login">
         <button className={styles.btnFour}>
-          {/* <a href="/login">Continue</a> */}
           <a>Continue</a>
         </button>
       </Link>

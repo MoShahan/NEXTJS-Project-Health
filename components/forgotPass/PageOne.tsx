@@ -1,8 +1,21 @@
+import axios from "axios";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import styles from "../../styles/ForgotPassword.module.css";
 
 const PageOne = ({ setFirstPage }: any) => {
+  const [email, setEmail] = useState<string>("");
+
+  const handleSendInstructionsBtn = () => {
+    setFirstPage(false);
+    axios
+      .post("https://tranquil-hamlet-54124.herokuapp.com/users/password", {
+        user: { email: email },
+      })
+      .then((res) => console.log(res))
+      .catch((e) => console.log(e));
+  };
+
   return (
     <div>
       <div className={styles.backBtn}>
@@ -17,9 +30,13 @@ const PageOne = ({ setFirstPage }: any) => {
           instructions.
         </h6>
         <h6 className={styles.firstPlaceholder}>Email</h6>
-        <input className={styles.fEmailInput} type="text" />
-        <button className={styles.btnOne} onClick={() => setFirstPage(false)}>
-          {/* <a href="forgotPassword/2">Send me instructions</a> */}
+        <input
+          className={styles.fEmailInput}
+          type="text"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <button className={styles.btnOne} onClick={handleSendInstructionsBtn}>
           Send me instructions
         </button>
         <p className={styles.cancelOne}>

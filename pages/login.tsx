@@ -1,12 +1,11 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { ReactElement, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "../styles/Login.module.css";
 import axios from "axios";
 import { MdVisibility, MdVisibilityOff } from "react-icons/md";
 
-const DEMO_CORRECT_USERNAME = "admin@cc.com";
-const DEMO_CORRECT_PASSWORD = "Admin@123";
+// 67XQGs
 
 const MAIL_FORMAT = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
@@ -20,146 +19,74 @@ const Login = () => {
   const [invalidPassword, setInvalidPassword] = useState<boolean>(false);
   const [wrongCredentials, setWrongCredentials] = useState<boolean>(false);
   const [showPassword, setShowPassword] = useState<boolean>(false);
-  const [authToken, setAuthToken] = useState<string>("");
+  // const [authToken, setAuthToken] = useState<string>("");
 
   const router = useRouter();
 
   const signIn = () => {
-    axios
-      .post("https://health27.herokuapp.com/users/sign_in", {
-        user: {
-          email: "kavya1@gmail.com",
-          password: "00112233",
-        },
-      })
-      .then((res) => {
-        console.log("----------------------------------------");
-        console.log("KAVYA");
-        console.log("HEADERS ==", res.headers);
-        console.log("DATA ==", res.data);
-      })
-      .catch((e) => console.log(e));
+    console.log("Signing In...");
+
+    // axios
+    //   .post("https://obscure-springs-16848.herokuapp.com/users/sign_in", {
+    //     user: { email: "flash@dc.com", password: "testinG&0" },
+    //   })
+    //   .then((res) => {
+    //     console.log("----------------------------------------");
+    //     console.log("SURAJ");
+    //     console.log("AUTH TOKEN ==", res.headers.authorization);
+    //     axios.defaults.headers.common["Authorization"] =
+    //       res.headers.authorization;
+    //     localStorage.setItem("isLoggedIn", "true");
+    //     router.push("/projects");
+    //   })
+    //   .catch((e) => console.log(e));
 
     axios
-      .post("https://obscure-springs-16848.herokuapp.com/users/sign_in", {
-        user: {
-          email: "batman@gmail.com",
-          password: "batman",
-        },
+      .post("https://tranquil-hamlet-54124.herokuapp.com/users/sign_in", {
+        user: { email: "shahan@cc.com", password: "Shahan#27" },
+        // user: { email: username, password: password },
       })
       .then((res) => {
+        setWrongCredentials(false);
         console.log("----------------------------------------");
-        console.log("SURAJ");
-        console.log("HEADERS ==", res.headers);
-        console.log("DATA ==", res.data);
-      })
-      .catch((e) => console.log(e));
-
-    axios
-      .post("https://sheltered-retreat-12255.herokuapp.com/users/sign_in", {
-        user: {
-          email: "test@gmail.com",
-          password: "1234567",
-        },
-      })
-      .then((res) => {
-        console.log("----------------------------------------");
-        console.log("PRAMODINI");
-        console.log("HEADERS ==", res.headers);
-        console.log("DATA ==", res.data);
-      })
-      .catch((e) => console.log(e));
-
-    axios
-      .post("https://floating-falls-55336.herokuapp.com/users/sign_in", {
-        user: { email: "pk@gmail.com", password: "XyZ@1998" },
-      })
-      .then((res) => {
-        console.log("----------------------------------------");
-        console.log("PUNEETH");
-        console.log("HEADERS ==", res.headers);
+        console.log("Thushar");
         console.log("AUTH TOKEN ==", res.headers.authorization);
-        console.log("DATA ==", res.data);
-        // setAuthToken(res.headers.authorization);
+        axios.defaults.headers.common["Authorization"] =
+          res.headers.authorization;
+        // axios.defaults.headers.get["Content-Type"] = "application/json";
+        axios.defaults.headers.get["Accept"] = "application/json";
+        localStorage.setItem("isLoggedIn", "true");
+        router.push("/projects");
       })
-      .catch((e) => console.log(e));
+      .catch((e) => {
+        console.log(e);
+        setWrongCredentials(true);
+      });
   };
-
-  const signOut = () => {
-    console.log("Signing Out...");
-
-    axios({
-      method: "delete",
-      url: "https://obscure-springs-16848.herokuapp.com/users/sign_out",
-      headers: {
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzIiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjYyMzYyNjIzLCJleHAiOjE2NjIzNjYyMjMsImp0aSI6IjQ3MTgzN2MyLWM4ZDItNDc1Ni1hMTVmLTY3YWZhMWM5NzNiMiJ9.JyfszlFlzQCWo3IvWAy6ft_iy96tiuH5RXVM1MTB68Q",
-        Cookie: "",
-      },
-    })
-      .then((res) => {
-        console.log("------------------------------------------------------");
-        console.log("SURAJ");
-        console.log(res);
-      })
-      .catch((e) => console.log(e));
-
-    axios({
-      method: "delete",
-      url: "https://health27.herokuapp.com/users/sign_out",
-      headers: {
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjYyNDY5NjY0LCJleHAiOjE2NjI0NzMyNjQsImp0aSI6IjdlNTdjMTFhLTdkMWYtNDQwNS04NWM4LTM5ODMwOTY3OTM0YiJ9.TTiJwLzxmSjFE4Gd8pUtmACDhXIfow_gUCAyI19beU4",
-      },
-      withCredentials: true,
-    })
-      .then((res) => {
-        console.log("------------------------------------------------------");
-        console.log("KAVYA");
-        console.log("RESPONSE ==", res);
-        // console.log("HEADERS ==", res.headers);
-        console.log("DATA ==", res.data);
-        console.log("MESSAGE ==", res.data.message);
-      })
-      .catch((e) => console.log(e));
-
-    // axios.defaults.headers.common["Authorization"] = authToken;
-  };
-
-  useEffect(() => {
-    signIn();
-    // signOut();
-  }, []);
 
   const handleLogin = () => {
-    // checking for username pattern
-    if (MAIL_FORMAT.test(username)) {
-      setInvalidUsername(false);
-      console.log("ACCEPTED -->", username);
-    } else {
-      setInvalidUsername(true);
-      console.log("REJECTED -->", username);
-    }
+    signIn();
 
-    // checking for password pattern
-    if (PASSWORD_FORMAT.test(password)) {
-      setInvalidPassword(false);
-      console.log("ACCEPTED -->", password);
+    if (MAIL_FORMAT.test(username) && PASSWORD_FORMAT.test(password)) {
+      signIn();
     } else {
-      setInvalidPassword(true);
-      console.log("REJECTED -->", password);
-    }
+      // checking for username pattern
+      if (MAIL_FORMAT.test(username)) {
+        setInvalidUsername(false);
+        console.log("ACCEPTED -->", username);
+      } else {
+        setInvalidUsername(true);
+        console.log("REJECTED -->", username);
+      }
 
-    // checking if the username and password is correct
-    if (
-      username === DEMO_CORRECT_USERNAME &&
-      password === DEMO_CORRECT_PASSWORD
-    ) {
-      setWrongCredentials(false);
-      console.log("LOGIN SUCCESSFUL");
-      router.push("/projects");
-    } else {
-      setWrongCredentials(true);
+      // checking for password pattern
+      if (PASSWORD_FORMAT.test(password)) {
+        setInvalidPassword(false);
+        console.log("ACCEPTED -->", password);
+      } else {
+        setInvalidPassword(true);
+        console.log("REJECTED -->", password);
+      }
     }
   };
 

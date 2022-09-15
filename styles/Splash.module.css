@@ -77,4 +77,68 @@
     background: url(../assets/pics/splash-full-logo.png);
     background-repeat: no-repeat;
     background-size: contain;
+    z-index: 1;
+    animation: counter-spin 1s linear infinite;
+    -webkit-animation: counter-spin 1s linear infinite;
+}
+
+.loader {
+    border: 5px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 5px solid #1996fc;
+    width: 250px;
+    height: 250px;
+    animation: spin 1s linear infinite;
+    -webkit-animation: spin 1s linear infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes counter-spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    50% {
+        -webkit-transform: rotate(-180deg);
+    }
+    75% {
+        -webkit-transform: rotate(-270deg);
+    }
+    100% {
+        -webkit-transform: rotate(-360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes counter-spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    50% {
+        -webkit-transform: rotate(-180deg);
+    }
+    75% {
+        -webkit-transform: rotate(-270deg);
+    }
+    100% {
+        -webkit-transform: rotate(-360deg);
+    }
 }

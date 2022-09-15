@@ -1,15 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../../styles/components/ViewDetails.module.css";
 import { MdClose } from "react-icons/md";
+import axios from "axios";
 
 type EmployeeDetailsProps = {
   openDetails: boolean;
   setOpenDetails: any;
+  employeeDataID: any;
 };
 
 const DetailsModal = ({
   openDetails,
   setOpenDetails,
+  employeeDataID,
 }: EmployeeDetailsProps) => {
   const skillsList = ["Front End", "Back End"];
   const projectsNameList = [

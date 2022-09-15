@@ -1,3 +1,4 @@
+import axios from "axios";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import AddModal from "../components/adminUsers/AddModal";
@@ -10,7 +11,7 @@ import { ADMIN } from "../variables";
 
 const ITEMS_IN_ONE_PAGE = 10;
 
-let tempAdminsData: Array<any> = [];
+// let tempAdminsData: Array<any> = [];
 let LAST_PAGE: number;
 
 const AdminUsers = () => {
@@ -21,28 +22,48 @@ const AdminUsers = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [optionsMenu, setOptionsMenu] = useState<boolean>(false);
   const [currentOptions, setCurrentOptions] = useState<number>(0);
+  const [loadingAdminData, setLoadingAdminData] = useState<boolean>(true);
+  const [adminsData, setAdminsData] = useState<Array<any>>([]);
+
+  // console.log(adminDetailsModal)
+
+  // useEffect(() => {
+  //   tempAdminsData = [];
+  //   for (let i = 0; i < 36; i++) {
+  //     tempAdminsData.push([
+  //       "1234567",
+  //       "Shahan",
+  //       "shahan@cc.com",
+  //       "+971 508756181",
+  //     ]);
+  //   }
+  //   LAST_PAGE = Math.ceil(tempAdminsData.length / ITEMS_IN_ONE_PAGE);
+  // }, []);
+
+  const getAdminDetails = () => {
+    axios
+      .get(`https://tranquil-hamlet-54124.herokuapp.com/user_profiles`)
+      .then((res) => {
+        // console.log(res.data);
+        setAdminsData(res.data);
+        setLoadingAdminData(false);
+        LAST_PAGE = Math.ceil(res.data.length / ITEMS_IN_ONE_PAGE);
+      })
+      .catch((e) => console.log(e));
+  };
 
   useEffect(() => {
-    tempAdminsData = [];
-    for (let i = 0; i < 36; i++) {
-      tempAdminsData.push([
-        "1234567",
-        "Shahan",
-        "shahan@cc.com",
-        "+971 508756181",
-      ]);
-    }
-    LAST_PAGE = Math.ceil(tempAdminsData.length / ITEMS_IN_ONE_PAGE);
+    getAdminDetails();
   }, []);
 
   useEffect(() => {
     setCurrentPageData([
-      ...tempAdminsData.slice(
+      ...adminsData.slice(
         (currentPage - 1) * ITEMS_IN_ONE_PAGE,
         currentPage * ITEMS_IN_ONE_PAGE
       ),
     ]);
-  }, [currentPage, tempAdminsData]);
+  }, [currentPage, adminsData]);
 
   const handlePaginationLeft = () => {
     if (currentPage === 1) {
@@ -69,14 +90,29 @@ const AdminUsers = () => {
     }
   };
 
-  const handleDetailClick = () => {
+  const handleDetailClick = (currIndex: number) => {
+    setCurrentOptions(currIndex);
     setOptionsMenu(false);
     setAdminDetailsModal(true);
   };
 
-  const handleEditProject = () => {};
-  const handleArchiveProject = () => {};
-  const handleDeleteProject = () => {};
+  const handleEditAdmin = () => {};
+  const handleArchiveAdmin = () => {};
+
+  const handleDeleteAdmin = () => {
+    const adminId = currentPageData[currentOptions].id;
+    console.log(adminId);
+    axios
+      .delete(
+        `https://tranquil-hamlet-54124.herokuapp.com/user_profile/${adminId}`
+      )
+      .then((res) => {
+        console.log(res);
+        setOptionsMenu(false);
+        getAdminDetails();
+      })
+      .catch((e) => console.log(e));
+  };
 
   return (
     <div>
@@ -89,27 +125,35 @@ const AdminUsers = () => {
       <OptionsMenu
         optionsMenu={optionsMenu}
         currentOptions={currentOptions}
-        handleEditProject={handleEditProject}
-        handleArchiveProject={handleArchiveProject}
-        handleDeleteProject={handleDeleteProject}
+        handleEditProject={handleEditAdmin}
+        handleArchiveProject={handleArchiveAdmin}
+        handleDeleteProject={handleDeleteAdmin}
       />
       <TableComponent
         setAllChecked={setAllChecked}
         currentPageData={currentPageData}
+        setCurrentPageData={setCurrentPageData}
         allChecked={allChecked}
         handleOptionsMenu={handleOptionsMenu}
         handlePaginationLeft={handlePaginationLeft}
         handlePaginationRight={handlePaginationRight}
         currentPage={currentPage}
-        tempAdminsData={tempAdminsData}
+        tempAdminsData={adminsData}
+        // tempAdminsData={tempAdminsData}
         ITEMS_IN_ONE_PAGE={ITEMS_IN_ONE_PAGE}
         LAST_PAGE={LAST_PAGE}
         detailsModal={handleDetailClick}
+        loading={loadingAdminData}
       />
-      <AddModal openModal={addAdminModal} setOpenModal={setAddAdminModal} />
+      <AddModal
+        openModal={addAdminModal}
+        setOpenModal={setAddAdminModal}
+        getAdminDetails={getAdminDetails}
+      />
       <DetailsModal
         openDetails={adminDetailsModal}
         setOpenDetails={setAdminDetailsModal}
+        adminDataID={currentPageData[currentOptions]?.id}
       />
     </div>
   );
