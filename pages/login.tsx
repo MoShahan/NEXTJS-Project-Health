@@ -43,8 +43,8 @@ const Login = () => {
 
     axios
       .post("https://tranquil-hamlet-54124.herokuapp.com/users/sign_in", {
-        user: { email: "shahan@cc.com", password: "Shahan#27" },
-        // user: { email: username, password: password },
+        // user: { email: "shahan@cc.com", password: "Shahan#27" },
+        user: { email: username, password: password },
       })
       .then((res) => {
         setWrongCredentials(false);
@@ -65,7 +65,7 @@ const Login = () => {
   };
 
   const handleLogin = () => {
-    signIn();
+    // signIn();
 
     if (MAIL_FORMAT.test(username) && PASSWORD_FORMAT.test(password)) {
       signIn();
